@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 1080" width="1920" height="1080">
+    <defs>
+        <!-- Complex gradients for depth -->
+        <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0B1120" stop-opacity="1"/>
+            <stop offset="40%" stop-color="#111827" stop-opacity="0.95"/>
+            <stop offset="70%" stop-color="#1a1f2e" stop-opacity="0.9"/>
+            <stop offset="100%" stop-color="#0B1120" stop-opacity="1"/>
+        </linearGradient>
+
+        <radialGradient id="heroSpotlight1">
+            <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.15"/>
+            <stop offset="50%" stop-color="#22D3EE" stop-opacity="0.05"/>
+            <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+        </radialGradient>
+
+        <radialGradient id="heroSpotlight2">
+            <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.1"/>
+            <stop offset="60%" stop-color="#D4AF37" stop-opacity="0.03"/>
+            <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+        </radialGradient>
+
+        <!-- Star field pattern -->
+        <pattern id="starPattern" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse">
+            <circle cx="30" cy="40" r="0.8" fill="#D4AF37" opacity="0.3"/>
+            <circle cx="150" cy="80" r="1.2" fill="#22D3EE" opacity="0.25"/>
+            <circle cx="90" cy="160" r="0.6" fill="#D4AF37" opacity="0.35"/>
+            <circle cx="180" cy="120" r="0.9" fill="#22D3EE" opacity="0.2"/>
+            <circle cx="45" cy="130" r="0.7" fill="#D4AF37" opacity="0.3"/>
+            <circle cx="120" cy="30" r="1" fill="#22D3EE" opacity="0.25"/>
+            <circle cx="70" cy="80" r="0.5" fill="#D4AF37" opacity="0.4"/>
+        </pattern>
+
+        <!-- DNA helix overlay for hero -->
+        <pattern id="heroDNA" x="0" y="0" width="300" height="300" patternUnits="userSpaceOnUse">
+            <path d="M50 50 Q100 75, 150 50 T250 50" stroke="#D4AF37" stroke-width="1.5" opacity="0.08" fill="none"/>
+            <path d="M50 150 Q100 175, 150 150 T250 150" stroke="#22D3EE" stroke-width="1.5" opacity="0.08" fill="none"/>
+            <path d="M50 250 Q100 275, 150 250 T250 250" stroke="#D4AF37" stroke-width="1.5" opacity="0.08" fill="none"/>
+            <circle cx="75" cy="75" r="3" fill="#D4AF37" opacity="0.1"/>
+            <circle cx="175" cy="75" r="3" fill="#22D3EE" opacity="0.1"/>
+            <circle cx="125" cy="150" r="3" fill="#D4AF37" opacity="0.1"/>
+        </pattern>
+    </defs>
+
+    <!-- Base gradient -->
+    <rect width="1920" height="1080" fill="url(#heroGradient)"/>
+
+    <!-- Star field -->
+    <rect width="1920" height="1080" fill="url(#starPattern)"/>
+
+    <!-- DNA overlay -->
+    <rect width="1920" height="1080" fill="url(#heroDNA)"/>
+
+    <!-- Spotlights -->
+    <circle cx="500" cy="400" r="300" fill="url(#heroSpotlight1)"/>
+    <circle cx="1400" cy="600" r="400" fill="url(#heroSpotlight2)"/>
+
+    <!-- Horizon glow -->
+    <rect x="0" y="800" width="1920" height="280">
+        <linearGradient id="horizonGlow" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" stop-color="#D4AF37" stop-opacity="0.08"/>
+            <stop offset="50%" stop-color="#22D3EE" stop-opacity="0.04"/>
+            <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+        </linearGradient>
+        <fill fill="url(#horizonGlow)"/>
+    </rect>
+
+    <!-- Floating particles (for animation) -->
+    <g opacity="0.15">
+        <circle cx="200" cy="300" r="2" fill="#D4AF37">
+            <animate attributeName="cy" values="300;280;300" dur="8s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="1700" cy="500"This is a placeholder for dark-pattern.png.
+
+To create the actual PNG:
+1. Use medical-pattern.svg as source
+2. Export at 1920x1080 resolution
+3. Apply additional noise/grain texture
+4. Save as PNG-24 with transparency
+
+The pattern should feature:
+- Deep navy base (#0B1120)
+- Subtle gold (#D4AF37) geometric patterns
+- Cyan (#22D3EE) accent lines
+- 15% opacity overlays
+- Grain texture for depthThis is a placeholder for grid-pattern.png.
+
+To create the actual PNG:
+1. Use tech-grid.svg as source
+2. Export at 1920x1080 resolution
+3. Add subtle scan line effect
+4. Save as PNG-24 with transparency
+
+The pattern should feature:
+- Fine grid lines in gold (0.5px)
+- Cyan dots at intersections
+- Circuit board traces
+- Binary code overlay at 5% opacity r="3" fill="#22D3EE">
+            <animate attributeName="cy" values="500;470;500" dur="10s" repeatCount="indefinite"/>
+        </circle>
+        <circle cx="1000" cy="700" r="2.5" fill="#D4AF37">
+            <animate attributeName="cy" values="700;670;700" dur="12s" repeatCount="indefinite"/>
+        </circle>
+    </g>
+</svg>

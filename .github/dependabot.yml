@@ -1,0 +1,47 @@
+# ========================================
+# Dependabot Configuration
+# Keeps dependencies secure and up-to-date
+# ========================================
+
+version: 2
+updates:
+  # GitHub Actions
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Africa/Blantyre"
+    labels:
+      - "dependencies"
+      - "github-actions"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    open-pull-requests-limit: 5
+
+  # npm packages (if any)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "09:00"
+      timezone: "Africa/Blantyre"
+    labels:
+      - "dependencies"
+      - "javascript"
+    commit-message:
+      prefix: "build"
+      include: "scope"
+    open-pull-requests-limit: 5
+    ignore:
+      - dependency-name: "three"
+        versions: ["0.x"]
+    groups:
+      development-dependencies:
+        dependency-type: "development"
+        update-types:
+          - "minor"
+          - "patch"

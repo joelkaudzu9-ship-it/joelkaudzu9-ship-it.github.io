@@ -1,10 +1,140 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!-- ========================================
+     COMPONENT: Main Site Footer
+     Include this at the bottom of every page
+======================================== -->
 
-</body>
-</html>
+<footer class="main-footer">
+    <!-- Footer Widgets Area -->
+    <div class="footer-widgets">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- About Widget -->
+                <div class="footer-widget">
+                    <h3 class="widget-title">Joel Kaudzu</h3>
+                    <p class="widget-text">Premed Dental Surgery student, innovation coordinator, and builder at the intersection of healthcare and technology. Building what I wish existed.</p>
+                    <div class="widget-signature">
+                        <span class="signature">JK</span>
+                        <span class="motto">3:33am Builder</span>
+                    </div>
+                </div>
+
+                <!-- Quick Links Widget -->
+                <div class="footer-widget">
+                    <h3 class="widget-title">Quick Links</h3>
+                    <ul class="widget-links">
+                        <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                        <li><a href="pages/about.html"><i class="fas fa-chevron-right"></i> About Me</a></li>
+                        <li><a href="pages/projects.html"><i class="fas fa-chevron-right"></i> Projects</a></li>
+                        <li><a href="pages/research.html"><i class="fas fa-chevron-right"></i> Research</a></li>
+                        <li><a href="blog/index.html"><i class="fas fa-chevron-right"></i> Blog</a></li>
+                        <li><a href="pages/contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Projects Widget -->
+                <div class="footer-widget">
+                    <h3 class="widget-title">Featured Projects</h3>
+                    <ul class="widget-links">
+                        <li><a href="pages/projects.html#checkmysmile"><i class="fas fa-chevron-right"></i> CheckMySmile</a></li>
+                        <li><a href="pages/projects.html#campus-connect"><i class="fas fa-chevron-right"></i> KUHES Campus Connect</a></li>
+                        <li><a href="pages/projects.html#bio-digester"><i class="fas fa-chevron-right"></i> Mini Bio-Digester</a></li>
+                        <li><a href="pages/projects.html#data-analyst"><i class="fas fa-chevron-right"></i> Data Transformation</a></li>
+                        <li><a href="pages/projects.html#healing-journal"><i class="fas fa-chevron-right"></i> Healing Journal</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Widget -->
+                <div class="footer-widget">
+                    <h3 class="widget-title">Get In Touch</h3>
+                    <ul class="widget-contact">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <a href="mailto:joel.kaudzu@kuhes.ac.mw">joel.kaudzu@kuhes.ac.mw</a>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Malawi · Central Africa Time (GMT+2)</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Available for collaborations</span>
+                        </li>
+                    </ul>
+
+                    <!-- Social Links -->
+                    <div class="footer-social">
+                        <a href="#" class="social-link" target="_blank"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-link" target="_blank"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link" target="_blank"><i class="fab fa-youtube"></i></a>
+                        <a href="#" class="social-link" target="_blank"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" target="_blank"><i class="fab fa-medium"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Bottom Bar -->
+    <div class="footer-bottom">
+        <div class="container">
+            <div class="bottom-content">
+                <div class="copyright">
+                    <p>&copy; 2026 Joel George Kaudzu. All rights reserved.</p>
+                    <p class="built-with">Built with <i class="fas fa-heart" style="color: #D4AF37;"></i> at 3:33am</p>
+                </div>
+
+                <div class="footer-badges">
+                    <span class="badge">Innovation</span>
+                    <span class="badge">Discipline</span>
+                    <span class="badge">Depth</span>
+                </div>
+
+                <div class="footer-extra-links">
+                    <a href="pages/privacy.html">Privacy</a>
+                    <span class="separator">·</span>
+                    <a href="pages/terms.html">Terms</a>
+                    <span class="separator">·</span>
+                    <a href="sitemap.xml">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button class="back-to-top" id="footerBackToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</footer>
+
+<!-- Initialize Footer Components -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Back to top button
+    const backToTop = document.getElementById('footerBackToTop');
+
+    if (backToTop) {
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 500) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', function(e) {
+            e.preventDefault();
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    }
+
+    // Add current year dynamically
+    const yearElements = document.querySelectorAll('.current-year');
+    const currentYear = new Date().getFullYear();
+    yearElements.forEach(el => {
+        el.textContent = currentYear;
+    });
+});
+</script>

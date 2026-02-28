@@ -1,0 +1,149 @@
+<!-- ========================================
+     COMPONENT: Call to Action Section
+     Reusable for multiple pages
+======================================== -->
+
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-content glass-card">
+            <!-- Dynamic content based on context -->
+            <div class="cta-icon">
+                <i class="fas fa-"></i> <!-- Icon set by data attribute -->
+            </div>
+
+            <h2 class="cta-title"></h2>
+            <p class="cta-description"></p>
+
+            <div class="cta-buttons">
+                <a href="#" class="btn btn-primary"></a>
+                <a href="#" class="btn btn-outline"></a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Usage: Include with data attributes -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const ctaSections = document.querySelectorAll('.cta-section');
+
+    ctaSections.forEach(section => {
+        // Get data attributes
+        const icon = section.getAttribute('data-icon') || 'fa-rocket';
+        const title = section.getAttribute('data-title') || 'Let\'s Build Something';
+        const description = section.getAttribute('data-description') || 'Ready to start a project? Let\'s talk.';
+        const primaryText = section.getAttribute('data-primary') || 'Get Started';
+        const primaryLink = section.getAttribute('data-primary-link') || 'pages/contact.html';
+        const secondaryText = section.getAttribute('data-secondary') || 'Learn More';
+        const secondaryLink = section.getAttribute('data-secondary-link') || 'pages/about.html';
+
+        // Update content
+        const iconEl = section.querySelector('.cta-icon i');
+        if (iconEl) {
+            iconEl.className = `fas ${icon}`;
+        }
+
+        const titleEl = section.querySelector('.cta-title');
+        if (titleEl) titleEl.textContent = title;
+
+        const descEl = section.querySelector('.cta-description');
+        if (descEl) descEl.textContent = description;
+
+        const primaryBtn = section.querySelector('.btn-primary');
+        if (primaryBtn) {
+            primaryBtn.href = primaryLink;
+            primaryBtn.innerHTML = `${primaryText} <i class="fas fa-arrow-right"></i>`;
+        }
+
+        const secondaryBtn = section.querySelector('.btn-outline');
+        if (secondaryBtn) {
+            secondaryBtn.href = secondaryLink;
+            secondaryBtn.innerHTML = `<i class="fas fa-info-circle"></i> ${secondaryText}`;
+        }
+    });
+});
+</script>
+
+<style>
+.cta-section {
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(212, 175, 55, 0.1) 0%, transparent 70%);
+    animation: rotate 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.cta-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #D4AF37, #22D3EE);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+}
+
+.cta-icon i {
+    font-size: 2.5rem;
+    color: #0B1120;
+}
+
+.cta-title {
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 1.5rem;
+    color: #D4AF37;
+}
+
+.cta-description {
+    font-size: 1.2rem;
+    color: #9CA3AF;
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+    .cta-content {
+        padding: 2rem;
+    }
+    .cta-buttons {
+        flex-direction: column;
+    }
+    .cta-buttons .btn {
+        width: 100%;
+    }
+}
+</style>

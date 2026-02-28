@@ -2,9 +2,263 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog · Joel Kaudzu</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">
+                    <span class="logo-text">JK</span>
+                    <span class="logo-dot"></span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="../pages/about.html">About</a></li>
+                    <li><a href="../pages/projects.html">Projects</a></li>
+                    <li><a href="../pages/research.html">Research</a></li>
+                    <li><a href="../pages/leadership.html">Leadership</a></li>
+                    <li><a href="../pages/philosophy.html">Philosophy</a></li>
+                    <li><a href="../pages/poetry.html">Poetry</a></li>
+                    <li><a href="index.html" class="active">Blog</a></li>
+                    <li><a href="../pages/contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+                <button class="menu-toggle"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
 
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title" data-aos="fade-up">The 3:33am Blog</h1>
+            <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">Thoughts on building, healing, and becoming</p>
+        </div>
+    </section>
+
+    <!-- Blog Categories -->
+    <section class="blog-categories section-padding">
+        <div class="container">
+            <div class="categories-filter" data-aos="fade-up">
+                <button class="category-btn active" data-category="all">All Posts</button>
+                <button class="category-btn" data-category="medtech">MedTech</button>
+                <button class="category-btn" data-category="philosophy">Philosophy</button>
+                <button class="category-btn" data-category="discipline">Discipline</button>
+                <button class="category-btn" data-category="research">Research</button>
+                <button class="category-btn" data-category="poetry">Poetry</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Post -->
+    <section class="featured-post section-padding bg-darker">
+        <div class="container">
+            <div class="featured-card glass-card" data-aos="fade-up">
+                <div class="featured-label">Featured Post</div>
+                <div class="featured-grid">
+                    <div class="featured-media">
+                        <img src="../assets/images/blog/featured-3-33am.jpg" alt="3:33am workspace" class="featured-image">
+                    </div>
+                    <div class="featured-content">
+                        <div class="post-meta">
+                            <span class="post-date">March 15, 2026</span>
+                            <span class="post-category">Discipline</span>
+                            <span class="post-read-time">6 min read</span>
+                        </div>
+                        <h2>The 3:33am Manifesto: Why I Build While the World Sleeps</h2>
+                        <p class="post-excerpt">In the quiet hours, something shifts. The noise fades, the pressure lifts, and what's left is just you and the vision. Here's why I've chosen 3:33am as my sacred building time — and how it's changed everything...</p>
+                        <a href="posts/post-3-33am-manifesto.html" class="btn btn-primary">Read Full Post <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-grid section-padding">
+        <div class="container">
+            <div class="posts-grid" id="postsGrid">
+                <!-- Post 1: Dentistry + Tech -->
+                <div class="post-card glass-card" data-category="medtech" data-aos="fade-up">
+                    <div class="post-card-media">
+                        <img src="../assets/images/blog/dentistry-tech.jpg" alt="Dentistry and Technology">
+                        <div class="post-category-tag">MedTech</div>
+                    </div>
+                    <div class="post-card-content">
+                        <div class="post-meta">
+                            <span class="post-date">Feb 28, 2026</span>
+                            <span class="post-read-time">4 min read</span>
+                        </div>
+                        <h3>Why Dentistry Needs Data Science</h3>
+                        <p class="post-excerpt">The future of oral health isn't just in better drills — it's in better data. Here's how I'm bridging these worlds...</p>
+                        <a href="posts/post-dentistry-data-science.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 2: Healing Journal -->
+                <div class="post-card glass-card" data-category="philosophy" data-aos="fade-up" data-aos-delay="100">
+                    <div class="post-card-media">
+                        <img src="../assets/images/blog/healing-journal.jpg" alt="Healing Journal">
+                        <div class="post-category-tag">Philosophy</div>
+                    </div>
+                    <div class="post-card-content">
+                        <div class="post-meta">
+                            <span class="post-date">Feb 15, 2026</span>
+                            <span class="post-read-time">5 min read</span>
+                        </div>
+                        <h3>What I Learned From 20 Pages of Handwriting</h3>
+                        <p class="post-excerpt">In a world of screens, I chose paper. Here's what the Healing Journal taught me about myself...</p>
+                        <a href="posts/post-healing-journal.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 3: Teaching Lessons -->
+                <div class="post-card glass-card" data-category="discipline" data-aos="fade-up" data-aos-delay="200">
+                    <div class="post-card-media">
+                        <img src="../assets/images/blog/teaching-math.jpg" alt="Teaching Mathematics">
+                        <div class="post-category-tag">Discipline</div>
+                    </div>
+                    <div class="post-card-content">
+                        <div class="post-meta">
+                            <span class="post-date">Jan 30, 2026</span>
+                            <span class="post-read-time">7 min read</span>
+                        </div>
+                        <h3>1.5 Years in a Classroom: What Teaching Taught Me About Leadership</h3>
+                        <p class="post-excerpt">Standing in front of 50 students every day changes you. Here are the leadership lessons I'll carry forever...</p>
+                        <a href="posts/post-teaching-leadership.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 4: Bio-Digester Story -->
+                <div class="post-card glass-card" data-category="research" data-aos="fade-up" data-aos-delay="300">
+                    <div class="post-card-media">
+                        <img src="../assets/images/blog/bio-digester-story.jpg" alt="Mini Bio-Digester">
+                        <div class="post-category-tag">Research</div>
+                    </div>
+                    <div class="post-card-content">
+                        <div class="post-meta">
+                            <span class="post-date">Jan 12, 2026</span>
+                            <span class="post-read-time">6 min read</span>
+                        </div>
+                        <h3>How a Plastic Drum Changed My Life</h3>
+                        <p class="post-excerpt">The story of the Mini Bio-Digester — and how a Form 2 project sparked a lifelong obsession with building...</p>
+                        <a href="posts/post-bio-digester-story.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 5: African Innovation -->
+                <div class="post-card glass-card" data-category="medtech" data-aos="fade-up" data-aos-delay="400">
+                    <div class="post-card-media">
+                        <img src="../assets/images/blog/african-innovation.jpg" alt="African Innovation">
+                        <div class="post-category-tag">MedTech</div>
+                    </div>
+                    <div class="post-card-content">
+                        <div class="post-meta">
+                            <span class="post-date">Dec 20, 2025</span>
+                            <span class="post-read-time">8 min read</span>
+                        </div>
+                        <h3>Why African Healthcare Needs African Innovators</h3>
+                        <p class="post-excerpt">We can't import solutions for problems we haven't exported. Here's why local innovation matters...</p>
+                        <a href="posts/post-african-innovation.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 6: Poetry in Medicine -->
+                <div class="post-card glass-card" data-category="poetry" data-aos="fade-up" data-aos-delay="500">
+                    <div class="post-card-media">
+                        <img src="../assets/images/blog/poetry-medicine.jpg" alt="Poetry and Medicine">
+                        <div class="post-category-tag">Poetry</div>
+                    </div>
+                    <div class="post-card-content">
+                        <div class="post-meta">
+                            <span class="post-date">Dec 5, 2025</span>
+                            <span class="post-read-time">4 min read</span>
+                        </div>
+                        <h3>Why I Write Poetry (And Why You Should Too)</h3>
+                        <p class="post-excerpt">In a world of metrics and milestones, poetry keeps me human. Here's why every builder needs a creative outlet...</p>
+                        <a href="posts/post-poetry-medicine.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more" data-aos="fade-up">
+                <button class="btn btn-outline" id="loadMorePosts">Load More Posts <i class="fas fa-spinner"></i></button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Signup -->
+    <section class="newsletter-section section-padding bg-darker">
+        <div class="container">
+            <div class="newsletter-card glass-card" data-aos="zoom-in">
+                <h2>Never Miss a Post</h2>
+                <p>Join the 3:33am community — get updates when I write something worth reading.</p>
+                <form class="newsletter-form">
+                    <div class="form-group inline">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </div>
+                    <p class="form-disclaimer">No spam. Unsubscribe anytime.</p>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">JK</span>
+                    <span class="logo-tagline">Innovation. Discipline. Depth.</span>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="../pages/about.html">About</a>
+                    <a href="../pages/projects.html">Projects</a>
+                    <a href="../pages/research.html">Research</a>
+                    <a href="../pages/leadership.html">Leadership</a>
+                    <a href="../pages/philosophy.html">Philosophy</a>
+                    <a href="../pages/poetry.html">Poetry</a>
+                    <a href="index.html">Blog</a>
+                    <a href="../pages/contact.html">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-github"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Joel George Kaudzu. Built at 3:33am.</p>
+                <p class="footer-quote">"Build what you wish existed."</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top -->
+    <button id="backToTop" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/blog-filter.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: false, mirror: true });
+    </script>
 </body>
 </html>

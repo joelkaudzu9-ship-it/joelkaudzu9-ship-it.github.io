@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24">
+    <defs>
+        <linearGradient id="youtubeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#22D3EE;stop-opacity:1" />
+            <stop offset="100%" style="stop-color:#D4AF37;stop-opacity:1" />
+        </linearGradient>
+    </defs>
+    <path d="M22 8.5C22 7.12 21 6 19.5 6H4.5C3 6 2 7.12 2 8.5V15.5C2 16.88 3 18 4.5 18H19.5C21 18 22 16.88 22 15.5V8.5Z" fill="url(#youtubeGradient)" opacity="0.9"/>
+    <polygon points="10,9 16,12 10,15 10,9" fill="white"/>
+</svg>

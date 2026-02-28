@@ -1,10 +1,116 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!-- ========================================
+     COMPONENT: Simplified Navigation
+     For pages that need a lighter header
+======================================== -->
 
-</body>
-</html>
+<nav class="nav-simplified">
+    <div class="container">
+        <div class="nav-simplified-container">
+            <!-- Logo -->
+            <a href="index.html" class="nav-simplified-logo">
+                <span class="logo-mark">JK</span>
+                <span class="logo-separator">/</span>
+                <span class="logo-page" id="currentPageName">Page Name</span>
+            </a>
+
+            <!-- Breadcrumb (optional) -->
+            <div class="nav-breadcrumb" id="breadcrumb">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span class="current">Current Page</span>
+            </div>
+
+            <!-- Actions -->
+            <div class="nav-simplified-actions">
+                <button class="action-icon search-toggle" id="simplifiedSearchToggle">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button class="action-icon theme-toggle" id="simplifiedThemeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-icon" id="simplifiedMenuToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Menu (hidden by default) -->
+    <div class="nav-simplified-menu" id="simplifiedMenu">
+        <div class="container">
+            <ul class="simplified-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="pages/about.html">About</a></li>
+                <li><a href="pages/projects.html">Projects</a></li>
+                <li><a href="pages/research.html">Research</a></li>
+                <li><a href="pages/leadership.html">Leadership</a></li>
+                <li><a href="pages/philosophy.html">Philosophy</a></li>
+                <li><a href="pages/poetry.html">Poetry</a></li>
+                <li><a href="blog/index.html">Blog</a></li>
+                <li><a href="pages/contact.html">Contact</a></li>
+            </ul>
+
+            <div class="simplified-social">
+                <a href="#" class="social-circle"><i class="fab fa-linkedin"></i></a>
+                <a href="#" class="social-circle"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-circle"><i class="fab fa-youtube"></i></a>
+                <a href="#" class="social-circle"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Search Overlay (same as header) -->
+    <div class="search-overlay" id="simplifiedSearchOverlay">
+        <div class="search-container">
+            <form class="search-form">
+                <input type="text" placeholder="Search...">
+                <button type="submit"><i class="fas fa-search"></i></button>
+            </form>
+            <button class="search-close" id="simplifiedSearchClose"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+</nav>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Set current page name in breadcrumb
+    const pageNameEl = document.getElementById('currentPageName');
+    const breadcrumbCurrent = document.querySelector('.nav-breadcrumb .current');
+
+    if (pageNameEl || breadcrumbCurrent) {
+        // Get page title from document
+        const pageTitle = document.title.split('·')[0].trim();
+        if (pageNameEl) pageNameEl.textContent = pageTitle;
+        if (breadcrumbCurrent) breadcrumbCurrent.textContent = pageTitle;
+    }
+
+    // Simplified menu toggle
+    const menuToggle = document.getElementById('simplifiedMenuToggle');
+    const menu = document.getElementById('simplifiedMenu');
+
+    if (menuToggle && menu) {
+        menuToggle.addEventListener('click', function() {
+            menu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+    }
+
+    // Search toggle
+    const searchToggle = document.getElementById('simplifiedSearchToggle');
+    const searchOverlay = document.getElementById('simplifiedSearchOverlay');
+    const searchClose = document.getElementById('simplifiedSearchClose');
+
+    if (searchToggle && searchOverlay) {
+        searchToggle.addEventListener('click', function() {
+            searchOverlay.classList.add('active');
+            searchOverlay.querySelector('input').focus();
+        });
+
+        if (searchClose) {
+            searchClose.addEventListener('click', function() {
+                searchOverlay.classList.remove('active');
+            });
+        }
+    }
+});
+</script>

@@ -1,0 +1,279 @@
+{
+  "categories": [
+    {
+      "name": "Programming",
+      "icon": "fa-code",
+      "color": "#D4AF37",
+      "skills": [
+        {
+          "name": "Python",
+          "percentage": 85,
+          "level": "Advanced",
+          "description": "Data analysis, Flask web apps, scripting, automation",
+          "keywords": ["pandas", "numpy", "flask", "fastapi", "scripts"],
+          "projects": ["CheckMySmile", "Data Analysis", "Campus Connect"]
+        },
+        {
+          "name": "HTML5 / CSS3",
+          "percentage": 80,
+          "level": "Advanced",
+          "description": "Responsive design, animations, flexbox/grid, semantic markup",
+          "keywords": ["responsive", "animations", "flexbox", "grid", "sass"],
+          "projects": ["This Portfolio", "CheckMySmile"]
+        },
+        {
+          "name": "Flask",
+          "percentage": 60,
+          "level": "Intermediate",
+          "description": "Web applications, REST APIs, Jinja templating, SQLAlchemy",
+          "keywords": ["routes", "templates", "forms", "sqlalchemy", "jinja"],
+          "projects": ["CheckMySmile"]
+        },
+        {
+          "name": "JavaScript",
+          "percentage": 45,
+          "level": "Intermediate",
+          "description": "DOM manipulation, ES6, event handling, basic frameworks",
+          "keywords": ["dom", "events", "fetch", "async", "es6"],
+          "projects": ["Portfolio Interactivity"]
+        },
+        {
+          "name": "Django",
+          "percentage": 40,
+          "level": "Beginner",
+          "description": "MVC pattern, ORM, admin interface, authentication",
+          "keywords": ["models", "views", "templates", "orm", "admin"],
+          "projects": ["Campus Connect"]
+        }
+      ]
+    },
+    {
+      "name": "Data & Analytics",
+      "icon": "fa-chart-bar",
+      "color": "#22D3EE",
+      "skills": [
+        {
+          "name": "Data Cleaning",
+          "percentage": 75,
+          "level": "Intermediate",
+          "description": "Handling missing data, outliers, transformations, normalization",
+          "keywords": ["pandas", "numpy", "preprocessing", "outliers"],
+          "projects": ["Malaria Analysis", "Health Data Projects"]
+        },
+        {
+          "name": "Excel / Spreadsheets",
+          "percentage": 80,
+          "level": "Advanced",
+          "description": "Formulas, pivot tables, charts, VBA basics, data modeling",
+          "keywords": ["pivot", "vlookup", "macros", "analysis", "charts"],
+          "projects": ["Teaching Materials", "Data Organization"]
+        },
+        {
+          "name": "Data Visualization",
+          "percentage": 65,
+          "level": "Intermediate",
+          "description": "Matplotlib, Seaborn, storytelling with data, dashboard creation",
+          "keywords": ["charts", "graphs", "dashboards", "insights", "plotly"],
+          "projects": ["Health Dashboards", "Research Visuals"]
+        },
+        {
+          "name": "Statistics",
+          "percentage": 60,
+          "level": "Intermediate",
+          "description": "Descriptive statistics, probability, hypothesis testing, regression",
+          "keywords": ["mean", "median", "distribution", "p-value", "correlation"],
+          "projects": ["Research Analysis", "Health Studies"]
+        },
+        {
+          "name": "SQL",
+          "percentage": 50,
+          "level": "Intermediate",
+          "description": "Queries, joins, aggregations, database design",
+          "keywords": ["select", "joins", "group by", "subqueries"],
+          "projects": ["Campus Connect", "Data Projects"]
+        }
+      ]
+    },
+    {
+      "name": "Tools & Platforms",
+      "icon": "fa-tools",
+      "color": "#D4AF37",
+      "skills": [
+        {
+          "name": "VS Code",
+          "percentage": 90,
+          "level": "Expert",
+          "description": "Extensions, debugging, integrated terminal, workspace management",
+          "keywords": ["editor", "debug", "extensions", "shortcuts", "settings"],
+          "projects": ["All Development"]
+        },
+        {
+          "name": "Git / GitHub",
+          "percentage": 70,
+          "level": "Intermediate",
+          "description": "Version control, branching, collaboration, pull requests",
+          "keywords": ["commit", "push", "pull", "merge", "branch"],
+          "projects": ["All Code Projects"]
+        },
+        {
+          "name": "MIT App Inventor",
+          "percentage": 75,
+          "level": "Intermediate",
+          "description": "Visual programming, mobile app prototyping, component design",
+          "keywords": ["blocks", "designer", "components", "testing"],
+          "projects": ["Early Prototypes"]
+        },
+        {
+          "name": "Jupyter Notebooks",
+          "percentage": 65,
+          "level": "Intermediate",
+          "description": "Interactive development, markdown, sharing, data exploration",
+          "keywords": ["cells", "markdown", "ipynb", "kernel", "visualization"],
+          "projects": ["Data Analysis", "Learning Projects"]
+        },
+        {
+          "name": "Postman",
+          "percentage": 55,
+          "level": "Intermediate",
+          "description": "API testing, collections, environment variables",
+          "keywords": ["api", "testing", "requests", "collections"],
+          "projects": ["Campus Connect API"]
+        }
+      ]
+    },
+    {
+      "name": "Medical Knowledge",
+      "icon": "fa-heartbeat",
+      "color": "#22D3EE",
+      "skills": [
+        {
+          "name": "University Biology",
+          "percentage": 85,
+          "level": "Advanced",
+          "description": "Cell biology, genetics, human physiology, molecular biology",
+          "keywords": ["cells", "tissues", "organs", "systems", "homeostasis"],
+          "courses": ["BIO 101", "Human Anatomy", "Physiology"]
+        },
+        {
+          "name": "Nervous System",
+          "percentage": 90,
+          "level": "Advanced",
+          "description": "Neuroanatomy, neural pathways, disorders, synaptic transmission",
+          "keywords": ["neurons", "brain", "synapse", "neurotransmitters", "CNS"],
+          "courses": ["Neurobiology", "Advanced Physiology"]
+        },
+        {
+          "name": "Chromosomal Aberrations",
+          "percentage": 80,
+          "level": "Advanced",
+          "description": "Genetic disorders, karyotyping, mutations, inheritance patterns",
+          "keywords": ["down syndrome", "turner", "klinefelter", "deletion", "duplication"],
+          "courses": ["Genetics", "Molecular Biology"]
+        },
+        {
+          "name": "Dental Anatomy",
+          "percentage": 75,
+          "level": "Intermediate",
+          "description": "Tooth structure, oral cavity, dental development, occlusion",
+          "keywords": ["enamel", "dentin", "pulp", "periodontium", "crown"],
+          "courses": ["Dental Anatomy", "Oral Biology"]
+        },
+        {
+          "name": "Immunology",
+          "percentage": 60,
+          "level": "Intermediate",
+          "description": "Immune system, antibodies, inflammation, vaccines",
+          "keywords": ["antibodies", "t-cells", "b-cells", "cytokines"],
+          "courses": ["Immunology", "Pathophysiology"]
+        }
+      ]
+    },
+    {
+      "name": "Soft Skills",
+      "icon": "fa-users",
+      "color": "#D4AF37",
+      "skills": [
+        {
+          "name": "Public Speaking",
+          "percentage": 95,
+          "level": "Expert",
+          "description": "Presentations, teaching, conference talks, audience engagement",
+          "keywords": ["clarity", "engagement", "storytelling", "confidence"],
+          "experience": ["Teaching", "Innovation Presentations", "Workshops"]
+        },
+        {
+          "name": "Mentorship",
+          "percentage": 90,
+          "level": "Expert",
+          "description": "One-on-one guidance, career advice, skill development, accountability",
+          "keywords": ["listening", "guidance", "support", "growth"],
+          "experience": ["Peer Mentoring", "Student Guidance", "Academic Support"]
+        },
+        {
+          "name": "Leadership",
+          "percentage": 85,
+          "level": "Advanced",
+          "description": "Team coordination, project management, initiative, vision setting",
+          "keywords": ["vision", "delegation", "motivation", "accountability"],
+          "roles": ["Innovations Coordinator", "Team Lead"]
+        },
+        {
+          "name": "Self-Learning",
+          "percentage": 95,
+          "level": "Expert",
+          "description": "Structured learning, online resources, consistent practice, goal setting",
+          "keywords": ["discipline", "curiosity", "research", "application"],
+          "examples": ["Data Science Transformation", "Python Learning"]
+        },
+        {
+          "name": "Communication",
+          "percentage": 90,
+          "level": "Expert",
+          "description": "Clear writing, active listening, explaining complex concepts",
+          "keywords": ["writing", "listening", "explaining", "feedback"],
+          "experience": ["Teaching", "Mentoring", "Presentations"]
+        },
+        {
+          "name": "Problem Solving",
+          "percentage": 88,
+          "level": "Advanced",
+          "description": "Analytical thinking, creative solutions, systematic approach",
+          "keywords": ["analysis", "creativity", "systematic", "critical thinking"],
+          "projects": ["All Projects"]
+        }
+      ]
+    }
+  ],
+  "languages": [
+    {
+      "name": "English",
+      "level": "Fluent",
+      "percentage": 95,
+      "certification": "Cambridge Certificate",
+      "usage": "Academic, Professional, Writing"
+    },
+    {
+      "name": "Chichewa",
+      "level": "Native",
+      "percentage": 100,
+      "usage": "Daily communication, Teaching, Community"
+    }
+  ],
+  "learning": [
+    {
+      "name": "Machine Learning",
+      "progress": 25,
+      "resources": ["Coursera ML Course", "Hands-On ML Book"]
+    },
+    {
+      "name": "React",
+      "progress": 15,
+      "resources": ["Official Tutorial", "Scrimba"]
+    },
+    {
+      "name": "Advanced Statistics",
+      "progress": 30,
+      "resources": ["Khan Academy", "StatQuest"]
+    }
+  ]
+}

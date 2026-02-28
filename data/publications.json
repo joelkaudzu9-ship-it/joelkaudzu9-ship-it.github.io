@@ -1,0 +1,328 @@
+{
+  "publications": [
+    {
+      "id": "checkmysmile-showcase-2024",
+      "title": "CheckMySmile: A Digital Approach to Student Dental Health in Malawi",
+      "authors": ["Kaudzu, J.G."],
+      "year": 2024,
+      "type": "conference-presentation",
+      "venue": "KUHES Annual Innovation Showcase",
+      "location": "Lilongwe, Malawi",
+      "date": "November 15, 2024",
+      "status": "presented",
+      "abstract": "CheckMySmile is a web-based platform designed to address the gap in dental health awareness among secondary and tertiary students in Malawi. The platform combines daily smile tracking, educational content, and clinic referrals to create a comprehensive oral health engagement system. This presentation discusses the development process, initial user feedback from 50 beta users, and partnerships established with two dental clinics. Early results show a 30% increase in dental visit bookings among active users, suggesting that digital interventions can play a significant role in preventive oral healthcare in low-resource settings.",
+      "keywords": ["dental health", "digital health", "Malawi", "student health", "preventive care"],
+      "presentation": {
+        "slides": "/assets/documents/checkmysmile-showcase-2024.pdf",
+        "video": "https://youtube.com/watch?v=checkmysmile-presentation",
+        "duration": "20 minutes"
+      },
+      "awards": ["Innovation Award Nominee"],
+      "coauthors": []
+    },
+    {
+      "id": "teaching-mathematics-2023",
+      "title": "Peer-Teaching Methodology in Secondary School Mathematics: A Case Study from Malawi",
+      "authors": ["Kaudzu, J.G."],
+      "year": 2023,
+      "type": "workshop",
+      "venue": "Bright Future Educational Conference",
+      "location": "Dedza, Malawi",
+      "date": "August 20, 2023",
+      "status": "presented",
+      "abstract": "This workshop presented findings from a 6-month implementation of peer-teaching methodology in Form 3 Mathematics classes at Bright Future Private Secondary School. Students were organized into small groups where advanced learners assisted peers with problem-solving. Results showed a 25% improvement in test scores among struggling students and increased confidence in mathematical reasoning across all groups. The workshop provided practical strategies for teachers to implement similar approaches in resource-constrained classrooms.",
+      "keywords": ["mathematics education", "peer teaching", "secondary education", "Malawi"],
+      "presentation": {
+        "slides": "/assets/documents/teaching-workshop-2023.pdf",
+        "duration": "90 minutes"
+      },
+      "participants": 45,
+      "coauthors": []
+    },
+    {
+      "id": "bio-digester-2021",
+      "title": "Small-Scale Biogas Production from Organic Waste: A Low-Cost Model for Rural Schools",
+      "authors": ["Kaudzu, J.G."],
+      "year": 2021,
+      "type": "science-fair",
+      "venue": "Dedza District Science Fair",
+      "location": "Dedza, Malawi",
+      "date": "September 10, 2021",
+      "status": "awarded",
+      "abstract": "This project demonstrated a working mini bio-digester constructed from locally available materials including PVC pipes and recycled drums. The system successfully converted kitchen and garden waste into methane gas sufficient for 2 hours of cooking per day. Designed specifically for rural school settings, the model costs approximately $50 to build and can be maintained by students. The project highlights the potential for sustainable energy education and waste management in underserved communities.",
+      "keywords": ["biogas", "sustainable energy", "waste management", "rural development", "STEM education"],
+      "awards": ["First Place - Engineering Category"],
+      "report": "/assets/documents/bio-digester-report.pdf",
+      "coauthors": []
+    },
+    {
+      "id": "african-health-tech-2025",
+      "title": "Bridging the Gap: Digital Health Solutions for African Healthcare Systems",
+      "authors": ["Kaudzu, J.G.", "Banda, M.T.", "Phiri, C."],
+      "year": 2025,
+      "type": "journal-article",
+      "venue": "African Journal of Health Innovation",
+      "volume": "3",
+      "issue": "1",
+      "pages": "45-58",
+      "status": "in-review",
+      "abstract": "African healthcare systems face unique challenges including resource constraints, infrastructure gaps, and limited specialist availability. Digital health solutions offer promising avenues for addressing these challenges, yet adoption remains low due to context mismatches between imported technologies and local needs. This paper argues for a 'glocal' approach—global standards adapted to local contexts—and presents case studies from Malawi, Kenya, and Rwanda where locally-developed digital tools have improved healthcare delivery. Key success factors include community involvement in design, offline functionality, integration with existing workflows, and sustainable funding models. We propose a framework for evaluating and implementing digital health interventions in African settings.",
+      "keywords": ["digital health", "Africa", "health systems", "mHealth", "implementation science"],
+      "journal": {
+        "name": "African Journal of Health Innovation",
+        "issn": "2789-1234",
+        "impact": "emerging"
+      },
+      "coauthors": [
+        {
+          "name": "Banda, M.T.",
+          "affiliation": "University of Malawi, Department of Public Health"
+        },
+        {
+          "name": "Phiri, C.",
+          "affiliation": "KUHES, Faculty of Medicine"
+        }
+      ]
+    },
+    {
+      "id": "dental-immunology-2025",
+      "title": "Oral Microbiome and Systemic Immunity: Implications for Preventive Dentistry in Africa",
+      "authors": ["Kaudzu, J.G."],
+      "year": 2025,
+      "type": "literature-review",
+      "venue": "Pre-Med Research Journal",
+      "status": "in-preparation",
+      "abstract": "This literature review synthesizes current research on the relationship between oral microbiome composition and systemic immune function, with specific attention to implications for African populations. Emerging evidence suggests that oral health significantly influences conditions such as cardiovascular disease, diabetes, and even autoimmune disorders. However, most research has been conducted in Western populations, leaving gaps in understanding how African genetic diversity, diets, and environmental factors affect these relationships. The review identifies priority areas for research in African contexts and proposes a framework for integrating oral health into broader public health strategies.",
+      "keywords": ["oral microbiome", "immunology", "preventive dentistry", "Africa", "public health"],
+      "estimatedCompletion": "Q3 2025",
+      "coauthors": []
+    },
+    {
+      "id": "campus-connect-2025",
+      "title": "Building Academic Communities: The Role of Verified Student Networks in African Universities",
+      "authors": ["Kaudzu, J.G."],
+      "year": 2025,
+      "type": "conference-proposal",
+      "venue": "African Higher Education Summit",
+      "location": "Kigali, Rwanda",
+      "date": "October 2025",
+      "status": "submitted",
+      "abstract": "KUHES Campus Connect is a platform designed to address fragmentation in student communication and collaboration at Malawian universities. By using institutional email verification, the platform creates a trusted environment where students can find project collaborators, share academic resources, and build interdisciplinary networks. This presentation will share early implementation insights, user adoption metrics, and lessons learned for similar initiatives across African higher education institutions.",
+      "keywords": ["higher education", "student networks", "collaboration", "African universities"],
+      "coauthors": []
+    },
+    {
+      "id": "data-analytics-health-2025",
+      "title": "Data Analytics for Healthcare Improvement: A Beginner's Guide for African Medical Students",
+      "authors": ["Kaudzu, J.G."],
+      "year": 2025,
+      "type": "educational-resource",
+      "venue": "KUHES Medical Education Series",
+      "status": "in-development",
+      "abstract": "This educational guide introduces medical students to fundamental data analytics concepts with applications in healthcare settings. Topics include data collection methods, cleaning techniques, visualization best practices, and basic statistical analysis. All examples use publicly available African health datasets, ensuring relevance to local contexts. The guide includes hands-on exercises using Python and Excel, designed for students with no prior programming experience. Upon completion, students will be able to critically evaluate health data and contribute to evidence-based practice.",
+      "keywords": ["medical education", "data analytics", "health informatics", "curriculum development"],
+      "format": "online resource",
+      "estimatedCompletion": "Q4 2025",
+      "coauthors": []
+    },
+    {
+      "id": "mentorship-framework-2024",
+      "title": "A Framework for Peer Mentorship in African STEM Education",
+      "authors": ["Kaudzu, J.G.", "Chimwala, P."],
+      "year": 2024,
+      "type": "white-paper",
+      "venue": "KUHES Innovation Hub",
+      "status": "published",
+      "abstract": "This white paper presents a structured framework for implementing peer mentorship programs in African STEM education contexts. Based on 18 months of experience mentoring 25+ students at KUHES, the framework addresses: mentor selection and training, mentee matching criteria, session structure, goal setting, accountability mechanisms, and evaluation metrics. The framework emphasizes cultural relevance, addressing challenges such as power dynamics, gender considerations, and resource limitations. Early outcomes from pilot implementation show improved academic performance, increased retention in STEM programs, and enhanced student confidence.",
+      "keywords": ["mentorship", "STEM education", "Africa", "peer learning", "student development"],
+      "downloadUrl": "/assets/documents/mentorship-framework-2024.pdf",
+      "coauthors": [
+        {
+          "name": "Chimwala, P.",
+          "affiliation": "KUHES, Student Affairs"
+        }
+      ]
+    },
+    {
+      "id": "avocado-oil-2022",
+      "title": "Comparative Analysis of Cold-Press and Solvent Extraction Methods for Avocado Oil in Malawi",
+      "authors": ["Kaudzu, J.G."],
+      "year": 2022,
+      "type": "research-report",
+      "venue": "Dedza Secondary School Research Series",
+      "status": "unpublished",
+      "abstract": "This experimental study compared the efficiency and quality of avocado oil extracted using cold-press versus solvent-based methods. Local avocados from Dedza district were processed using both techniques, with yield percentages, oil quality, and production costs analyzed. Cold-press extraction yielded 15% oil with higher quality suitable for cosmetic and culinary uses, while solvent extraction yielded 20% but required additional purification steps. The findings suggest that cold-press methods may be more suitable for small-scale, community-based enterprises due to lower equipment costs and simpler processing requirements.",
+      "keywords": ["avocado oil", "extraction methods", "agribusiness", "Malawi", "value addition"],
+      "coauthors": []
+    },
+    {
+      "id": "3-33am-philosophy-2026",
+      "title": "The 3:33am Philosophy: Discipline, Depth, and Compound Growth in Personal Development",
+      "authors": ["Kaudzu, J.G."],
+      "year": 2026,
+      "type": "blog-series",
+      "venue": "Personal Blog",
+      "status": "published",
+      "abstract": "This blog series explores the philosophy behind the '3:33am shift'—a personal practice of waking before dawn for focused work and reflection. Across five posts, I examine: (1) the science of early rising and its effects on productivity, (2) the psychological benefits of working in silence, (3) strategies for maintaining consistency, (4) the relationship between discipline and creativity, and (5) how small daily actions compound into significant outcomes over time. The series has resonated with students and young professionals across Malawi, sparking conversations about intentional living and purposeful work.",
+      "keywords": ["discipline", "productivity", "personal development", "habits", "philosophy"],
+      "url": "/blog/posts/post-3-33am-manifesto.html",
+      "coauthors": []
+    },
+    {
+      "id": "quantumresolve-privacy-2025",
+      "title": "Privacy Frameworks for Healthcare Data in Low-Resource Settings",
+      "authors": ["Kaudzu, J.G.", "Mwale, S.", "Banda, T."],
+      "year": 2025,
+      "type": "technical-report",
+      "venue": "QuantumResolve Technologies",
+      "status": "internal",
+      "abstract": "This technical report outlines privacy frameworks developed for healthcare data systems operating in low-resource settings with limited infrastructure. Key considerations include: offline data storage and synchronization, consent management in populations with varying literacy levels, data ownership models appropriate for community health contexts, and compliance pathways for international standards (GDPR, HIPAA) while maintaining local relevance. The framework has been implemented in three pilot health information systems in Malawi, with recommendations for scaling across the region.",
+      "keywords": ["data privacy", "healthcare", "low-resource settings", "compliance", "Africa"],
+      "confidential": true,
+      "coauthors": [
+        {
+          "name": "Mwale, S.",
+          "affiliation": "QuantumResolve Technologies"
+        },
+        {
+          "name": "Banda, T.",
+          "affiliation": "QuantumResolve Technologies"
+        }
+      ]
+    },
+    {
+      "id": "healing-journal-2026",
+      "title": "The Healing Journal: A Case Study in Structured Reflection for Personal Development",
+      "authors": ["Kaudzu, J.G."],
+      "year": 2026,
+      "type": "personal-essay",
+      "venue": "Unpublished",
+      "status": "draft",
+      "abstract": "This reflective essay documents the process and outcomes of maintaining a handwritten journal for personal transformation over two years. The journal, now exceeding 20 pages, serves multiple functions: tracking daily disciplines, processing emotional experiences, recording insights from reading, and articulating personal philosophy. The essay examines how structured reflection has contributed to emotional intelligence, decision-making clarity, and resilience during challenging periods. It offers practical suggestions for others interested in similar practices, emphasizing that the value lies not in the final product but in the consistent process.",
+      "keywords": ["journaling", "reflection", "personal development", "emotional intelligence", "discipline"],
+      "coauthors": []
+    }
+  ],
+  "categories": [
+    {
+      "id": "journal-article",
+      "name": "Journal Articles",
+      "count": 1
+    },
+    {
+      "id": "conference-presentation",
+      "name": "Conference Presentations",
+      "count": 2
+    },
+    {
+      "id": "workshop",
+      "name": "Workshops",
+      "count": 1
+    },
+    {
+      "id": "science-fair",
+      "name": "Science Fair Projects",
+      "count": 1
+    },
+    {
+      "id": "white-paper",
+      "name": "White Papers",
+      "count": 1
+    },
+    {
+      "id": "technical-report",
+      "name": "Technical Reports",
+      "count": 1
+    },
+    {
+      "id": "educational-resource",
+      "name": "Educational Resources",
+      "count": 1
+    },
+    {
+      "id": "blog-series",
+      "name": "Blog Series",
+      "count": 1
+    },
+    {
+      "id": "personal-essay",
+      "name": "Personal Essays",
+      "count": 1
+    }
+  ],
+  "statistics": {
+    "total": 12,
+    "published": 5,
+    "inReview": 1,
+    "inPreparation": 2,
+    "presented": 3,
+    "awarded": 1,
+    "coauthored": 3,
+    "firstAuthor": 12,
+    "peerReviewed": 1,
+    "venues": [
+      "KUHES Innovation Showcase",
+      "Bright Future Educational Conference",
+      "Dedza District Science Fair",
+      "African Journal of Health Innovation",
+      "KUHES Innovation Hub",
+      "QuantumResolve Technologies"
+    ],
+    "keywords": [
+      "dental health",
+      "digital health",
+      "Malawi",
+      "mathematics education",
+      "biogas",
+      "Africa",
+      "oral microbiome",
+      "immunology",
+      "higher education",
+      "data analytics",
+      "mentorship",
+      "avocado oil",
+      "discipline",
+      "data privacy",
+      "journaling"
+    ]
+  },
+  "timeline": [
+    {
+      "year": 2021,
+      "count": 1,
+      "publications": ["bio-digester-2021"]
+    },
+    {
+      "year": 2022,
+      "count": 1,
+      "publications": ["avocado-oil-2022"]
+    },
+    {
+      "year": 2023,
+      "count": 1,
+      "publications": ["teaching-mathematics-2023"]
+    },
+    {
+      "year": 2024,
+      "count": 2,
+      "publications": ["checkmysmile-showcase-2024", "mentorship-framework-2024"]
+    },
+    {
+      "year": 2025,
+      "count": 5,
+      "publications": ["african-health-tech-2025", "dental-immunology-2025", "campus-connect-2025", "data-analytics-health-2025", "quantumresolve-privacy-2025"]
+    },
+    {
+      "year": 2026,
+      "count": 2,
+      "publications": ["3-33am-philosophy-2026", "healing-journal-2026"]
+    }
+  ],
+  "featured": [
+    "african-health-tech-2025",
+    "checkmysmile-showcase-2024",
+    "mentorship-framework-2024",
+    "bio-digester-2021",
+    "3-33am-philosophy-2026"
+  ]
+}

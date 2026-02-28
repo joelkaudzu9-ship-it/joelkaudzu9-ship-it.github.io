@@ -1,0 +1,243 @@
+{
+  "projects": [
+    {
+      "id": "checkmysmile",
+      "name": "CheckMySmile",
+      "subtitle": "Founder & Builder",
+      "category": ["medtech", "software"],
+      "status": "completed",
+      "year": 2024,
+      "featured": true,
+      "description": "Dental awareness and smile-tracking platform encouraging proactive oral health among students.",
+      "fullDescription": "CheckMySmile makes oral health trackable and engaging. Users log daily smiles, receive reminders, access educational content, and can connect with dental professionals. The platform turns a chore into a habit.",
+      "problem": "Lack of dental awareness and preventive care among young people in Malawi. Most students only visit dentists when in pain.",
+      "solution": "A web-based platform that gamifies oral health, provides educational content, and connects users with dental clinics.",
+      "impact": "100+ active users, partnerships with 2 school dental clinics, 30% increase in dental visit bookings among users.",
+      "tools": ["Python", "Flask", "HTML/CSS", "SQLite", "JavaScript", "Bootstrap"],
+      "images": [
+        "checkmysmile-dashboard.jpg",
+        "checkmysmile-mobile.jpg",
+        "checkmysmile-analytics.jpg"
+      ],
+      "video": "checkmysmile-demo.mp4",
+      "links": {
+        "demo": "https://checkmysmile.demo.com",
+        "github": "https://github.com/joelkaudzu/checkmysmile",
+        "youtube": "https://youtube.com/watch?v=checkmysmile"
+      },
+      "metrics": {
+        "users": 100,
+        "clinics": 2,
+        "engagement": "30%",
+        "rating": 4.8
+      },
+      "testimonials": [
+        {
+          "name": "Dr. Mwale",
+          "role": "Dental Clinic Director",
+          "quote": "CheckMySmile has brought more young patients to our clinic. It's making a difference."
+        }
+      ]
+    },
+    {
+      "id": "campus-connect",
+      "name": "KUHES Campus Connect",
+      "subtitle": "Founder & Lead Developer",
+      "category": ["software"],
+      "status": "in-progress",
+      "year": 2025,
+      "featured": true,
+      "description": "Exclusive student networking platform using @kuhes.ac.mw emails to create a secure academic network.",
+      "fullDescription": "Campus Connect uses institutional emails to create a verified, exclusive network where students can find collaborators, share resources, and build projects together. Think LinkedIn, but for campus innovation.",
+      "problem": "Fragmented student communication and limited cross-disciplinary collaboration at KUHES. Medical students rarely interact with engineering students.",
+      "solution": "A platform with verified profiles, project matchmaking, resource sharing, and collaboration spaces.",
+      "impact": "Beta launch planned Q3 2025 with 100 pilot users. 60% development complete.",
+      "tools": ["Python", "Django", "PostgreSQL", "REST API", "Bootstrap", "JWT"],
+      "images": [
+        "campus-connect-mockup.jpg",
+        "campus-connect-profile.jpg",
+        "campus-connect-feed.jpg"
+      ],
+      "links": {
+        "preview": "#",
+        "github": "https://github.com/joelkaudzu/campus-connect"
+      },
+      "metrics": {
+        "progress": 60,
+        "pilotUsers": 100,
+        "features": 12
+      }
+    },
+    {
+      "id": "bio-digester",
+      "name": "Mini Bio-Digester",
+      "subtitle": "Solo Project (Form 2)",
+      "category": ["engineering"],
+      "status": "completed",
+      "year": 2021,
+      "featured": true,
+      "description": "Designed and built a working mini bio-digester model that converts organic waste to biogas.",
+      "fullDescription": "As a Form 2 student at Dedza Secondary School, I became fascinated by how waste could become energy. With minimal resources, I designed and built a working mini bio-digester that converted organic waste into biogas using PVC pipes, drums, and basic plumbing.",
+      "problem": "Waste management and clean energy access in rural communities. Organic waste is often discarded without value extraction.",
+      "solution": "Small-scale anaerobic digester that converts kitchen and garden waste into usable methane gas.",
+      "impact": "Won 1st place at Dedza District Science Fair, demonstrated at regional innovation showcase, inspired other students.",
+      "tools": ["PVC pipes", "Drums", "Basic plumbing", "Mechanical design", "Methane capture"],
+      "images": [
+        "bio-digester-1.jpg",
+        "bio-digester-2.jpg",
+        "bio-digester-diagram.jpg"
+      ],
+      "links": {
+        "report": "/assets/documents/bio-digester-report.pdf"
+      },
+      "metrics": {
+        "gasProduced": "2 hours/day",
+        "wasteProcessed": "5kg/week"
+      }
+    },
+    {
+      "id": "data-analyst-transformation",
+      "name": "Data Analyst 3-Month Transformation",
+      "subtitle": "Self-Structured Learning Path",
+      "category": ["software", "research"],
+      "status": "in-progress",
+      "year": 2025,
+      "featured": true,
+      "description": "Rigorous self-designed curriculum for Python, data cleaning, visualization, and analytics.",
+      "fullDescription": "I designed a rigorous 3-month curriculum to achieve job-ready data analysis skills, with a focus on healthcare applications. Month 1: Python mastery, pandas, NumPy, data cleaning. Month 2: Data visualization, statistics. Month 3: Real projects with healthcare datasets.",
+      "goal": "Achieve job-ready data analysis skills with healthcare focus, demonstrated through portfolio projects.",
+      "tools": ["Python", "Pandas", "NumPy", "Matplotlib", "Seaborn", "Jupyter", "Scikit-learn"],
+      "images": [
+        "data-analytics-1.jpg",
+        "data-analytics-2.jpg"
+      ],
+      "projects": [
+        {
+          "name": "Malaria Incidence Analysis",
+          "description": "Analyzed 10-year malaria data across Malawi districts, identified seasonal patterns and high-risk areas."
+        },
+        {
+          "name": "Dental Clinic Optimization",
+          "description": "Created patient flow dashboard for a dental clinic, reducing wait times by identifying bottlenecks."
+        },
+        {
+          "name": "Oral Health Correlation Study",
+          "description": "Analyzed relationship between nutrition and oral health outcomes using survey data."
+        }
+      ],
+      "metrics": {
+        "progress": 75,
+        "hoursCompleted": 180,
+        "projectsCompleted": 3
+      }
+    },
+    {
+      "id": "healing-journal",
+      "name": "Personal Healing Journal",
+      "subtitle": "20-Page Handwritten Transformation Work",
+      "category": ["philosophy", "research"],
+      "status": "ongoing",
+      "year": "2024-2026",
+      "featured": true,
+      "description": "Deep personal documentation of spiritual growth, discipline, and emotional intelligence development.",
+      "fullDescription": "A 20-page handwritten document (and growing) that captures my inner work—spiritual reflections, discipline tracking, emotional processing, and personal philosophy. It's the one project not meant for public view, but its impact shapes everything else I do.",
+      "practice": "Every week, I write by hand—no screens, no distractions. I reflect on what I've built, what I've learned, and who I'm becoming.",
+      "tools": ["Handwritten", "Reflective practice", "Mindfulness", "Journaling"],
+      "images": [
+        "healing-journal-1.jpg",
+        "healing-journal-2.jpg",
+        "healing-journal-3.jpg"
+      ],
+      "metrics": {
+        "pages": 24,
+        "yearsActive": 2,
+        "entries": 96
+      }
+    },
+    {
+      "id": "avocado-oil",
+      "name": "Avocado Oil Extraction",
+      "subtitle": "Agricultural Processing Experiment",
+      "category": ["engineering"],
+      "status": "completed",
+      "year": 2022,
+      "featured": false,
+      "description": "Experimental project exploring cold-press extraction methods for avocado oil.",
+      "fullDescription": "Experimental project exploring cold-press extraction methods for avocado oil. Investigated potential for small-scale agribusiness and value addition to local agricultural products.",
+      "tools": ["Mechanical press", "Quality testing", "Business modeling"],
+      "images": [
+        "avocado-oil-1.jpg",
+        "avocado-oil-2.jpg"
+      ],
+      "findings": "Cold-press method yielded 15% oil with higher quality; solvent extraction yielded 20% but required additional purification."
+    },
+    {
+      "id": "teaching-portfolio",
+      "name": "Mathematics & Physics Teaching",
+      "subtitle": "Bright Future Private Secondary School",
+      "category": ["leadership", "education"],
+      "status": "completed",
+      "year": "2023-2025",
+      "featured": false,
+      "description": "1.5 years of teaching Mathematics and Physics at secondary school level.",
+      "fullDescription": "For 1.5 years at Bright Future Private Secondary School, I taught Mathematics and Physics to Form 3 and 4 students. Developed simplified visual aids, introduced peer-teaching methodology, and provided free Saturday tutoring.",
+      "impact": "50+ students taught, 30% pass rate improvement, 4.8/5 student reviews.",
+      "images": [
+        "teaching-math-1.jpg",
+        "teaching-physics-1.jpg",
+        "teaching-group-1.jpg"
+      ],
+      "metrics": {
+        "students": 50,
+        "improvement": "30%",
+        "reviews": 4.8,
+        "hoursTaught": 720
+      },
+      "testimonials": [
+        {
+          "name": "Chimwemwe Banda",
+          "role": "Former Student",
+          "quote": "Mr. Kaudzu made me love math. He never gave up on anyone."
+        }
+      ]
+    }
+  ],
+  "categories": [
+    {
+      "id": "medtech",
+      "name": "Medical Technology",
+      "icon": "fa-heartbeat",
+      "count": 1
+    },
+    {
+      "id": "software",
+      "name": "Software Development",
+      "icon": "fa-code",
+      "count": 2
+    },
+    {
+      "id": "engineering",
+      "name": "Engineering",
+      "icon": "fa-cogs",
+      "count": 2
+    },
+    {
+      "id": "research",
+      "name": "Research",
+      "icon": "fa-microscope",
+      "count": 1
+    },
+    {
+      "id": "leadership",
+      "name": "Leadership",
+      "icon": "fa-users",
+      "count": 1
+    },
+    {
+      "id": "philosophy",
+      "name": "Philosophy",
+      "icon": "fa-book",
+      "count": 1
+    }
+  ]
+}

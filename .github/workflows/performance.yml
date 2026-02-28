@@ -1,0 +1,95 @@
+# ========================================
+# Performance Monitoring Workflow
+# Runs Lighthouse tests weekly
+# ========================================
+
+name: Performance Monitoring
+
+on:
+  schedule:
+    # Run every Monday at 9 AM
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  lighthouse:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install Lighthouse
+        run: npm install -g @lhci/cli
+
+      - name: Run Lighthouse CI
+        run: |
+          lhci collect --url=https://joelkaudzu.github.io/
+          lhci assert --preset=lighthouse:recommended
+        env:
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+      - name: Upload Lighthouse Results
+        uses: actions/upload-artifact@v4
+        with:
+          name: lighthouse-results
+          path: .lighthouseci/
+
+  bundle-size:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Check CSS Bundle Size
+        run: |
+          TOTAL_SIZE=0
+          for file in css/*.css; do
+            size=$(wc -c < "$file")
+            TOTAL_SIZE=$((TOTAL_SIZE + size))
+            echo "📄 $file: $size bytes"
+          done
+          echo "📊 Total CSS: $TOTAL_SIZE bytes"
+          
+          if [ $TOTAL_SIZE -gt 100000 ]; then
+            echo "⚠️ Warning: CSS bundle exceeds 100KB"
+          fi
+
+      - name: Check JavaScript Bundle Size
+        run: |
+          TOTAL_SIZE=0
+          for file in js/*.js; do
+            size=$(wc -c < "$file")
+            TOTAL_SIZE=$((TOTAL_SIZE + size))
+            echo "📄 $file: $size bytes"
+          done
+          echo "📊 Total JavaScript: $TOTAL_SIZE bytes"
+          
+          if [ $TOTAL_SIZE -gt 200000 ]; then
+            echo "⚠️ Warning: JavaScript bundle exceeds 200KB"
+          fi
+
+      - name: Check Image Sizes
+        run: |
+          find assets/images -type f \( -name "*.jpg" -o -name "*.png" \) -size +500k -exec ls -lh {} \;
+
+      - name: Save Report
+        run: |
+          echo "# Performance Report $(date)" > performance-report.md
+          echo "## Bundle Sizes" >> performance-report.md
+          echo "- CSS Total: $(du -sh css/ | cut -f1)" >> performance-report.md
+          echo "- JS Total: $(du -sh js/ | cut -f1)" >> performance-report.md
+          echo "- Images: $(find assets/images -type f | wc -l) files" >> performance-report.md
+          echo "" >> performance-report.md
+          echo "## Large Images" >> performance-report.md
+          find assets/images -type f -size +500k -exec ls -lh {} \; >> performance-report.md
+
+      - name: Upload Performance Report
+        uses: actions/upload-artifact@v4
+        with:
+          name: performance-report
+          path: performance-report.md

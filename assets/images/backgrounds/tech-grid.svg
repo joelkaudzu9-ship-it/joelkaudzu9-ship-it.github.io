@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100" height="100">
+    <defs>
+        <!-- Grid patterns -->
+        <pattern id="gridDots" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
+            <circle cx="5" cy="5" r="0.8" fill="#D4AF37" opacity="0.2"/>
+        </pattern>
+
+        <pattern id="gridLines" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
+            <path d="M20 0 L0 0 L0 20" stroke="#22D3EE" stroke-width="0.5" opacity="0.1" fill="none"/>
+        </pattern>
+
+        <!-- Circuit board pattern -->
+        <pattern id="circuitPattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
+            <!-- Horizontal lines -->
+            <path d="M5 10 L45 10" stroke="#D4AF37" stroke-width="0.8" opacity="0.15"/>
+            <path d="M10 25 L40 25" stroke="#22D3EE" stroke-width="0.8" opacity="0.15"/>
+            <path d="M15 40 L35 40" stroke="#D4AF37" stroke-width="0.8" opacity="0.15"/>
+
+            <!-- Vertical lines -->
+            <path d="M10 5 L10 45" stroke="#22D3EE" stroke-width="0.8" opacity="0.15"/>
+            <path d="M25 10 L25 40" stroke="#D4AF37" stroke-width="0.8" opacity="0.15"/>
+            <path d="M40 15 L40 35" stroke="#22D3EE" stroke-width="0.8" opacity="0.15"/>
+
+            <!-- Connection points -->
+            <circle cx="10" cy="10" r="1.5" fill="#D4AF37" opacity="0.2"/>
+            <circle cx="25" cy="25" r="1.5" fill="#22D3EE" opacity="0.2"/>
+            <circle cx="40" cy="40" r="1.5" fill="#D4AF37" opacity="0.2"/>
+            <circle cx="10" cy="40" r="1.5" fill="#22D3EE" opacity="0.2"/>
+            <circle cx="40" cy="10" r="1.5" fill="#D4AF37" opacity="0.2"/>
+        </pattern>
+
+        <!-- Binary code pattern -->
+        <pattern id="binaryPattern" x="0" y="0" width="30" height="30" patternUnits="userSpaceOnUse">
+            <text x="5" y="10" font-family="monospace" font-size="6" fill="#D4AF37" opacity="0.1">01</text>
+            <text x="15" y="20" font-family="monospace" font-size="6" fill="#22D3EE" opacity="0.1">10</text>
+            <text x="5" y="25" font-family="monospace" font-size="6" fill="#D4AF37" opacity="0.1">11</text>
+            <text x="20" y="8" font-family="monospace" font-size="6" fill="#22D3EE" opacity="0.1">00</text>
+        </pattern>
+
+        <!-- Gradient backgrounds -->
+        <linearGradient id="techGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#0B1120" stop-opacity="1"/>
+            <stop offset="50%" stop-color="#111827" stop-opacity="0.98"/>
+            <stop offset="100%" stop-color="#0B1120" stop-opacity="1"/>
+        </linearGradient>
+
+        <radialGradient id="techGlow">
+            <stop offset="0%" stop-color="#22D3EE" stop-opacity="0.08"/>
+            <stop offset="70%" stop-color="#D4AF37" stop-opacity="0.03"/>
+            <stop offset="100%" stop-color="transparent" stop-opacity="0"/>
+        </radialGradient>
+    </defs>
+
+    <!-- Base layer -->
+    <rect width="100" height="100" fill="url(#techGradient)"/>
+
+    <!-- Pattern overlays -->
+    <rect width="100" height="100" fill="url(#gridDots)"/>
+    <rect width="100" height="100" fill="url(#gridLines)"/>
+    <rect width="100" height="100" fill="url(#circuitPattern)"/>
+    <rect width="100" height="100" fill="url(#binaryPattern)"/>
+
+    <!-- Tech glow spots -->
+    <circle cx="30" cy="30" r="25" fill="url(#techGlow)"/>
+    <circle cx="70" cy="70" r="30" fill="url(#techGlow)"/>
+
+    <!-- Animated scanning line (for overlay use) -->
+    <rect x="0" y="45" width="100" height="2" fill="#D4AF37" opacity="0.1">
+        <animate attributeName="y" from="0" to="100" dur="10s" repeatCount="indefinite"/>
+    </rect>
+</svg>

@@ -1,0 +1,69 @@
+# ========================================
+# Test Workflow - Runs on every PR
+# Ensures code quality before deployment
+# ========================================
+
+name: Test Portfolio
+
+on:
+  pull_request:
+    branches: ["main", "master"]
+  push:
+    branches-ignore: ["main", "master"]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: HTML Validation
+        uses: Cyb3r-Jak3/html5validator-action@v7.2.0
+        with:
+          root: ./
+          skip: 'assets, node_modules'
+
+      - name: CSS Validation
+        run: |
+          npm install -g css-validator
+          find ./css -name "*.css" -exec css-validator {} \;
+
+      - name: JavaScript Linting
+        run: |
+          npm install -g eslint
+          # Simple syntax check without complex config
+          find ./js -name "*.js" -exec node --check {} \;
+
+      - name: Check for broken internal links
+        run: |
+          npm install -g markdown-link-check
+          # Check all HTML files for internal links
+          for file in $(find . -name "*.html"); do
+            echo "Checking $file..."
+            grep -o 'href="[^"]*"' "$file" | grep -v "http" | grep -v "mailto" | grep -v "tel" | while read link; do
+              target=$(echo "$link" | sed 's/href="//' | sed 's/"//')
+              if [[ ! -z "$target" && "$target" != "#"* ]]; then
+                if [[ ! -e "$(dirname "$file")/$target" && ! -e "$target" ]]; then
+                  echo "❌ Broken link in $file: $target"
+                  exit 1
+                fi
+              fi
+            done
+          done
+
+      - name: Image optimization check
+        run: |
+          npm install -g imagemin-cli imagemin-jpegtran imagemin-pngquant
+          echo "Checking for unoptimized images..."
+          find ./assets/images -name "*.jpg" -o -name "*.jpeg" | while read img; do
+            size=$(wc -c < "$img")
+            if [ $size -gt 500000 ]; then
+              echo "⚠️ Large image found: $img (${size} bytes)"
+            fi
+          done
+
+      - name: Validate JSON files
+        run: |
+          npm install -g jsonlint
+          find ./data -name "*.json" -exec jsonlint {} \;

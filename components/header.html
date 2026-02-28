@@ -1,10 +1,218 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<!-- ========================================
+     COMPONENT: Main Site Header
+     Include this at the top of every page
+======================================== -->
 
-</body>
-</html>
+<header class="site-header">
+    <!-- Top Bar with quick info -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="top-bar-content">
+                <div class="top-bar-left">
+                    <span class="greeting">⚡ 3:33am Builder</span>
+                    <span class="separator">|</span>
+                    <span class="location"><i class="fas fa-map-marker-alt"></i> Malawi</span>
+                </div>
+                <div class="top-bar-right">
+                    <a href="mailto:joel.kaudzu@kuhes.ac.mw" class="top-link">
+                        <i class="fas fa-envelope"></i> joel.kaudzu@kuhes.ac.mw
+                    </a>
+                    <span class="separator">|</span>
+                    <div class="social-mini">
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Navigation -->
+    <nav class="main-nav">
+        <div class="container">
+            <div class="nav-container">
+                <!-- Logo -->
+                <div class="nav-logo">
+                    <a href="index.html" class="logo-link">
+                        <span class="logo-text">JK</span>
+                        <span class="logo-dot"></span>
+                    </a>
+                </div>
+
+                <!-- Navigation Menu -->
+                <div class="nav-menu" id="navMenu">
+                    <ul class="nav-links">
+                        <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                        <li class="nav-item"><a href="pages/about.html" class="nav-link">About</a></li>
+
+                        <!-- Dropdown Menu -->
+                        <li class="nav-item dropdown">
+                            <a href="#" class="nav-link dropdown-toggle">Work <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="pages/projects.html"><i class="fas fa-code"></i> Projects</a></li>
+                                <li><a href="pages/research.html"><i class="fas fa-microscope"></i> Research</a></li>
+                                <li><a href="pages/leadership.html"><i class="fas fa-users"></i> Leadership</a></li>
+                                <li class="divider"></li>
+                                <li><a href="pages/publications.html"><i class="fas fa-file-alt"></i> Publications</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a href="pages/philosophy.html" class="nav-link">Philosophy</a></li>
+                        <li class="nav-item"><a href="pages/poetry.html" class="nav-link">Poetry</a></li>
+
+                        <!-- Blog Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a href="blog/index.html" class="nav-link dropdown-toggle">Blog <i class="fas fa-chevron-down"></i></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="blog/index.html"><i class="fas fa-home"></i> All Posts</a></li>
+                                <li><a href="blog/categories/medtech.html"><i class="fas fa-tooth"></i> MedTech</a></li>
+                                <li><a href="blog/categories/discipline.html"><i class="fas fa-clock"></i> Discipline</a></li>
+                                <li><a href="blog/categories/philosophy.html"><i class="fas fa-book"></i> Philosophy</a></li>
+                                <li class="divider"></li>
+                                <li><a href="blog/about.html"><i class="fas fa-user"></i> About the Author</a></li>
+                            </ul>
+                        </li>
+
+                        <li class="nav-item"><a href="pages/contact.html" class="nav-link">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Right Side Actions -->
+                <div class="nav-actions">
+                    <!-- Search Toggle -->
+                    <button class="action-btn search-toggle" id="searchToggle">
+                        <i class="fas fa-search"></i>
+                    </button>
+
+                    <!-- Theme Toggle -->
+                    <button class="action-btn theme-toggle" id="themeToggle">
+                        <i class="fas fa-moon"></i>
+                    </button>
+
+                    <!-- Mobile Menu Toggle -->
+                    <button class="menu-toggle" id="menuToggle">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Search Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <form class="search-form" action="search.html" method="get">
+                <input type="text" name="q" placeholder="Search articles, projects, research..." autocomplete="off">
+                <button type="submit"><i class="fas fa-arrow-right"></i></button>
+            </form>
+            <button class="search-close" id="searchClose"><i class="fas fa-times"></i></button>
+        </div>
+    </div>
+
+    <!-- Progress Bar (shows on scroll) -->
+    <div class="reading-progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+</header>
+
+<!-- Initialize Header Components -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Mobile menu toggle
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
+
+    if (menuToggle && navMenu) {
+        menuToggle.addEventListener('click', function() {
+            this.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            document.body.classList.toggle('menu-open');
+        });
+    }
+
+    // Search overlay
+    const searchToggle = document.getElementById('searchToggle');
+    const searchOverlay = document.getElementById('searchOverlay');
+    const searchClose = document.getElementById('searchClose');
+
+    if (searchToggle && searchOverlay) {
+        searchToggle.addEventListener('click', function() {
+            searchOverlay.classList.add('active');
+            setTimeout(() => {
+                searchOverlay.querySelector('input').focus();
+            }, 300);
+        });
+
+        if (searchClose) {
+            searchClose.addEventListener('click', function() {
+                searchOverlay.classList.remove('active');
+            });
+        }
+
+        // Close on escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && searchOverlay.classList.contains('active')) {
+                searchOverlay.classList.remove('active');
+            }
+        });
+    }
+
+    // Reading progress bar
+    const progressBar = document.getElementById('progressBar');
+    if (progressBar) {
+        window.addEventListener('scroll', function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            progressBar.style.width = scrolled + '%';
+        });
+    }
+
+    // Dropdown menus for desktop
+    const dropdowns = document.querySelectorAll('.dropdown');
+    dropdowns.forEach(dropdown => {
+        dropdown.addEventListener('mouseenter', function() {
+            if (window.innerWidth > 992) {
+                this.classList.add('show');
+            }
+        });
+
+        dropdown.addEventListener('mouseleave', function() {
+            if (window.innerWidth > 992) {
+                this.classList.remove('show');
+            }
+        });
+
+        // For mobile: click to toggle
+        const toggle = dropdown.querySelector('.dropdown-toggle');
+        if (toggle) {
+            toggle.addEventListener('click', function(e) {
+                if (window.innerWidth <= 992) {
+                    e.preventDefault();
+                    dropdown.classList.toggle('show');
+                }
+            });
+        }
+    });
+
+    // Highlight active nav item based on current URL
+    const currentPath = window.location.pathname;
+    const navLinks = document.querySelectorAll('.nav-link');
+
+    navLinks.forEach(link => {
+        const href = link.getAttribute('href');
+        if (href && currentPath.includes(href) && href !== '#') {
+            link.classList.add('active');
+
+            // If in dropdown, highlight parent
+            const parentDropdown = link.closest('.dropdown');
+            if (parentDropdown) {
+                parentDropdown.querySelector('.dropdown-toggle').classList.add('active');
+            }
+        }
+    });
+});
+</script>

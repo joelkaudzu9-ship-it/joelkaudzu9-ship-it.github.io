@@ -1,0 +1,184 @@
+<!-- ========================================
+     COMPONENT: Project/Content Card
+     Usage: <div is="project-card" data-project="checkmysmile"></div>
+======================================== -->
+
+<template id="project-card-template">
+    <div class="project-item glass-card">
+        <div class="project-media">
+            <img src="" alt="" class="project-image" loading="lazy">
+            <div class="project-badges"></div>
+        </div>
+        <div class="project-content">
+            <h3 class="project-title"></h3>
+            <p class="project-subtitle"></p>
+            <p class="project-description"></p>
+            <div class="project-tools"></div>
+            <div class="project-links"></div>
+        </div>
+    </div>
+</template>
+
+<script>
+class ProjectCard extends HTMLElement {
+    constructor() {
+        super();
+        this.attachShadow({ mode: 'open' });
+        this.loadTemplate();
+    }
+
+    loadTemplate() {
+        const template = document.getElementById('project-card-template');
+        const clone = template.content.cloneNode(true);
+
+        // Get data attributes
+        const projectId = this.getAttribute('data-project');
+        const projectData = this.getProjectData(projectId);
+
+        if (projectData) {
+            this.populateCard(clone, projectData);
+        }
+
+        this.shadowRoot.appendChild(clone);
+        this.applyStyles();
+    }
+
+    getProjectData(projectId) {
+        // This would normally fetch from a data source
+        const projects = {
+            'checkmysmile': {
+                title: 'CheckMySmile',
+                subtitle: 'Founder & Builder',
+                description: 'Dental awareness and smile-tracking platform',
+                image: '/assets/images/projects/checkmysmile-dashboard.jpg',
+                tools: ['Python', 'Flask', 'JavaScript'],
+                status: 'completed',
+                category: 'medtech'
+            },
+            'campus-connect': {
+                title: 'KUHES Campus Connect',
+                subtitle: 'Founder & Lead Developer',
+                description: 'Student networking platform using institutional emails',
+                image: '/assets/images/projects/campus-connect-mockup.jpg',
+                tools: ['Django', 'PostgreSQL', 'Python'],
+                status: 'in-progress',
+                category: 'software'
+            }
+        };
+
+        return projects[projectId];
+    }
+
+    populateCard(clone, data) {
+        // Set image
+        const img = clone.querySelector('.project-image');
+        img.src = data.image;
+        img.alt = data.title;
+
+        // Set badges
+        const badges = clone.querySelector('.project-badges');
+        badges.innerHTML = `<span class="badge status ${data.status}">${data.status}</span>`;
+
+        // Set text content
+        clone.querySelector('.project-title').textContent = data.title;
+        clone.querySelector('.project-subtitle').textContent = data.subtitle;
+        clone.querySelector('.project-description').textContent = data.description;
+
+        // Set tools
+        const toolsContainer = clone.querySelector('.project-tools');
+        data.tools.forEach(tool => {
+            const span = document.createElement('span');
+            span.textContent = tool;
+            toolsContainer.appendChild(span);
+        });
+
+        // Set links
+        const linksContainer = clone.querySelector('.project-links');
+        linksContainer.innerHTML = `
+            <a href="#" class="btn-link">View Project <i class="fas fa-arrow-right"></i></a>
+        `;
+    }
+
+    applyStyles() {
+        const style = document.createElement('style');
+        style.textContent = `
+            .project-item {
+                background: rgba(17, 24, 39, 0.7);
+                backdrop-filter: blur(10px);
+                border-radius: 24px;
+                overflow: hidden;
+                transition: transform 0.3s ease;
+            }
+            .project-item:hover {
+                transform: translateY(-8px);
+            }
+            .project-media {
+                position: relative;
+                height: 200px;
+                overflow: hidden;
+            }
+            .project-image {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+            .project-badges {
+                position: absolute;
+                top: 1rem;
+                right: 1rem;
+            }
+            .badge {
+                padding: 0.3rem 1rem;
+                border-radius: 50px;
+                font-size: 0.8rem;
+                font-weight: 600;
+            }
+            .badge.completed {
+                background: rgba(34, 211, 238, 0.1);
+                color: #22D3EE;
+            }
+            .badge.in-progress {
+                background: rgba(212, 175, 55, 0.1);
+                color: #D4AF37;
+            }
+            .project-content {
+                padding: 1.5rem;
+            }
+            .project-title {
+                color: #D4AF37;
+                margin-bottom: 0.3rem;
+            }
+            .project-subtitle {
+                color: #22D3EE;
+                font-size: 0.9rem;
+                margin-bottom: 1rem;
+            }
+            .project-description {
+                color: #9CA3AF;
+                margin-bottom: 1rem;
+            }
+            .project-tools {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                margin-bottom: 1rem;
+            }
+            .project-tools span {
+                padding: 0.2rem 0.8rem;
+                background: rgba(255,255,255,0.05);
+                border-radius: 50px;
+                font-size: 0.8rem;
+            }
+            .project-links a {
+                color: #22D3EE;
+                text-decoration: none;
+                font-weight: 600;
+            }
+        `;
+        this.shadowRoot.appendChild(style);
+    }
+}
+
+// Register the custom element
+customElements.define('project-card', ProjectCard);
+</script>

@@ -1,0 +1,112 @@
+{
+  "timeline": [
+    {
+      "year": "2021",
+      "title": "Mini Bio-Digester",
+      "description": "Built as Form 2 student at Dedza Secondary School. First engineering project that sparked my curiosity in applied problem-solving and sustainable technology.",
+      "icon": "fa-flask",
+      "image": "bio-digester-1.jpg",
+      "details": "Designed and constructed a working anaerobic digester using PVC pipes and drums. Demonstrated methane capture for cooking. Won 1st place at Dedza District Science Fair.",
+      "tags": ["engineering", "sustainability", "award-winning"]
+    },
+    {
+      "year": "2022",
+      "title": "Avocado Oil Extraction",
+      "description": "Experimental project exploring agricultural processing and value addition. Learned about chemical extraction methods and sustainable production.",
+      "icon": "fa-oil-can",
+      "image": "avocado-oil-1.jpg",
+      "details": "Investigated cold-press and solvent extraction methods for avocado oil. Analyzed yield percentages and quality factors. Developed business model for small-scale production.",
+      "tags": ["agriculture", "processing", "entrepreneurship"]
+    },
+    {
+      "year": "2023",
+      "title": "Teaching & Mentorship Begins",
+      "description": "Started journey as Student Teacher at Bright Future Private Secondary School, teaching Mathematics and Physics.",
+      "icon": "fa-chalkboard",
+      "image": "teaching-math-1.jpg",
+      "details": "Began 1.5 year journey teaching Form 3 and 4 students. Developed simplified teaching aids and peer-learning methodologies.",
+      "tags": ["teaching", "leadership", "education"]
+    },
+    {
+      "year": "2024",
+      "title": "CheckMySmile Launch",
+      "description": "Founded and built dental awareness & smile-tracking platform. First version launched with 50 beta users.",
+      "icon": "fa-tooth",
+      "image": "checkmysmile-dashboard.jpg",
+      "details": "Built with Python Flask and SQLite. Features include daily smile tracking, educational content, and dental clinic referrals. Reached 100+ active users within 6 months.",
+      "tags": ["medtech", "software", "founder"]
+    },
+    {
+      "year": "2024",
+      "title": "KUHES Innovations Coordinator",
+      "description": "Appointed as KUHES Science For All Innovations Coordinator, leading student innovation initiatives.",
+      "icon": "fa-lightbulb",
+      "image": "innovation-coordinator-icon.jpg",
+      "details": "Developed framework for identifying and nurturing student innovators. Organized first Innovation Sprint with 50+ participants. Secured departmental funding for prototyping.",
+      "tags": ["leadership", "innovation", "mentorship"]
+    },
+    {
+      "year": "2025",
+      "title": "QuantumResolve Technologies",
+      "description": "Joined as Data Privacy & Compliance Lead, developing frameworks for healthcare data protection.",
+      "icon": "fa-shield-alt",
+      "image": "quantumresolve-icon.jpg",
+      "details": "Developing privacy frameworks for healthcare data. Ensuring GDPR and local compliance. Leading ethical AI review board.",
+      "tags": ["privacy", "compliance", "healthcare"]
+    },
+    {
+      "year": "2025",
+      "title": "KUHES Campus Connect",
+      "description": "Started development of exclusive student networking platform using institutional emails.",
+      "icon": "fa-network-wired",
+      "image": "campus-connect-mockup.jpg",
+      "details": "Building with Django and PostgreSQL. Features include verified profiles, project matchmaking, and resource sharing. Beta launch planned for Q3 2025.",
+      "tags": ["software", "networking", "education"]
+    },
+    {
+      "year": "2025",
+      "title": "Data Analyst Transformation",
+      "description": "Began intensive 3-month self-structured program in data analytics with healthcare focus.",
+      "icon": "fa-chart-line",
+      "image": "data-analytics-1.jpg",
+      "details": "Structured curriculum covering Python, pandas, visualization, and statistics. Completed projects on malaria incidence and dental clinic optimization.",
+      "tags": ["data science", "learning", "healthcare"]
+    },
+    {
+      "year": "2026",
+      "title": "Healing Journal Milestone",
+      "description": "Reached 20+ pages in handwritten personal transformation journal.",
+      "icon": "fa-book",
+      "image": "healing-journal-1.jpg",
+      "details": "Documented spiritual growth, discipline tracking, and emotional intelligence development. Practice of weekly handwriting for clarity and reflection.",
+      "tags": ["philosophy", "discipline", "personal"]
+    }
+  ],
+  "milestones": [
+    {
+      "year": "2021",
+      "event": "First Innovation Award",
+      "description": "Won Dedza District Science Fair for Mini Bio-Digester"
+    },
+    {
+      "year": "2023",
+      "event": "Teaching Debut",
+      "description": "Started teaching Mathematics at Bright Future Private Secondary School"
+    },
+    {
+      "year": "2024",
+      "event": "First Founder",
+      "description": "Launched CheckMySmile as solo founder"
+    },
+    {
+      "year": "2024",
+      "event": "Leadership Role",
+      "description": "Appointed KUHES Innovations Coordinator"
+    },
+    {
+      "year": "2025",
+      "event": "Tech Leadership",
+      "description": "Joined QuantumResolve as Data Privacy Lead"
+    }
+  ]
+}

@@ -2,9 +2,65 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 · Joel Kaudzu</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body>
+<body class="error-page">
+    <div class="error-container">
+        <div class="error-code">404</div>
+        <h1 class="error-title">Page Not Found</h1>
+        <p class="error-message">Even in innovation, we sometimes take wrong turns. Let's get you back on track.</p>
+        <div class="error-quote">"The 3:33am shift continues — just elsewhere."</div>
+        <a href="../index.html" class="btn btn-primary">
+            <i class="fas fa-home"></i> Return Home
+        </a>
+    </div>
 
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--deep-navy);
+            position: relative;
+            overflow: hidden;
+        }
+        .error-page::before {
+            content: '404';
+            position: absolute;
+            font-size: 30vw;
+            font-weight: 800;
+            color: rgba(212, 175, 55, 0.03);
+            bottom: -5vw;
+            right: -5vw;
+            z-index: 0;
+        }
+        .error-container {
+            text-align: center;
+            max-width: 600px;
+            padding: 2rem;
+            z-index: 1;
+        }
+        .error-code {
+            font-size: 8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--gold-accent), var(--cyan-highlight));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+        .error-quote {
+            margin: 2rem 0;
+            font-style: italic;
+            color: var(--gold-accent);
+            font-size: 1.2rem;
+            border-left: 3px solid var(--cyan-highlight);
+            padding-left: 1rem;
+        }
+    </style>
 </body>
 </html>

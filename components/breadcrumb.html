@@ -1,0 +1,129 @@
+<!-- ========================================
+     COMPONENT: Breadcrumb Navigation
+     Include on inner pages
+======================================== -->
+
+<nav class="breadcrumb-nav" aria-label="breadcrumb">
+    <div class="container">
+        <ol class="breadcrumb-list">
+            <li class="breadcrumb-item">
+                <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            </li>
+            <li class="breadcrumb-item">
+                <a href="pages/projects.html">Projects</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">CheckMySmile</li>
+        </ol>
+    </div>
+</nav>
+
+<!-- Dynamic Breadcrumb Script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    function generateBreadcrumb() {
+        const path = window.location.pathname;
+        const pathParts = path.split('/').filter(part => part && !part.includes('.html'));
+        const breadcrumbList = document.querySelector('.breadcrumb-list');
+
+        if (!breadcrumbList) return;
+
+        // Clear existing
+        breadcrumbList.innerHTML = '';
+
+        // Always add home
+        const homeLi = document.createElement('li');
+        homeLi.className = 'breadcrumb-item';
+        homeLi.innerHTML = '<a href="index.html"><i class="fas fa-home"></i> Home</a>';
+        breadcrumbList.appendChild(homeLi);
+
+        let currentPath = '';
+        pathParts.forEach((part, index) => {
+            currentPath += '/' + part;
+
+            const li = document.createElement('li');
+            li.className = 'breadcrumb-item';
+
+            // Format the text (capitalize, replace hyphens)
+            let text = part.replace(/-/g, ' ');
+            text = text.charAt(0).toUpperCase() + text.slice(1);
+
+            if (index === pathParts.length - 1) {
+                // Last item (current page)
+                li.classList.add('active');
+                li.setAttribute('aria-current', 'page');
+                li.textContent = text;
+            } else {
+                // Link to parent directory
+                const linkPath = currentPath + '/index.html';
+                li.innerHTML = `<a href="${linkPath}">${text}</a>`;
+            }
+
+            breadcrumbList.appendChild(li);
+        });
+    }
+
+    // Only generate if breadcrumb exists and has no items
+    const breadcrumb = document.querySelector('.breadcrumb-list');
+    if (breadcrumb && breadcrumb.children.length === 0) {
+        generateBreadcrumb();
+    }
+});
+</script>
+
+<style>
+.breadcrumb-nav {
+    padding: 1rem 0;
+    background: rgba(0,0,0,0.2);
+    border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.breadcrumb-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.breadcrumb-item {
+    color: var(--soft-gray);
+    font-size: 0.9rem;
+}
+
+.breadcrumb-item:not(:last-child)::after {
+    content: '/';
+    margin-left: 0.5rem;
+    color: var(--gold-accent);
+}
+
+.breadcrumb-item a {
+    color: var(--soft-gray);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb-item a:hover {
+    color: var(--gold-accent);
+}
+
+.breadcrumb-item.active {
+    color: var(--gold-accent);
+    font-weight: 500;
+}
+
+.breadcrumb-item i {
+    margin-right: 0.3rem;
+    font-size: 0.8rem;
+}
+
+@media (max-width: 768px) {
+    .breadcrumb-nav {
+        padding: 0.5rem 0;
+    }
+    .breadcrumb-item {
+        font-size: 0.8rem;
+    }
+}
+</style>
