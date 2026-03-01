@@ -17,11 +17,12 @@
   "projects": {
     "checkmysmile": {
       "demo": "https://youtu.be/XfdkxzoQw9Q",
-      "description": "Developed and tested by fellow medical students. Thousands of avoidable pain and systemic complications could be curbed with early detection and awareness."
+      "description": "Developed and tested by fellow medical students. Thousands of avoidable pain and systemic complications could be curbed with early detection."
     }
   },
   "metrics": {
     "peerMentorship": 10,
-    "innovationsCoordinated": 10
+    "innovationsCoordinated": 10,
+    "studentsTaught": 50
   }
 }
