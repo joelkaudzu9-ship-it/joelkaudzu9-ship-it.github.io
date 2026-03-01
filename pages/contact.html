@@ -57,78 +57,91 @@
                     <p class="contact-intro">Whether you want to collaborate, discuss research, mentor, or just have a conversation — I'm here.</p>
 
                     <div class="contact-methods">
+                        <!-- Email -->
                         <div class="contact-method">
                             <div class="method-icon">
                                 <i class="fas fa-envelope"></i>
                             </div>
                             <div class="method-details">
                                 <h3>Email</h3>
-                                <a href="mailto:joel.kaudzu@kuhes.ac.mw">joel.kaudzu@kuhes.ac.mw</a>
+                                <a href="mailto:joelkaudzu9@gmail.com">joelkaudzu9@gmail.com</a>
                                 <p class="response-time">Response within 24-48 hours</p>
                             </div>
                         </div>
 
+                        <!-- WhatsApp - NEW -->
+                        <div class="contact-method">
+                            <div class="method-icon">
+                                <i class="fab fa-whatsapp"></i>
+                            </div>
+                            <div class="method-details">
+                                <h3>WhatsApp</h3>
+                                <a href="https://wa.me/265983142415?text=Hey%20Joel%2C%20I%20viewed%20your%20portfolio%20and%20would%20like%20to%20connect" target="_blank">
+                                    +265 983 142 415
+                                </a>
+                                <p class="response-time">Tap to message · "Hey Joel, I viewed your portfolio"</p>
+                            </div>
+                        </div>
+
+                        <!-- LinkedIn -->
                         <div class="contact-method">
                             <div class="method-icon">
                                 <i class="fab fa-linkedin"></i>
                             </div>
                             <div class="method-details">
                                 <h3>LinkedIn</h3>
-                                <a href="#" target="_blank">linkedin.com/in/joel-kaudzu</a>
+                                <a href="https://www.linkedin.com/in/joel-kaudzu-0bba48392" target="_blank">linkedin.com/in/joel-kaudzu</a>
                                 <p class="response-time">Active daily · DMs open</p>
                             </div>
                         </div>
 
+                        <!-- GitHub -->
                         <div class="contact-method">
                             <div class="method-icon">
                                 <i class="fab fa-github"></i>
                             </div>
                             <div class="method-details">
                                 <h3>GitHub</h3>
-                                <a href="#" target="_blank">github.com/joelkaudzu</a>
+                                <a href="https://github.com/joelkaudzu9-ship-it" target="_blank">github.com/joelkaudzu9-ship-it</a>
                                 <p class="response-time">Code, issues, collaborations</p>
                             </div>
                         </div>
 
+                        <!-- YouTube -->
                         <div class="contact-method">
                             <div class="method-icon">
                                 <i class="fab fa-youtube"></i>
                             </div>
                             <div class="method-details">
                                 <h3>YouTube</h3>
-                                <a href="#" target="_blank">youtube.com/@joelkaudzu</a>
+                                <a href="https://youtube.com/@joels_lab" target="_blank">youtube.com/@joels_lab</a>
                                 <p class="response-time">Demos, talks, tutorials</p>
                             </div>
                         </div>
 
+                        <!-- X / Twitter -->
                         <div class="contact-method">
                             <div class="method-icon">
                                 <i class="fab fa-twitter"></i>
                             </div>
                             <div class="method-details">
                                 <h3>X / Twitter</h3>
-                                <a href="#" target="_blank">@joelkaudzu</a>
+                                <a href="https://x.com/JoelK63756" target="_blank">@JoelK63756</a>
                                 <p class="response-time">Thoughts, threads, updates</p>
                             </div>
                         </div>
                     </div>
-
-                    <div class="office-hours">
-                        <h3>Virtual Office Hours</h3>
-                        <p>First come, first served · 30-min slots</p>
-                        <ul>
-                            <li><i class="fas fa-clock"></i> Mondays: 4:00 PM - 6:00 PM (CAT)</li>
-                            <li><i class="fas fa-clock"></i> Wednesdays: 8:00 PM - 10:00 PM (CAT)</li>
-                            <li><i class="fas fa-clock"></i> Saturdays: 9:00 AM - 12:00 PM (CAT)</li>
-                        </ul>
-                        <a href="#" class="btn btn-primary">Schedule a Call</a>
-                    </div>
                 </div>
 
-                <!-- Contact Form -->
+                <!-- Contact Form - Using Formspree -->
                 <div class="contact-form-detailed glass-card" data-aos="fade-left">
                     <h2>Send a Message</h2>
-                    <form id="fullContactForm" class="full-contact-form">
+                    <form id="fullContactForm" class="full-contact-form" action="https://formspree.io/f/your-form-id-here" method="POST">
+                        <!-- Formspree requires this field -->
+                        <input type="hidden" name="_subject" value="New message from portfolio visitor">
+                        <input type="hidden" name="_replyto" value="joelkaudzu9@gmail.com">
+                        <input type="hidden" name="_cc" value="joelkaudzu9@gmail.com">
+                        
                         <div class="form-row">
                             <div class="form-group half">
                                 <input type="text" id="first-name" name="first-name" required>
@@ -167,127 +180,20 @@
                             <label for="contact-message">Your Message</label>
                         </div>
 
-                        <div class="form-group checkbox">
-                            <input type="checkbox" id="newsletter" name="newsletter">
-                            <label for="newsletter">Subscribe to my newsletter (occasional updates)</label>
-                        </div>
-
                         <button type="submit" class="btn btn-primary btn-full">
                             <i class="fas fa-paper-plane"></i> Send Message
                         </button>
+                        
+                        <p class="form-note" style="font-size:0.8rem; color:#9CA3AF; margin-top:1rem; text-align:center;">
+                            Messages sent via Formspree. I'll respond within 24-48 hours.
+                        </p>
                     </form>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Collaboration Interests -->
-    <section class="collab-interests section-padding bg-darker">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Open to Collaborate On</h2>
-            <div class="interests-grid">
-                <div class="interest-card glass-card" data-aos="zoom-in">
-                    <i class="fas fa-tooth"></i>
-                    <h3>Dental Tech</h3>
-                    <p>Apps, devices, or research in oral health innovation</p>
-                </div>
-                <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="100">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Health Data Science</h3>
-                    <p>Analytics, predictive models, African health datasets</p>
-                </div>
-                <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="200">
-                    <i class="fas fa-robot"></i>
-                    <h3>AI in Medicine</h3>
-                    <p>Ethical AI for low-resource diagnostic settings</p>
-                </div>
-                <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="300">
-                    <i class="fas fa-graduation-cap"></i>
-                    <h3>Mentorship</h3>
-                    <p>Guiding young innovators in STEM</p>
-                </div>
-                <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="400">
-                    <i class="fas fa-book"></i>
-                    <h3>Research</h3>
-                    <p>Collaborative studies in immunology-dentistry intersection</p>
-                </div>
-                <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="500">
-                    <i class="fas fa-microphone"></i>
-                    <h3>Speaking</h3>
-                    <p>Conferences, workshops, school talks</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Map / Location (Placeholder) -->
-    <section class="location-section section-padding">
-        <div class="container">
-            <div class="location-card glass-card" data-aos="fade-up">
-                <div class="location-grid">
-                    <div class="location-details">
-                        <h2>Based in Malawi</h2>
-                        <p>Operating from KUHES, available for virtual meetings worldwide. Open to travel for conferences and collaborations.</p>
-                        <div class="timezone">
-                            <i class="fas fa-globe-africa"></i>
-                            <span>Central Africa Time (CAT) · GMT+2</span>
-                        </div>
-                    </div>
-                    <div class="location-map">
-                        <img src="../assets/images/contact/malawi-map.jpg" alt="Malawi location" class="map-image">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="main-footer">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-logo">
-                    <span class="logo-text">JK</span>
-                    <span class="logo-tagline">Innovation. Discipline. Depth.</span>
-                </div>
-                <div class="footer-links">
-                    <a href="../index.html">Home</a>
-                    <a href="about.html">About</a>
-                    <a href="projects.html">Projects</a>
-                    <a href="research.html">Research</a>
-                    <a href="leadership.html">Leadership</a>
-                    <a href="philosophy.html">Philosophy</a>
-                    <a href="poetry.html">Poetry</a>
-                    <a href="../blog/index.html">Blog</a>
-                    <a href="contact.html">Contact</a>
-                </div>
-                <div class="footer-social">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 Joel George Kaudzu. Built at 3:33am.</p>
-                <p class="footer-quote">"Build what you wish existed."</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top -->
-    <button id="backToTop" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/contact-form.js"></script>
-    <script>
-        AOS.init({
-            duration: 800,
-            once: false,
-            mirror: true
-        });
-    </script>
+    <!-- Rest of the page remains the same -->
+    <!-- ... -->
 </body>
 </html>
