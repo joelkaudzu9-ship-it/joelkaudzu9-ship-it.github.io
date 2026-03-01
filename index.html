@@ -35,6 +35,26 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="assets/images/icons/favicon.png">
+    
+    <style>
+        /* Emergency fallback styles */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .image-fallback {
+            width: 100%;
+            height: 100%;
+            min-height: 200px;
+            background: rgba(17, 24, 39, 0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 16px;
+            color: #D4AF37;
+            font-size: 3rem;
+        }
+    </style>
 </head>
 <body>
     <!-- Preloader -->
@@ -277,7 +297,7 @@
         </div>
     </section>
 
-    <!-- Innovation Journey Timeline -->
+    <!-- Innovation Journey Timeline - FIXED PATHS -->
     <section class="timeline-section section-padding" id="timeline">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -407,7 +427,7 @@
         </div>
     </section>
 
-    <!-- Featured Projects Section -->
+    <!-- Featured Projects Section - FIXED PATHS -->
     <section class="projects-section section-padding bg-darker" id="featured-work">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
@@ -437,6 +457,11 @@
                         <h3>CheckMySmile</h3>
                         <p class="project-subtitle">Founder & Builder</p>
                         <p class="project-description">Dental awareness platform developed and tested by fellow medical students. Thousands of avoidable pain and systemic complications could be curbed.</p>
+                        <div class="project-tools">
+                            <span>Python</span>
+                            <span>Flask</span>
+                            <span>HTML/CSS</span>
+                        </div>
                         <div class="project-links">
                             <a href="https://youtu.be/XfdkxzoQw9Q" class="btn-link" target="_blank"><i class="fab fa-youtube"></i> Watch Demo</a>
                             <a href="assets/documents/checkmysmile-proposal.pdf" class="btn-link" download>Proposal <i class="fas fa-download"></i></a>
@@ -456,6 +481,11 @@
                         <h3>KUHES Campus Connect</h3>
                         <p class="project-subtitle">Founder & Lead Developer</p>
                         <p class="project-description">Exclusive student networking platform using institutional emails.</p>
+                        <div class="project-tools">
+                            <span>Django</span>
+                            <span>PostgreSQL</span>
+                            <span>REST API</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -470,7 +500,12 @@
                     <div class="project-content">
                         <h3>Mini Bio-Digester</h3>
                         <p class="project-subtitle">Form 2 Project</p>
-                        <p class="project-description">First engineering project that sparked my innovation journey.</p>
+                        <p class="project-description">First engineering project that sparked my innovation journey. Built at Dedza Secondary School.</p>
+                        <div class="project-tools">
+                            <span>PVC</span>
+                            <span>Methane capture</span>
+                            <span>Mechanical</span>
+                        </div>
                         <div class="project-links">
                             <a href="assets/documents/bio-digester-proposal.pdf" class="btn-link" download>Proposal <i class="fas fa-download"></i></a>
                         </div>
@@ -485,7 +520,12 @@
                     <div class="project-content">
                         <h3>Personal Healing Journal</h3>
                         <p class="project-subtitle">20-Page Handwritten Work</p>
-                        <p class="project-description">Deep personal documentation of spiritual growth and discipline.</p>
+                        <p class="project-description">Deep personal documentation of spiritual growth, discipline, and emotional intelligence.</p>
+                        <div class="project-tools">
+                            <span>Handwritten</span>
+                            <span>Reflection</span>
+                            <span>Mindfulness</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -497,7 +537,11 @@
                     <div class="project-content">
                         <h3>Avocado Oil Extraction</h3>
                         <p class="project-subtitle">Agricultural Processing</p>
-                        <p class="project-description">Experimental project exploring extraction methods.</p>
+                        <p class="project-description">Experimental project exploring cold-press extraction methods for avocado oil.</p>
+                        <div class="project-tools">
+                            <span>Mechanical press</span>
+                            <span>Quality testing</span>
+                        </div>
                     </div>
                 </div>
                 
@@ -509,7 +553,12 @@
                     <div class="project-content">
                         <h3>Teaching & Mentorship</h3>
                         <p class="project-subtitle">1.5 Years Experience</p>
-                        <p class="project-description">Taught Mathematics and Physics, mentored 10+ students.</p>
+                        <p class="project-description">Taught Mathematics and Physics at Bright Future Private Secondary School. Mentored 10+ students.</p>
+                        <div class="project-tools">
+                            <span>Curriculum</span>
+                            <span>Mentorship</span>
+                            <span>Leadership</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -533,25 +582,52 @@
                 <!-- Programming -->
                 <div class="skills-category glass-card">
                     <h3><i class="fas fa-code"></i> Programming</h3>
-                    <div class="skill-item"><div class="skill-info"><span>Python</span><span>85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span>HTML5/CSS3</span><span>80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span>Flask</span><span>60%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:60%"></div></div></div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Python</span><span>85%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>HTML5/CSS3</span><span>80%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Flask</span><span>60%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:60%"></div></div>
+                    </div>
                 </div>
                 
                 <!-- Data -->
                 <div class="skills-category glass-card">
                     <h3><i class="fas fa-chart-bar"></i> Data & Analytics</h3>
-                    <div class="skill-item"><div class="skill-info"><span>Data Cleaning</span><span>75%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span>Excel</span><span>80%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span>Visualization</span><span>65%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div></div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Data Cleaning</span><span>75%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:75%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Excel</span><span>80%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:80%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Visualization</span><span>65%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:65%"></div></div>
+                    </div>
                 </div>
                 
                 <!-- Soft Skills -->
                 <div class="skills-category glass-card">
                     <h3><i class="fas fa-users"></i> Soft Skills</h3>
-                    <div class="skill-item"><div class="skill-info"><span>Public Speaking</span><span>95%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:95%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span>Mentorship</span><span>90%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div></div>
-                    <div class="skill-item"><div class="skill-info"><span>Leadership</span><span>85%</span></div><div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div></div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Public Speaking</span><span>95%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:95%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Mentorship</span><span>90%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:90%"></div></div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-info"><span>Leadership</span><span>85%</span></div>
+                        <div class="skill-bar-bg"><div class="skill-bar-fill" style="width:85%"></div></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -627,7 +703,7 @@
                 <a href="pages/poetry-collection.html" class="btn btn-primary">
                     <i class="fas fa-feather-alt"></i> Read the Complete Collection
                 </a>
-                <p style="margin-top:1rem; color:var(--soft-gray);">20+ poems · 4 themes · 1 journey</p>
+                <p style="margin-top:1rem; color:#9CA3AF;">20+ poems · 4 themes · 1 journey</p>
             </div>
         </div>
     </section>
@@ -658,12 +734,48 @@
             <div class="contact-grid">
                 <div class="contact-info glass-card" data-aos="fade-right">
                     <h3>Get In Touch</h3>
-                    <div class="contact-item"><i class="fas fa-envelope"></i><div><span class="contact-label">Email</span><a href="mailto:joelkaudzu9@gmail.com">joelkaudzu9@gmail.com</a></div></div>
-                    <div class="contact-item"><i class="fab fa-whatsapp"></i><div><span class="contact-label">WhatsApp</span><a href="https://wa.me/265983142415?text=Hey%20Joel%2C%20I%20viewed%20your%20portfolio" target="_blank">+265 983 142 415</a></div></div>
-                    <div class="contact-item"><i class="fab fa-linkedin"></i><div><span class="contact-label">LinkedIn</span><a href="https://www.linkedin.com/in/joel-kaudzu-0bba48392" target="_blank">joel-kaudzu</a></div></div>
-                    <div class="contact-item"><i class="fab fa-github"></i><div><span class="contact-label">GitHub</span><a href="https://github.com/joelkaudzu9-ship-it" target="_blank">joelkaudzu9-ship-it</a></div></div>
-                    <div class="contact-item"><i class="fab fa-youtube"></i><div><span class="contact-label">YouTube</span><a href="https://youtube.com/@joels_lab" target="_blank">@joels_lab</a></div></div>
-                    <div class="contact-item"><i class="fab fa-x-twitter"></i><div><span class="contact-label">X</span><a href="https://x.com/JoelK63756" target="_blank">@JoelK63756</a></div></div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <span class="contact-label">Email</span>
+                            <a href="mailto:joelkaudzu9@gmail.com">joelkaudzu9@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <span class="contact-label">WhatsApp</span>
+                            <a href="https://wa.me/265983142415?text=Hey%20Joel%2C%20I%20viewed%20your%20portfolio" target="_blank">+265 983 142 415</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-linkedin"></i>
+                        <div>
+                            <span class="contact-label">LinkedIn</span>
+                            <a href="https://www.linkedin.com/in/joel-kaudzu-0bba48392" target="_blank">joel-kaudzu</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-github"></i>
+                        <div>
+                            <span class="contact-label">GitHub</span>
+                            <a href="https://github.com/joelkaudzu9-ship-it" target="_blank">joelkaudzu9-ship-it</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-youtube"></i>
+                        <div>
+                            <span class="contact-label">YouTube</span>
+                            <a href="https://youtube.com/@joels_lab" target="_blank">@joels_lab</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-x-twitter"></i>
+                        <div>
+                            <span class="contact-label">X</span>
+                            <a href="https://x.com/JoelK63756" target="_blank">@JoelK63756</a>
+                        </div>
+                    </div>
                 </div>
                 
                 <div class="contact-form-container glass-card" data-aos="fade-left">
@@ -672,11 +784,22 @@
                         <input type="hidden" name="_subject" value="New message from portfolio">
                         <input type="hidden" name="_replyto" value="joelkaudzu9@gmail.com">
                         
-                        <div class="form-group"><input type="text" name="name" required><label>Your Name</label></div>
-                        <div class="form-group"><input type="email" name="email" required><label>Your Email</label></div>
-                        <div class="form-group"><textarea name="message" rows="5" required></textarea><label>Your Message</label></div>
+                        <div class="form-group">
+                            <input type="text" name="name" required>
+                            <label>Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" required>
+                            <label>Your Email</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" rows="5" required></textarea>
+                            <label>Your Message</label>
+                        </div>
                         
-                        <button type="submit" class="btn btn-primary btn-full">Send Message <i class="fas fa-paper-plane"></i></button>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            Send Message <i class="fas fa-paper-plane"></i>
+                        </button>
                     </form>
                 </div>
             </div>
@@ -695,11 +818,15 @@
                     <a href="index.html">Home</a>
                     <a href="pages/about.html">About</a>
                     <a href="pages/projects.html">Projects</a>
-                    <a href="pages/poetry-collection.html">Poetry</a>
+                    <a href="pages/research.html">Research</a>
+                    <a href="pages/leadership.html">Leadership</a>
+                    <a href="pages/philosophy.html">Philosophy</a>
+                    <a href="pages/poetry.html">Poetry</a>
+                    <a href="blog/index.html">Blog</a>
                     <a href="pages/contact.html">Contact</a>
                 </div>
                 <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/joel-kaudzu-0bba48392" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/in/joel-kaudzu-0bba48392" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/joelkaudzu9-ship-it" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://youtube.com/@joels_lab" target="_blank"><i class="fab fa-youtube"></i></a>
                     <a href="https://x.com/JoelK63756" target="_blank"><i class="fab fa-x-twitter"></i></a>
@@ -717,6 +844,33 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <!-- Image Fallback Script -->
+    <script>
+        // Fix any broken images on the page
+        document.addEventListener('DOMContentLoaded', function() {
+            const images = document.querySelectorAll('img');
+            images.forEach(img => {
+                img.onerror = function() {
+                    console.log('Broken image:', this.src);
+                    this.style.display = 'none';
+                    // Add a fallback icon
+                    const parent = this.parentElement;
+                    if (parent && !parent.querySelector('.image-fallback')) {
+                        const fallback = document.createElement('div');
+                        fallback.className = 'image-fallback';
+                        fallback.innerHTML = '<i class="fas fa-image"></i>';
+                        parent.appendChild(fallback);
+                    }
+                };
+                
+                // Trigger error check for already broken images
+                if (img.complete && img.naturalHeight === 0) {
+                    img.onerror();
+                }
+            });
+        });
+    </script>
+
     <!-- Scripts -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -728,7 +882,11 @@
     <script src="js/main.js"></script>
     
     <script>
-        AOS.init({ duration: 800, once: false, mirror: true });
+        AOS.init({
+            duration: 800,
+            once: false,
+            mirror: true
+        });
     </script>
 </body>
 </html>
