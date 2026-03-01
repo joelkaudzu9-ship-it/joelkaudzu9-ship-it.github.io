@@ -3,19 +3,316 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Projects · Joel Kaudzu</title>
+    <title>Projects · Joel Kaudzu · Medical-Tech Innovator</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Main CSS (fixed paths) -->
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/pages.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Emergency fixes if CSS doesn't load */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0B1120;
+            color: #F9FAFB;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background: rgba(11, 17, 32, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .nav-logo .logo-text {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #D4AF37, #22D3EE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #F9FAFB;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #D4AF37;
+        }
+        
+        .page-header {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0B1120, #111827);
+            padding-top: 100px;
+        }
+        
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            background: linear-gradient(135deg, #F9FAFB, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .page-subtitle {
+            color: #9CA3AF;
+            font-size: 1.2rem;
+        }
+        
+        .projects-full {
+            padding: 4rem 0;
+            background: #0B1120;
+        }
+        
+        .project-spotlight {
+            margin-bottom: 3rem;
+            padding: 2rem;
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+        
+        .project-spotlight:hover {
+            transform: translateY(-5px);
+            border-color: #D4AF37;
+            box-shadow: 0 20px 40px -15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .spotlight-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .spotlight-grid.reverse {
+            direction: rtl;
+        }
+        
+        .spotlight-grid.reverse .spotlight-content {
+            direction: ltr;
+        }
+        
+        .spotlight-media img {
+            width: 100%;
+            border-radius: 20px;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+        
+        .spotlight-media img:hover {
+            transform: scale(1.02);
+            border-color: #22D3EE;
+        }
+        
+        .spotlight-content h2 {
+            color: #D4AF37;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .project-meta {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #22D3EE;
+            font-size: 0.9rem;
+        }
+        
+        .spotlight-content p {
+            color: #9CA3AF;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+        }
+        
+        .project-links-large {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #D4AF37, #22D3EE);
+            color: #0B1120;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -5px rgba(212, 175, 55, 0.5);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #D4AF37;
+            color: #F9FAFB;
+        }
+        
+        .btn-outline:hover {
+            background: #D4AF37;
+            color: #0B1120;
+        }
+        
+        .main-footer {
+            background: #111827;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo .logo-text {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #D4AF37, #22D3EE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #D4AF37;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #F9FAFB;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background: #D4AF37;
+            color: #0B1120;
+            transform: translateY(-3px);
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            color: #9CA3AF;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .spotlight-grid {
+                grid-template-columns: 1fr;
+            }
+            .spotlight-grid.reverse {
+                direction: ltr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="../index.html">
                     <span class="logo-text">JK</span>
-                    <span class="logo-dot"></span>
                 </a>
             </div>
             <div class="nav-menu">
@@ -34,6 +331,7 @@
         </div>
     </nav>
 
+    <!-- Page Header -->
     <section class="page-header">
         <div class="container">
             <h1 class="page-title" data-aos="fade-up">All Projects</h1>
@@ -41,27 +339,32 @@
         </div>
     </section>
 
-    <section class="projects-full section-padding">
+    <!-- Projects Section -->
+    <section class="projects-full">
         <div class="container">
+            
             <!-- CheckMySmile -->
-            <div class="project-spotlight glass-card" data-aos="fade-up">
+            <div class="project-spotlight" data-aos="fade-up">
                 <div class="spotlight-grid">
                     <div class="spotlight-media">
-                        <img src="../assets/images/projects/checkmysmile-screenshot.jpg" alt="CheckMySmile">
+                        <img src="../assets/images/projects/checkmysmile-screenshot.jpg" alt="CheckMySmile Dashboard" onerror="this.src='https://via.placeholder.com/600x400?text=CheckMySmile'">
                     </div>
                     <div class="spotlight-content">
                         <h2>CheckMySmile</h2>
                         <div class="project-meta">
-                            <span class="meta-item"><i class="fas fa-calendar"></i> 2024</span>
-                            <span class="meta-item"><i class="fas fa-tag"></i> MedTech</span>
+                            <span class="meta-item"><i class="fas fa-calendar"></i> 2024 · Launched</span>
+                            <span class="meta-item"><i class="fas fa-tag"></i> MedTech · Web App</span>
+                            <span class="meta-item"><i class="fas fa-users"></i> Solo Founder</span>
                         </div>
-                        <p>Developed and tested by fellow medical students. Thousands of avoidable pain and systemic complications could be curbed with early detection.</p>
+                        
+                        <p>Developed and tested by fellow medical students. Thousands of avoidable pain and systemic complications could be curbed with early detection and awareness. The platform makes oral health trackable and engaging.</p>
+                        
                         <div class="project-links-large">
                             <a href="https://youtu.be/XfdkxzoQw9Q" class="btn btn-primary" target="_blank">
-                                <i class="fab fa-youtube"></i> Watch Demo
+                                <i class="fab fa-youtube"></i> Watch Demo on YouTube
                             </a>
                             <a href="../assets/documents/checkmysmile-proposal.pdf" class="btn btn-outline" download>
-                                <i class="fas fa-download"></i> Project Proposal
+                                <i class="fas fa-download"></i> Download Proposal
                             </a>
                         </div>
                     </div>
@@ -69,137 +372,165 @@
             </div>
 
             <!-- Mini Bio-Digester -->
-            <div class="project-spotlight glass-card" data-aos="fade-up">
+            <div class="project-spotlight" data-aos="fade-up">
                 <div class="spotlight-grid reverse">
                     <div class="spotlight-content">
                         <h2>Mini Bio-Digester (2021)</h2>
                         <div class="project-meta">
-                            <span class="meta-item"><i class="fas fa-calendar"></i> 2021</span>
-                            <span class="meta-item"><i class="fas fa-tag"></i> Engineering</span>
+                            <span class="meta-item"><i class="fas fa-calendar"></i> 2021 · Completed</span>
+                            <span class="meta-item"><i class="fas fa-tag"></i> Engineering · Sustainability</span>
                         </div>
-                        <p>Built as Form 2 student at Dedza Secondary School. First engineering project.</p>
+                        
+                        <p>Built as Form 2 student at Dedza Secondary School. First engineering project that sparked my curiosity in applied problem-solving and sustainable technology. Designed and constructed using locally available materials.</p>
+                        
                         <div class="project-links-large">
                             <a href="../assets/documents/bio-digester-proposal.pdf" class="btn btn-primary" download>
-                                <i class="fas fa-download"></i> Project Proposal
+                                <i class="fas fa-download"></i> Download Proposal
                             </a>
                         </div>
                     </div>
                     <div class="spotlight-media">
-                        <img src="../assets/images/projects/bio-digester.jpg" alt="Mini Bio-Digester">
+                        <img src="../assets/images/projects/bio-digester.jpg" alt="Mini Bio-Digester" onerror="this.src='https://via.placeholder.com/600x400?text=Bio-Digester'">
                     </div>
                 </div>
             </div>
 
             <!-- KUHES Campus Connect -->
-            <div class="project-spotlight glass-card" data-aos="fade-up">
+            <div class="project-spotlight" data-aos="fade-up">
                 <div class="spotlight-grid">
                     <div class="spotlight-media">
-                        <img src="../assets/images/projects/campus-connect-mockup.jpg" alt="Campus Connect">
+                        <img src="../assets/images/projects/campus-connect-mockup.jpg" alt="KUHES Campus Connect" onerror="this.src='https://via.placeholder.com/600x400?text=Campus+Connect'">
                     </div>
                     <div class="spotlight-content">
                         <h2>KUHES Campus Connect</h2>
                         <div class="project-meta">
-                            <span class="meta-item"><i class="fas fa-calendar"></i> 2025</span>
-                            <span class="meta-item"><i class="fas fa-tag"></i> Software</span>
+                            <span class="meta-item"><i class="fas fa-calendar"></i> 2025 · In Progress</span>
+                            <span class="meta-item"><i class="fas fa-tag"></i> Software · Networking</span>
                         </div>
-                        <p>Exclusive student networking platform using @kuhes.ac.mw emails. In development.</p>
+                        
+                        <p>Exclusive student networking platform using @kuhes.ac.mw emails to create a secure academic network for collaboration and resource sharing. Beta launch planned for Q3 2025.</p>
+                        
+                        <div class="project-links-large">
+                            <span class="badge status in-progress">In Development</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Avocado Oil Extraction -->
-            <div class="project-spotlight glass-card" data-aos="fade-up">
+            <div class="project-spotlight" data-aos="fade-up">
                 <div class="spotlight-grid reverse">
                     <div class="spotlight-content">
                         <h2>Avocado Oil Extraction (2022)</h2>
                         <div class="project-meta">
-                            <span class="meta-item"><i class="fas fa-calendar"></i> 2022</span>
-                            <span class="meta-item"><i class="fas fa-tag"></i> Engineering</span>
+                            <span class="meta-item"><i class="fas fa-calendar"></i> 2022 · Completed</span>
+                            <span class="meta-item"><i class="fas fa-tag"></i> Engineering · Agriculture</span>
                         </div>
-                        <p>Experimental project exploring cold-press extraction methods.</p>
+                        
+                        <p>Experimental project exploring cold-press extraction methods for avocado oil. Investigated potential for small-scale agribusiness and value addition to local agricultural products.</p>
                     </div>
                     <div class="spotlight-media">
-                        <img src="../assets/images/projects/avocado-oil.jpg" alt="Avocado Oil Extraction">
+                        <img src="../assets/images/projects/avocado-oil.jpg" alt="Avocado Oil Extraction" onerror="this.src='https://via.placeholder.com/600x400?text=Avocado+Oil'">
                     </div>
                 </div>
             </div>
 
             <!-- Healing Journal -->
-            <div class="project-spotlight glass-card" data-aos="fade-up">
+            <div class="project-spotlight" data-aos="fade-up">
                 <div class="spotlight-grid">
                     <div class="spotlight-media">
-                        <img src="../assets/images/projects/healing-journal.jpg" alt="Healing Journal">
+                        <img src="../assets/images/projects/healing-journal.jpg" alt="Personal Healing Journal" onerror="this.src='https://via.placeholder.com/600x400?text=Healing+Journal'">
                     </div>
                     <div class="spotlight-content">
                         <h2>Personal Healing Journal</h2>
                         <div class="project-meta">
-                            <span class="meta-item"><i class="fas fa-calendar"></i> Ongoing</span>
-                            <span class="meta-item"><i class="fas fa-tag"></i> Philosophy</span>
+                            <span class="meta-item"><i class="fas fa-calendar"></i> 2024-2026 · Ongoing</span>
+                            <span class="meta-item"><i class="fas fa-tag"></i> Philosophy · Personal</span>
                         </div>
-                        <p>20-page handwritten document capturing spiritual growth, discipline, and reflection.</p>
+                        
+                        <p>A 20-page handwritten document capturing spiritual growth, discipline tracking, emotional processing, and personal philosophy. This practice keeps me grounded and intentional.</p>
                     </div>
                 </div>
             </div>
 
             <!-- Teaching & Mentorship -->
-            <div class="project-spotlight glass-card" data-aos="fade-up">
+            <div class="project-spotlight" data-aos="fade-up">
                 <div class="spotlight-grid reverse">
                     <div class="spotlight-content">
                         <h2>Teaching & Mentorship</h2>
                         <div class="project-meta">
                             <span class="meta-item"><i class="fas fa-calendar"></i> 2023-2025</span>
-                            <span class="meta-item"><i class="fas fa-tag"></i> Leadership</span>
+                            <span class="meta-item"><i class="fas fa-tag"></i> Leadership · Education</span>
                         </div>
-                        <p>1.5 years teaching Mathematics and Physics. Mentored 10+ students.</p>
+                        
+                        <p>1.5 years teaching Mathematics and Physics at Bright Future Private Secondary School. Mentored 10+ students through academic and personal guidance. Developed simplified teaching aids and peer-learning methodologies.</p>
+                        
+                        <div class="teaching-stats" style="display: flex; gap: 2rem; margin: 1.5rem 0;">
+                            <div><span style="color: #D4AF37; font-size: 2rem; font-weight: 700;">50+</span><br><span style="color: #9CA3AF;">Students</span></div>
+                            <div><span style="color: #D4AF37; font-size: 2rem; font-weight: 700;">10</span><br><span style="color: #9CA3AF;">Mentees</span></div>
+                        </div>
                     </div>
                     <div class="spotlight-media">
-                        <img src="../assets/images/leadership/teaching-math.jpg" alt="Teaching Mathematics">
+                        <img src="../assets/images/leadership/teaching-math.jpg" alt="Teaching Mathematics" onerror="this.src='https://via.placeholder.com/600x400?text=Teaching'">
                     </div>
                 </div>
             </div>
 
             <!-- Mentorship Session -->
-            <div class="project-spotlight glass-card" data-aos="fade-up">
+            <div class="project-spotlight" data-aos="fade-up">
                 <div class="spotlight-grid">
                     <div class="spotlight-media">
-                        <img src="../assets/images/leadership/mentorship-session.jpg" alt="Mentorship Session">
+                        <img src="../assets/images/leadership/mentorship-session.jpg" alt="Mentorship Session" onerror="this.src='https://via.placeholder.com/600x400?text=Mentorship'">
                     </div>
                     <div class="spotlight-content">
-                        <h2>Mentorship Program</h2>
+                        <h2>Peer Mentorship Program</h2>
                         <div class="project-meta">
-                            <span class="meta-item"><i class="fas fa-calendar"></i> Ongoing</span>
-                            <span class="meta-item"><i class="fas fa-tag"></i> Leadership</span>
+                            <span class="meta-item"><i class="fas fa-calendar"></i> 2023-Present</span>
+                            <span class="meta-item"><i class="fas fa-tag"></i> Leadership · Mentorship</span>
                         </div>
-                        <p>Guiding 10+ students through academic and personal development.</p>
+                        
+                        <p>Guiding 10+ students through academic challenges, career advice, and personal development. Weekly one-on-one sessions focused on identity, discipline, and growth.</p>
+                        
+                        <div class="role-impact" style="margin-top: 1.5rem;">
+                            <span style="color: #D4AF37; font-size: 2rem; font-weight: 700;">10</span>
+                            <span style="color: #9CA3AF; margin-left: 0.5rem;">Active Mentees</span>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <!-- Innovation Meeting -->
-            <div class="project-spotlight glass-card" data-aos="fade-up">
+            <div class="project-spotlight" data-aos="fade-up">
                 <div class="spotlight-grid reverse">
                     <div class="spotlight-content">
                         <h2>KUHES Innovation Coordination</h2>
                         <div class="project-meta">
                             <span class="meta-item"><i class="fas fa-calendar"></i> 2024-Present</span>
-                            <span class="meta-item"><i class="fas fa-tag"></i> Leadership</span>
+                            <span class="meta-item"><i class="fas fa-tag"></i> Leadership · Innovation</span>
                         </div>
-                        <p>Coordinating 10+ student innovation initiatives as KUHES Innovations Coordinator.</p>
+                        
+                        <p>As KUHES Science For All Innovations Coordinator, I lead student-driven innovation initiatives. Coordinated 10+ projects, developed mentorship frameworks, and organized innovation sprints.</p>
+                        
+                        <div class="role-impact" style="margin-top: 1.5rem;">
+                            <span style="color: #D4AF37; font-size: 2rem; font-weight: 700;">10</span>
+                            <span style="color: #9CA3AF; margin-left: 0.5rem;">Innovations</span>
+                        </div>
                     </div>
                     <div class="spotlight-media">
-                        <img src="../assets/images/leadership/innovation-meeting.jpg" alt="Innovation Meeting">
+                        <img src="../assets/images/leadership/innovation-meeting.jpg" alt="Innovation Meeting" onerror="this.src='https://via.placeholder.com/600x400?text=Innovation+Meeting'">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
                     <span class="logo-text">JK</span>
-                    <span class="logo-tagline">Innovation. Discipline. Depth.</span>
+                    <div style="color: #9CA3AF; font-size: 0.8rem; margin-top: 0.3rem;">Innovation. Discipline. Depth.</div>
                 </div>
                 <div class="footer-links">
                     <a href="../index.html">Home</a>
@@ -209,7 +540,7 @@
                     <a href="contact.html">Contact</a>
                 </div>
                 <div class="footer-social">
-                    <a href="https://www.linkedin.com/in/joel-kaudzu-0bba48392" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://www.linkedin.com/in/joel-kaudzu-0bba48392" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                     <a href="https://github.com/joelkaudzu9-ship-it" target="_blank"><i class="fab fa-github"></i></a>
                     <a href="https://youtube.com/@joels_lab" target="_blank"><i class="fab fa-youtube"></i></a>
                     <a href="https://x.com/JoelK63756" target="_blank"><i class="fab fa-x-twitter"></i></a>
@@ -217,12 +548,28 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Joel George Kaudzu. Built at 3:33am.</p>
+                <p style="color: #D4AF37; margin-top: 0.5rem;">"Build what you wish existed."</p>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../js/main.js"></script>
-    <script>AOS.init();</script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: false,
+            mirror: true
+        });
+        
+        // Fix for any broken images
+        document.querySelectorAll('img').forEach(img => {
+            img.onerror = function() {
+                this.src = 'https://via.placeholder.com/600x400?text=Image+Coming+Soon';
+                this.style.opacity = '0.8';
+            };
+        });
+    </script>
 </body>
 </html>
