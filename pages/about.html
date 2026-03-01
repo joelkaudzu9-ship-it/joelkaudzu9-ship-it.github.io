@@ -2,12 +2,484 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About the Author · Joel Kaudzu Blog</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/pages.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>About · Joel Kaudzu · Medical-Tech Innovator</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* ===== MOBILE-FIRST RESET ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            position: relative;
+        }
+        
+        body {
+            background: #0B1120;
+            color: #F9FAFB;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .container {
+                padding: 0 2rem;
+            }
+        }
+        
+        /* ===== NAVIGATION - MOBILE FIXED ===== */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1rem 0;
+            background: rgba(11, 17, 32, 0.98);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+            padding: 0 1rem;
+        }
+        
+        .nav-logo .logo-text {
+            font-size: 1.8rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #D4AF37, #22D3EE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Mobile menu */
+        .nav-menu {
+            position: fixed;
+            top: 70px;
+            left: -100%;
+            width: 80%;
+            max-width: 300px;
+            height: 100vh;
+            background: #111827;
+            padding: 2rem;
+            transition: left 0.3s ease;
+            z-index: 999;
+            border-right: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .nav-menu.active {
+            left: 0;
+        }
+        
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #F9FAFB;
+            text-decoration: none;
+            font-size: 1.1rem;
+            font-weight: 500;
+        }
+        
+        .nav-links a.active {
+            color: #D4AF37;
+        }
+        
+        .nav-right {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .menu-toggle {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1001;
+        }
+        
+        .menu-toggle span {
+            width: 25px;
+            height: 2px;
+            background: #D4AF37;
+            transition: all 0.3s ease;
+        }
+        
+        .menu-toggle.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+        
+        .menu-toggle.active span:nth-child(2) {
+            opacity: 0;
+        }
+        
+        .menu-toggle.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(7px, -7px);
+        }
+        
+        /* Desktop navigation */
+        @media (min-width: 992px) {
+            .nav-menu {
+                position: static;
+                width: auto;
+                height: auto;
+                background: transparent;
+                padding: 0;
+                border: none;
+                left: auto;
+            }
+            
+            .nav-links {
+                flex-direction: row;
+                gap: 2rem;
+            }
+            
+            .menu-toggle {
+                display: none;
+            }
+        }
+        
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            min-height: 30vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 5rem 1rem 2rem;
+            background: linear-gradient(135deg, #0B1120, #111827);
+        }
+        
+        .page-title {
+            font-size: clamp(2rem, 6vw, 4rem);
+            background: linear-gradient(135deg, #F9FAFB, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-subtitle {
+            color: #9CA3AF;
+            font-size: clamp(1rem, 3vw, 1.2rem);
+        }
+        
+        /* ===== ABOUT PAGE - FIXED PROFILE ===== */
+        .about-detailed {
+            padding: 2rem 0;
+        }
+        
+        .about-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 992px) {
+            .about-grid {
+                display: grid;
+                grid-template-columns: 0.8fr 1.2fr;
+                gap: 3rem;
+                align-items: start;
+            }
+        }
+        
+        /* Profile image - FIXED FRAME */
+        .about-image {
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .image-frame {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            border-radius: 30px;
+            padding: 1rem;
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 3/4;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .image-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .image-frame:hover img {
+            transform: scale(1.02);
+        }
+        
+        .image-caption {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 1.5rem;
+            right: 1.5rem;
+            background: linear-gradient(0deg, rgba(11, 17, 32, 0.95), transparent);
+            padding: 1rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+        
+        .caption-name {
+            display: block;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #D4AF37;
+        }
+        
+        .caption-title {
+            display: block;
+            font-size: 0.8rem;
+            color: #9CA3AF;
+        }
+        
+        /* Quick info card */
+        .quick-info {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+        }
+        
+        .quick-info h3 {
+            color: #D4AF37;
+            margin-bottom: 1rem;
+        }
+        
+        .quick-info ul {
+            list-style: none;
+        }
+        
+        .quick-info li {
+            padding: 0.8rem 0;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+        }
+        
+        .quick-info li i {
+            color: #22D3EE;
+            width: 20px;
+        }
+        
+        /* Bio content */
+        .about-content {
+            width: 100%;
+        }
+        
+        .bio-section {
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .bio-section h2 {
+            color: #D4AF37;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .bio-section h3 {
+            color: #22D3EE;
+            font-size: 1.3rem;
+            margin: 1.5rem 0 0.5rem;
+        }
+        
+        .bio-section p {
+            color: #9CA3AF;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+        
+        /* Values grid */
+        .values-section {
+            padding: 1.5rem;
+        }
+        
+        .values-section h2 {
+            color: #D4AF37;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .values-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 1rem;
+        }
+        
+        @media (min-width: 640px) {
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: rgba(17, 24, 39, 0.5);
+            border-radius: 20px;
+            border: 1px solid rgba(212, 175, 55, 0.1);
+        }
+        
+        .value-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: rgba(212, 175, 55, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .value-icon i {
+            font-size: 1.5rem;
+            color: #D4AF37;
+        }
+        
+        .value-item h4 {
+            color: #22D3EE;
+            margin-bottom: 0.5rem;
+        }
+        
+        .value-item p {
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+        
+        /* ===== FOOTER - MOBILE FIXED ===== */
+        .main-footer {
+            background: #111827;
+            padding: 2rem 0 1rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            margin-top: 2rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            text-align: center;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-between;
+                text-align: left;
+            }
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .footer-links a {
+            color: #9CA3AF;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+        
+        .footer-links a:hover {
+            color: #D4AF37;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        .footer-social a {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #F9FAFB;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background: #D4AF37;
+            color: #0B1120;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            color: #9CA3AF;
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+            font-size: 0.9rem;
+        }
+        
+        /* ===== UTILITY CLASSES ===== */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 24px;
+            transition: all 0.3s ease;
+        }
+        
+        .text-gold {
+            color: #D4AF37;
+        }
+        
+        .text-cyan {
+            color: #22D3EE;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
@@ -16,25 +488,32 @@
             <div class="nav-logo">
                 <a href="../index.html">
                     <span class="logo-text">JK</span>
-                    <span class="logo-dot"></span>
                 </a>
             </div>
-            <div class="nav-menu">
+            
+            <div class="nav-menu" id="navMenu">
                 <ul class="nav-links">
                     <li><a href="../index.html">Home</a></li>
-                    <li><a href="../pages/about.html">About</a></li>
-                    <li><a href="../pages/projects.html">Projects</a></li>
-                    <li><a href="../pages/research.html">Research</a></li>
-                    <li><a href="../pages/leadership.html">Leadership</a></li>
-                    <li><a href="../pages/philosophy.html">Philosophy</a></li>
-                    <li><a href="../pages/poetry.html">Poetry</a></li>
-                    <li><a href="index.html" class="active">Blog</a></li>
-                    <li><a href="../pages/contact.html">Contact</a></li>
+                    <li><a href="about.html" class="active">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="leadership.html">Leadership</a></li>
+                    <li><a href="philosophy.html">Philosophy</a></li>
+                    <li><a href="poetry.html">Poetry</a></li>
+                    <li><a href="../blog/index.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
                 </ul>
             </div>
+            
             <div class="nav-right">
-                <button class="theme-toggle"><i class="fas fa-moon"></i></button>
-                <button class="menu-toggle"><span></span><span></span><span></span></button>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+                <button class="menu-toggle" id="menuToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </div>
         </div>
     </nav>
@@ -42,306 +521,96 @@
     <!-- Page Header -->
     <section class="page-header">
         <div class="container">
-            <h1 class="page-title" data-aos="fade-up">About the Author</h1>
-            <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">The person behind the posts · 3:33am thinker & builder</p>
+            <h1 class="page-title" data-aos="fade-up">About Me</h1>
+            <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">Premed · Innovator · Builder · Poet</p>
         </div>
     </section>
 
-    <!-- Author Introduction -->
-    <section class="author-intro section-padding">
+    <!-- About Content -->
+    <section class="about-detailed">
         <div class="container">
-            <div class="author-grid">
-                <div class="author-image-frame glass-card" data-aos="fade-right">
-                    <img src="../assets/images/hero/joel-profile-main.jpg" alt="Joel George Kaudzu" class="author-main-image">
-                    <div class="author-social-links">
-                        <a href="#" target="_blank"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-github"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-twitter"></i></a>
-                        <a href="#" target="_blank"><i class="fab fa-youtube"></i></a>
-                        <a href="#" target="_blank"><i class="fas fa-envelope"></i></a>
+            <div class="about-grid">
+                <!-- Left Column - Profile Image (FIXED) -->
+                <div class="about-image" data-aos="fade-right">
+                    <div class="image-frame glass-card">
+                        <img src="../assets/images/hero/joel-profile-main.jpg" alt="Joel George Kaudzu">
+                        <div class="image-caption">
+                            <span class="caption-name">Joel George Kaudzu</span>
+                            <span class="caption-title">Premed · Innovator · Founder</span>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-info glass-card" data-aos="fade-up">
+                        <h3>Quick Facts</h3>
+                        <ul>
+                            <li><i class="fas fa-calendar"></i> Innovating since 2021</li>
+                            <li><i class="fas fa-map-marker-alt"></i> Malawi · KUHES</li>
+                            <li><i class="fas fa-flask"></i> 5+ Projects Built</li>
+                            <li><i class="fas fa-users"></i> 10+ Students Mentored</li>
+                            <li><i class="fas fa-clock"></i> 3:33am Builder</li>
+                        </ul>
                     </div>
                 </div>
-
-                <div class="author-bio-full glass-card" data-aos="fade-left">
-                    <h2>Joel George Kaudzu</h2>
-                    <p class="author-title">Premed Dental Surgery · Innovation Coordinator · Python Developer · MedTech Founder</p>
-
-                    <div class="author-quote">
-                        <i class="fas fa-quote-left"></i>
-                        <p>I write not because I have all the answers, but because writing helps me find them. This blog is my digital garden—where ideas grow, get pruned, and sometimes bear fruit.</p>
+                
+                <!-- Right Column - Bio Content -->
+                <div class="about-content" data-aos="fade-left">
+                    <div class="bio-section glass-card">
+                        <h2>The Journey So Far</h2>
+                        
+                        <h3>🌍 Roots & Early Curiosity</h3>
+                        <p>Born and raised in Malawi, my journey into innovation began not in a lab, but in the red soil of Dedza. As a Form 2 student at Dedza Secondary School, I built my first real project—a mini bio-digester—out of curiosity and a desire to solve real problems. That project taught me that innovation isn't about resources; it's about resourcefulness.</p>
+                        
+                        <h3>📚 Academic Foundation</h3>
+                        <p>Currently pursuing Premed Dental Surgery at KUHES, I've developed a deep appreciation for the human body, especially the nervous system and chromosomal biology. But I quickly realized that medicine alone isn't enough—technology must be part of the healing equation. This realization set me on a path to blend dentistry with data science, AI, and digital health solutions.</p>
+                        
+                        <h3>👨‍🏫 The Teacher Within</h3>
+                        <p>For 1.5 years at Bright Future Private Secondary School, I stood in front of classrooms teaching Mathematics and Physics. Those 18 months shaped me more than any textbook. I learned to break down complex ideas, to read confusion in a student's eyes, and to find joy in someone else's "aha!" moment. Teaching isn't just something I did—it's part of who I am.</p>
+                        
+                        <h3>💡 Innovation Leadership</h3>
+                        <p>As KUHES Science For All Innovations Coordinator, I don't just manage projects—I cultivate innovators. I've coordinated 10+ student initiatives and mentored 10+ students, building systems that take raw ideas and turn them into executable initiatives.</p>
+                        
+                        <h3>🚀 Founder Mode</h3>
+                        <p><strong>CheckMySmile</strong> was born from a simple observation: dental health is neglected until it hurts. I built a platform that makes oral health engaging and trackable, developed and tested by fellow medical students. <strong>KUHES Campus Connect</strong> is next—an exclusive network for students to collaborate across disciplines.</p>
+                        
+                        <h3>📊 Data Science Journey</h3>
+                        <p>I'm currently deep in a structured transformation into data analytics. Python, pandas, visualization, statistics—I'm not just learning, I'm building. Every new skill is immediately applied to healthcare problems.</p>
+                        
+                        <h3>📝 The Poet's Mind</h3>
+                        <p>I write poetry through my collection "Threads of Becoming." Poetry sharpens my emotional intelligence—essential for a future healer. My 20-page handwritten journal is evidence that I value introspection as much as execution.</p>
+                        
+                        <h3>⏰ The 3:33am Philosophy</h3>
+                        <p>While others sleep, I build. Not out of hustle culture obsession, but because silence breeds clarity. At 3:33am, there are no distractions—just me, the vision, and the work. This discipline compounds.</p>
+                        
+                        <h3>🌅 Long-Term Vision</h3>
+                        <p>I see a future where African healthcare is transformed by its own innovators—solutions built here, for here. I want to be part of that wave, blending dental science with immunology data, building diagnostic tools accessible in rural clinics, and proving that world-class innovation can emerge from Malawi.</p>
                     </div>
-
-                    <p>Welcome to my corner of the internet. I'm Joel, a premed dental surgery student at KUHES, innovation coordinator, and builder at the intersection of healthcare and technology. I started this blog in late 2025 as a space to think out loud—to document my journey, share what I'm learning, and connect with others on similar paths.</p>
-
-                    <p>The name "3:33am Blog" comes from my practice of waking at 3:33am to work in silence while the world sleeps. Those hours have become sacred—time when distractions fade and clarity emerges. Many of the posts you'll find here were born in that quiet darkness.</p>
-
-                    <p>I write about discipline, depth, and building things that matter. Sometimes I write about medtech and data science. Sometimes about teaching and mentorship. Occasionally about poetry and philosophy. Always from the perspective of someone still learning, still building, still becoming.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Writing Philosophy -->
-    <section class="writing-philosophy section-padding bg-darker">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Why I Write</h2>
-
-            <div class="philosophy-cards">
-                <div class="philosophy-card glass-card" data-aos="flip-left">
-                    <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
-                    <h3>To Think Clearly</h3>
-                    <p>Writing is thinking made visible. If I can't explain it simply, I don't understand it well enough. This blog is my practice ground for clarity.</p>
-                </div>
-
-                <div class="philosophy-card glass-card" data-aos="flip-left" data-aos-delay="100">
-                    <div class="card-icon"><i class="fas fa-share-alt"></i></div>
-                    <h3>To Share the Journey</h3>
-                    <p>The path from student to builder to founder isn't linear. By sharing both successes and struggles, I hope others find courage for their own paths.</p>
-                </div>
-
-                <div class="philosophy-card glass-card" data-aos="flip-left" data-aos-delay="200">
-                    <div class="card-icon"><i class="fas fa-link"></i></div>
-                    <h3>To Connect</h3>
-                    <p>The best ideas emerge from conversation. This blog is an invitation—to disagree, to build together, to prove that collaboration beats competition.</p>
-                </div>
-
-                <div class="philosophy-card glass-card" data-aos="flip-left" data-aos-delay="300">
-                    <div class="card-icon"><i class="fas fa-clock"></i></div>
-                    <h3>To Leave a Trail</h3>
-                    <p>Years from now, I want to look back and see the evolution—what I believed, what I questioned, who I was becoming. This blog is my time capsule.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- What I Write About -->
-    <section class="writing-topics section-padding">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Topics I Explore</h2>
-
-            <div class="topics-grid">
-                <div class="topic-item glass-card" data-aos="zoom-in">
-                    <i class="fas fa-tooth"></i>
-                    <h3>MedTech & Innovation</h3>
-                    <p>Building CheckMySmile, exploring dental technology, and imagining the future of African healthcare.</p>
-                    <span class="topic-count">8 posts</span>
-                </div>
-
-                <div class="topic-item glass-card" data-aos="zoom-in" data-aos-delay="50">
-                    <i class="fas fa-chart-line"></i>
-                    <h3>Data Science</h3>
-                    <p>Learning Python, pandas, visualization. Applying data to health problems. Sharing the journey.</p>
-                    <span class="topic-count">6 posts</span>
-                </div>
-
-                <div class="topic-item glass-card" data-aos="zoom-in" data-aos-delay="100">
-                    <i class="fas fa-users"></i>
-                    <h3>Leadership & Mentorship</h3>
-                    <p>Lessons from teaching, coordinating innovation, and guiding fellow students.</p>
-                    <span class="topic-count">5 posts</span>
-                </div>
-
-                <div class="topic-item glass-card" data-aos="zoom-in" data-aos-delay="150">
-                    <i class="fas fa-book"></i>
-                    <h3>Philosophy & Discipline</h3>
-                    <p>The 3:33am practice, depth over noise, and building identity over chasing applause.</p>
-                    <span class="topic-count">7 posts</span>
-                </div>
-
-                <div class="topic-item glass-card" data-aos="zoom-in" data-aos-delay="200">
-                    <i class="fas fa-feather-alt"></i>
-                    <h3>Poetry & Reflection</h3>
-                    <p>The softer side—poems, journal excerpts, and reflections on becoming.</p>
-                    <span class="topic-count">4 posts</span>
-                </div>
-
-                <div class="topic-item glass-card" data-aos="zoom-in" data-aos-delay="250">
-                    <i class="fas fa-flask"></i>
-                    <h3>Project Diaries</h3>
-                    <p>Behind-the-scenes of building—successes, failures, and everything in between.</p>
-                    <span class="topic-count">9 posts</span>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Writing Stats -->
-    <section class="writing-stats section-padding bg-darker">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">By the Numbers</h2>
-
-            <div class="stats-grid">
-                <div class="stat-card glass-card" data-aos="fade-right">
-                    <div class="stat-value" data-counter="24">24</div>
-                    <div class="stat-label">Blog Posts</div>
-                </div>
-
-                <div class="stat-card glass-card" data-aos="fade-up">
-                    <div class="stat-value" data-counter="8">8</div>
-                    <div class="stat-label">Months Writing</div>
-                </div>
-
-                <div class="stat-card glass-card" data-aos="fade-left">
-                    <div class="stat-value" data-counter="15000">15k+</div>
-                    <div class="stat-label">Words Published</div>
-                </div>
-
-                <div class="stat-card glass-card" data-aos="fade-right" data-aos-delay="100">
-                    <div class="stat-value" data-counter="6">6</div>
-                    <div class="stat-label">Topics Covered</div>
-                </div>
-
-                <div class="stat-card glass-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="stat-value" data-counter="3">3</div>
-                    <div class="stat-label">Guest Contributors</div>
-                </div>
-
-                <div class="stat-card glass-card" data-aos="fade-left" data-aos-delay="100">
-                    <div class="stat-value" data-counter="500">500+</div>
-                    <div class="stat-label">Monthly Readers</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Popular Posts -->
-    <section class="popular-posts section-padding">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Reader Favorites</h2>
-
-            <div class="popular-grid">
-                <div class="popular-card glass-card" data-aos="fade-right">
-                    <img src="../assets/images/blog/3-33am-thumb.jpg" alt="3:33am Manifesto">
-                    <div class="popular-content">
-                        <h3>The 3:33am Manifesto</h3>
-                        <p>Why I build while the world sleeps · 8 min read</p>
-                        <a href="posts/post-3-33am-manifesto.html" class="read-more">Read Post <i class="fas fa-arrow-right"></i></a>
+                    
+                    <div class="values-section glass-card">
+                        <h2>Core Values</h2>
+                        <div class="values-grid">
+                            <div class="value-item">
+                                <div class="value-icon"><i class="fas fa-bullseye"></i></div>
+                                <h4>Discipline</h4>
+                                <p>Consistency over intensity. Small daily actions compound.</p>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon"><i class="fas fa-water"></i></div>
+                                <h4>Depth</h4>
+                                <p>Mastery before visibility. Substance over noise.</p>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                                <h4>Service</h4>
+                                <p>Innovation must serve. Technology without empathy is noise.</p>
+                            </div>
+                            <div class="value-item">
+                                <div class="value-icon"><i class="fas fa-seedling"></i></div>
+                                <h4>Growth</h4>
+                                <p>Always learning, always building, always evolving.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-                <div class="popular-card glass-card" data-aos="fade-up">
-                    <img src="../assets/images/blog/dentistry-tech-thumb.jpg" alt="Dentistry and Data">
-                    <div class="popular-content">
-                        <h3>Why Dentistry Needs Data Science</h3>
-                        <p>The future of oral health is digital · 6 min read</p>
-                        <a href="posts/post-dentistry-data-science.html" class="read-more">Read Post <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <div class="popular-card glass-card" data-aos="fade-left">
-                    <img src="../assets/images/blog/healing-journal-thumb.jpg" alt="Healing Journal">
-                    <div class="popular-content">
-                        <h3>What I Learned From 20 Pages</h3>
-                        <p>The power of handwritten reflection · 5 min read</p>
-                        <a href="posts/post-healing-journal.html" class="read-more">Read Post <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Favorite Quotes -->
-    <section class="favorite-quotes section-padding bg-darker">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Quotes I Return To</h2>
-
-            <div class="quotes-slider">
-                <div class="quote-slide glass-card active">
-                    <i class="fas fa-quote-left"></i>
-                    <p>"The price of discipline is always less than the cost of regret."</p>
-                    <span class="quote-author">— James Clear</span>
-                </div>
-
-                <div class="quote-slide glass-card">
-                    <i class="fas fa-quote-left"></i>
-                    <p>"Build what you wish existed. Don't wait for permission."</p>
-                    <span class="quote-author">— Joel Kaudzu</span>
-                </div>
-
-                <div class="quote-slide glass-card">
-                    <i class="fas fa-quote-left"></i>
-                    <p>"Depth over noise. Be a well, not a faucet."</p>
-                    <span class="quote-author">— Unknown</span>
-                </div>
-
-                <div class="quote-slide glass-card">
-                    <i class="fas fa-quote-left"></i>
-                    <p>"The best time to plant a tree was 20 years ago. The second best time is now."</p>
-                    <span class="quote-author">— Chinese Proverb</span>
-                </div>
-
-                <div class="quotes-controls">
-                    <button class="quote-prev"><i class="fas fa-chevron-left"></i></button>
-                    <button class="quote-next"><i class="fas fa-chevron-right"></i></button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Signup -->
-    <section class="newsletter-section section-padding">
-        <div class="container">
-            <div class="newsletter-card glass-card" data-aos="zoom-in">
-                <h2>Join the 3:33am Community</h2>
-                <p>Get new posts delivered to your inbox. No spam, just honest writing.</p>
-                <form class="newsletter-form">
-                    <div class="form-group inline">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                    </div>
-                    <p class="form-disclaimer">I write about once a week. Unsubscribe anytime.</p>
-                </form>
-            </div>
-        </div>
-    </section>
-
-    <!-- Connect Section -->
-    <section class="connect-section section-padding bg-darker">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Let's Connect</h2>
-
-            <div class="connect-grid">
-                <a href="#" class="connect-card glass-card" data-aos="fade-right">
-                    <i class="fab fa-linkedin"></i>
-                    <h3>LinkedIn</h3>
-                    <p>Professional updates and articles</p>
-                    <span>linkedin.com/in/joel-kaudzu</span>
-                </a>
-
-                <a href="#" class="connect-card glass-card" data-aos="fade-up">
-                    <i class="fab fa-github"></i>
-                    <h3>GitHub</h3>
-                    <p>Code, projects, and collaboration</p>
-                    <span>github.com/joelkaudzu</span>
-                </a>
-
-                <a href="#" class="connect-card glass-card" data-aos="fade-left">
-                    <i class="fab fa-twitter"></i>
-                    <h3>Twitter/X</h3>
-                    <p>Thoughts, threads, and daily notes</p>
-                    <span>@joelkaudzu</span>
-                </a>
-
-                <a href="#" class="connect-card glass-card" data-aos="fade-right" data-aos-delay="100">
-                    <i class="fab fa-youtube"></i>
-                    <h3>YouTube</h3>
-                    <p>Demos, talks, and tutorials</p>
-                    <span>@joelkaudzu</span>
-                </a>
-
-                <a href="#" class="connect-card glass-card" data-aos="fade-up" data-aos-delay="100">
-                    <i class="fas fa-envelope"></i>
-                    <h3>Email</h3>
-                    <p>Direct messages and inquiries</p>
-                    <span>joel.kaudzu@kuhes.ac.mw</span>
-                </a>
-
-                <a href="#" class="connect-card glass-card" data-aos="fade-left" data-aos-delay="100">
-                    <i class="fas fa-rss"></i>
-                    <h3>RSS Feed</h3>
-                    <p>Subscribe in your favorite reader</p>
-                    <span>/blog/feed.xml</span>
-                </a>
             </div>
         </div>
     </section>
@@ -352,77 +621,64 @@
             <div class="footer-content">
                 <div class="footer-logo">
                     <span class="logo-text">JK</span>
-                    <span class="logo-tagline">Innovation. Discipline. Depth.</span>
+                    <div style="color: #9CA3AF; font-size: 0.8rem;">Innovation. Discipline. Depth.</div>
                 </div>
                 <div class="footer-links">
                     <a href="../index.html">Home</a>
-                    <a href="../pages/about.html">About</a>
-                    <a href="../pages/projects.html">Projects</a>
-                    <a href="../pages/research.html">Research</a>
-                    <a href="../pages/leadership.html">Leadership</a>
-                    <a href="../pages/philosophy.html">Philosophy</a>
-                    <a href="../pages/poetry.html">Poetry</a>
-                    <a href="index.html">Blog</a>
-                    <a href="../pages/contact.html">Contact</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="poetry-collection.html">Poetry</a>
+                    <a href="contact.html">Contact</a>
                 </div>
                 <div class="footer-social">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/joel-kaudzu-0bba48392" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/joelkaudzu9-ship-it" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://youtube.com/@joels_lab" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://x.com/JoelK63756" target="_blank"><i class="fab fa-x-twitter"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Joel George Kaudzu. Built at 3:33am.</p>
-                <p class="footer-quote">"Build what you wish existed."</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top -->
-    <button id="backToTop" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../js/main.js"></script>
+    <!-- Mobile Menu Script -->
     <script>
-        AOS.init({
-            duration: 800,
-            once: false,
-            mirror: true
-        });
-
-        // Quote slider functionality
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menuToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        if (menuToggle && navMenu) {
+            menuToggle.addEventListener('click', function() {
+                this.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                document.body.style.overflow = navMenu.classList.contains('active') ? 'hidden' : '';
+            });
+            
+            // Close menu when clicking a link
+            document.querySelectorAll('.nav-links a').forEach(link => {
+                link.addEventListener('click', () => {
+                    menuToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    document.body.style.overflow = '';
+                });
+            });
+        }
+        
+        // AOS initialization
         document.addEventListener('DOMContentLoaded', function() {
-            const quotes = document.querySelectorAll('.quote-slide');
-            const prevBtn = document.querySelector('.quote-prev');
-            const nextBtn = document.querySelector('.quote-next');
-            let currentQuote = 0;
-
-            if (quotes.length && prevBtn && nextBtn) {
-                function showQuote(index) {
-                    quotes.forEach(q => q.classList.remove('active'));
-                    quotes[index].classList.add('active');
-                }
-
-                prevBtn.addEventListener('click', function() {
-                    currentQuote = (currentQuote - 1 + quotes.length) % quotes.length;
-                    showQuote(currentQuote);
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 600,
+                    once: true,
+                    disable: window.innerWidth < 768
                 });
-
-                nextBtn.addEventListener('click', function() {
-                    currentQuote = (currentQuote + 1) % quotes.length;
-                    showQuote(currentQuote);
-                });
-
-                // Auto-rotate quotes every 8 seconds
-                setInterval(function() {
-                    currentQuote = (currentQuote + 1) % quotes.length;
-                    showQuote(currentQuote);
-                }, 8000);
             }
         });
     </script>
+    
+    <!-- AOS Script -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 </body>
 </html>
