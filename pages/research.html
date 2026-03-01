@@ -3,76 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Research · Joel Kaudzu</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/pages.css">
+    <title>Research · Joel Kaudzu · Medical-Tech Innovator</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Emergency CSS */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0B1120;
+            color: #F9FAFB;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background: rgba(11, 17, 32, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .nav-logo .logo-text {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #D4AF37, #22D3EE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #F9FAFB;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #D4AF37;
+        }
+        
+        /* Page Header */
+        .page-header {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0B1120, #111827);
+            padding-top: 100px;
+        }
+        
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            background: linear-gradient(135deg, #F9FAFB, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        .page-subtitle {
+            color: #9CA3AF;
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Research Sections */
+        .research-section {
+            padding: 4rem 0;
+        }
+        
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .research-card {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 30px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        
+        .research-card:hover {
+            transform: translateY(-5px);
+            border-color: #D4AF37;
+            box-shadow: 0 20px 40px -15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .research-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #D4AF37, #22D3EE);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .research-icon i {
+            font-size: 1.8rem;
+            color: #0B1120;
+        }
+        
+        .research-card h3 {
+            color: #D4AF37;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .research-card p {
+            color: #9CA3AF;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .research-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+        
+        .tag {
+            background: rgba(34, 211, 238, 0.1);
+            color: #22D3EE;
+            padding: 0.3rem 1rem;
+            border-radius: 50px;
+            font-size: 0.8rem;
+            border: 1px solid rgba(34, 211, 238, 0.3);
+        }
+        
+        /* Publications */
+        .publications-list {
+            margin-top: 2rem;
+        }
+        
+        .publication-item {
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            display: grid;
+            grid-template-columns: 100px 1fr;
+            gap: 1.5rem;
+            align-items: start;
+            transition: all 0.3s ease;
+        }
+        
+        .publication-item:hover {
+            border-color: #22D3EE;
+        }
+        
+        .pub-year {
+            color: #D4AF37;
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+        
+        .pub-title {
+            color: #F9FAFB;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+        
+        .pub-venue {
+            color: #22D3EE;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .pub-authors {
+            color: #9CA3AF;
+            font-size: 0.9rem;
+        }
+        
+        /* Roadmap */
+        .roadmap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .roadmap-item {
+            background: rgba(17, 24, 39, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            position: relative;
+        }
+        
+        .roadmap-year {
+            color: #D4AF37;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .roadmap-title {
+            color: #22D3EE;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Footer */
+        .main-footer {
+            background: #111827;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #9CA3AF;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #D4AF37;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #F9FAFB;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background: #D4AF37;
+            color: #0B1120;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            color: #9CA3AF;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .publication-item {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <nav class="main-nav"><!-- ... --></nav>
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">
+                    <span class="logo-text">JK</span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="research.html" class="active">Research</a></li>
+                    <li><a href="leadership.html">Leadership</a></li>
+                    <li><a href="philosophy.html">Philosophy</a></li>
+                    <li><a href="poetry.html">Poetry</a></li>
+                    <li><a href="../blog/index.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
 
     <section class="page-header">
         <div class="container">
             <h1 class="page-title" data-aos="fade-up">Research & Innovation</h1>
-            <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">Bridging dentistry, immunology, and data science</p>
+            <p class="page-subtitle" data-aos="fade-up">Bridging dentistry, immunology, and data science</p>
         </div>
     </section>
 
     <!-- Research Focus -->
-    <section class="research-focus section-padding">
+    <section class="research-section">
         <div class="container">
-            <div class="focus-grid">
-                <div class="focus-card glass-card" data-aos="fade-right">
-                    <h2>🔬 Primary Research Interests</h2>
-                    <ul class="research-list">
-                        <li>
-                            <i class="fas fa-tooth"></i>
-                            <div>
-                                <h3>Dental-Immunology Interactions</h3>
-                                <p>Exploring how oral microbiome affects systemic immunity, and potential diagnostic markers in saliva for immune disorders.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-chart-line"></i>
-                            <div>
-                                <h3>Predictive Analytics in Oral Health</h3>
-                                <p>Using machine learning to predict dental disease progression based on lifestyle, genetic, and environmental factors.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-microscope"></i>
-                            <div>
-                                <h3>Low-Cost Diagnostic Tools</h3>
-                                <p>Developing affordable, AI-assisted diagnostic devices for rural clinics with limited access to dentists.</p>
-                            </div>
-                        </li>
-                        <li>
-                            <i class="fas fa-dna"></i>
-                            <div>
-                                <h3>Chromosomal Aberrations & Oral Health</h3>
-                                <p>Investigating links between genetic abnormalities and dental development, with focus on early detection.</p>
-                            </div>
-                        </li>
-                    </ul>
+            <h2 style="color: #D4AF37; font-size: 2rem; margin-bottom: 2rem;">Primary Research Interests</h2>
+            <div class="research-grid">
+                <!-- Dental-Immunology -->
+                <div class="research-card" data-aos="fade-up">
+                    <div class="research-icon">
+                        <i class="fas fa-tooth"></i>
+                    </div>
+                    <h3>Dental-Immunology Interactions</h3>
+                    <p>Exploring how oral microbiome affects systemic immunity, and potential diagnostic markers in saliva for immune disorders.</p>
+                    <div class="research-tags">
+                        <span class="tag">Immunology</span>
+                        <span class="tag">Microbiome</span>
+                        <span class="tag">Dentistry</span>
+                    </div>
                 </div>
 
-                <div class="focus-card glass-card" data-aos="fade-left">
-                    <h2>📊 Current Investigations</h2>
-                    <div class="investigation-item">
-                        <h3>Malaria & Oral Health Correlation</h3>
-                        <p>Analyzing data from 500+ patients to identify oral manifestations that could serve as early malaria indicators.</p>
-                        <span class="badge status in-progress">Data Collection</span>
+                <!-- Predictive Analytics -->
+                <div class="research-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="research-icon">
+                        <i class="fas fa-chart-line"></i>
                     </div>
-                    <div class="investigation-item">
-                        <h3>Nervous System & Dental Pain Pathways</h3>
-                        <p>Literature review on neural pathways in dental pain, aiming to identify new targets for non-opioid pain management.</p>
-                        <span class="badge status">Literature Review</span>
+                    <h3>Predictive Analytics in Oral Health</h3>
+                    <p>Using machine learning to predict dental disease progression based on lifestyle, genetic, and environmental factors.</p>
+                    <div class="research-tags">
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">Data Science</span>
+                        <span class="tag">Predictive Models</span>
                     </div>
-                    <div class="investigation-item">
-                        <h3>AI for Dental X-Ray Analysis</h3>
-                        <p>Building a prototype CNN model to detect cavities and abnormalities in dental X-rays, optimized for low-resource settings.</p>
-                        <span class="badge status in-progress">Model Development</span>
+                </div>
+
+                <!-- Low-Cost Diagnostics -->
+                <div class="research-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="research-icon">
+                        <i class="fas fa-microscope"></i>
+                    </div>
+                    <h3>Low-Cost Diagnostic Tools</h3>
+                    <p>Developing affordable, AI-assisted diagnostic devices for rural clinics with limited access to dentists.</p>
+                    <div class="research-tags">
+                        <span class="tag">AI</span>
+                        <span class="tag">MedTech</span>
+                        <span class="tag">Rural Health</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section class="research-section" style="background: rgba(0,0,0,0.2);">
+        <div class="container">
+            <h2 style="color: #D4AF37; font-size: 2rem; margin-bottom: 2rem;">Publications & Presentations</h2>
+            <div class="publications-list">
+                <div class="publication-item" data-aos="fade-up">
+                    <div class="pub-year">2024</div>
+                    <div>
+                        <h3 class="pub-title">CheckMySmile: A Digital Approach to Student Dental Health</h3>
+                        <div class="pub-venue">KUHES Innovation Showcase · Oral Presentation</div>
+                        <div class="pub-authors">Kaudzu, J.G.</div>
+                    </div>
+                </div>
+                
+                <div class="publication-item" data-aos="fade-up">
+                    <div class="pub-year">2023</div>
+                    <div>
+                        <h3 class="pub-title">Peer-Teaching Methodology in Secondary School Mathematics</h3>
+                        <div class="pub-venue">Bright Future Educational Conference · Workshop</div>
+                        <div class="pub-authors">Kaudzu, J.G.</div>
+                    </div>
+                </div>
+                
+                <div class="publication-item" data-aos="fade-up">
+                    <div class="pub-year">2021</div>
+                    <div>
+                        <h3 class="pub-title">Mini Bio-Digester: Low-Cost Sustainable Energy for Rural Schools</h3>
+                        <div class="pub-venue">Dedza District Science Fair · First Place</div>
+                        <div class="pub-authors">Kaudzu, J.G.</div>
                     </div>
                 </div>
             </div>
@@ -80,89 +445,67 @@
     </section>
 
     <!-- Research Roadmap -->
-    <section class="research-roadmap section-padding bg-darker">
+    <section class="research-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Research Roadmap</h2>
-            <div class="roadmap-timeline">
-                <div class="roadmap-phase" data-aos="fade-right">
-                    <div class="phase-year">2025-2026</div>
-                    <div class="phase-content glass-card">
-                        <h3>Foundation Phase</h3>
-                        <ul>
-                            <li>Secure research assistantship with dental school faculty</li>
-                            <li>Complete CITI research ethics certification</li>
-                            <li>Publish first literature review on dental-immunology connections</li>
-                            <li>Attend 2 international research conferences</li>
-                        </ul>
-                    </div>
+            <h2 style="color: #D4AF37; font-size: 2rem; margin-bottom: 2rem;">Research Roadmap</h2>
+            <div class="roadmap-grid">
+                <div class="roadmap-item" data-aos="zoom-in">
+                    <div class="roadmap-year">2025</div>
+                    <div class="roadmap-title">Foundation Phase</div>
+                    <p style="color: #9CA3AF; font-size: 0.9rem;">Secure research assistantship, ethics certification</p>
                 </div>
-
-                <div class="roadmap-phase" data-aos="fade-left">
-                    <div class="phase-year">2026-2027</div>
-                    <div class="phase-content glass-card">
-                        <h3>Data Collection & Analysis</h3>
-                        <ul>
-                            <li>Conduct cross-sectional study on oral health in 5 rural communities</li>
-                            <li>Develop predictive model for early cavity detection</li>
-                            <li>Collaborate with immunology lab on microbiome analysis</li>
-                            <li>Submit first first-author paper to peer-reviewed journal</li>
-                        </ul>
-                    </div>
+                
+                <div class="roadmap-item" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="roadmap-year">2026</div>
+                    <div class="roadmap-title">Data Collection</div>
+                    <p style="color: #9CA3AF; font-size: 0.9rem;">Cross-sectional study, predictive modeling</p>
                 </div>
-
-                <div class="roadmap-phase" data-aos="fade-right">
-                    <div class="phase-year">2027-2028</div>
-                    <div class="phase-content glass-card">
-                        <h3>Intervention Development</h3>
-                        <ul>
-                            <li>Build prototype of AI-assisted diagnostic tool</li>
-                            <li>Pilot tele-dentistry platform in 3 schools</li>
-                            <li>Secure grant funding for large-scale study</li>
-                            <li>Present findings at African Health Innovation Summit</li>
-                        </ul>
-                    </div>
+                
+                <div class="roadmap-item" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="roadmap-year">2027</div>
+                    <div class="roadmap-title">Intervention</div>
+                    <p style="color: #9CA3AF; font-size: 0.9rem;">AI diagnostic tool prototype</p>
                 </div>
-
-                <div class="roadmap-phase" data-aos="fade-left">
-                    <div class="phase-year">2029+</div>
-                    <div class="phase-content glass-card">
-                        <h3>Scaling Impact</h3>
-                        <ul>
-                            <li>Deploy diagnostic tools across 50+ clinics</li>
-                            <li>Establish research collaboration with international institutions</li>
-                            <li>Mentor next generation of African health innovators</li>
-                            <li>Contribute to national oral health policy</li>
-                        </ul>
-                    </div>
+                
+                <div class="roadmap-item" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="roadmap-year">2028+</div>
+                    <div class="roadmap-title">Scale Impact</div>
+                    <p style="color: #9CA3AF; font-size: 0.9rem;">Deploy across 50+ clinics</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Publications (Placeholder) -->
-    <section class="publications section-padding">
+    <footer class="main-footer">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Publications & Presentations</h2>
-            <div class="publications-list">
-                <div class="publication-item glass-card" data-aos="fade-up">
-                    <div class="pub-year">2024</div>
-                    <div class="pub-details">
-                        <h3>CheckMySmile: A Digital Approach to Student Dental Health</h3>
-                        <p class="pub-authors">Kaudzu, J.G.</p>
-                        <p class="pub-venue">KUHES Innovation Showcase · Oral Presentation</p>
-                    </div>
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">JK</span>
+                    <div style="color: #9CA3AF; font-size: 0.8rem;">Innovation. Discipline. Depth.</div>
                 </div>
-
-                <div class="publication-item glass-card" data-aos="fade-up">
-                    <div class="pub-year">2023</div>
-                    <div class="pub-details">
-                        <h3>Teaching Mathematics Through Problem-Based Learning: A Secondary School Experience</h3>
-                        <p class="pub-authors">Kaudzu, J.G.</p>
-                        <p class="pub-venue">Bright Future Educational Conference · Workshop</p>
-                    </div>
+                <div class="footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="poetry-collection.html">Poetry</a>
+                    <a href="contact.html">Contact</a>
                 </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/joel-kaudzu-0bba48392" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/joelkaudzu9-ship-it" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://youtube.com/@joels_lab" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://x.com/JoelK63756" target="_blank"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Joel George Kaudzu. Built at 3:33am.</p>
+            </div>
+        </div>
+    </footer>
 
-                <div class="publication-item glass-card" data-aos="fade-up">
-                    <div class="pub-year">2021</div>
-                    <div class="pub-details">
-                        <h3>Mini Bio-Dig
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: false });
+    </script>
+</body>
+</html>
