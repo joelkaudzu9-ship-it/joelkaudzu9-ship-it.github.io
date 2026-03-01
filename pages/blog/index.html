@@ -3,20 +3,280 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog · Joel Kaudzu</title>
-    <link rel="stylesheet" href="../css/main.css">
-    <link rel="stylesheet" href="../css/pages.css">
+    <title>Blog · Joel Kaudzu · 3:33am Thoughts</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* Same emergency CSS as above */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0B1120;
+            color: #F9FAFB;
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 1.5rem 0;
+            background: rgba(11, 17, 32, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+        
+        .nav-logo .logo-text {
+            font-size: 2rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, #D4AF37, #22D3EE);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: #F9FAFB;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #D4AF37;
+        }
+        
+        .page-header {
+            min-height: 40vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #0B1120, #111827);
+            padding-top: 100px;
+        }
+        
+        .page-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            background: linear-gradient(135deg, #F9FAFB, #D4AF37);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+        }
+        
+        /* Blog Grid */
+        .blog-section {
+            padding: 4rem 0;
+        }
+        
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .blog-card {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 30px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .blog-card:hover {
+            transform: translateY(-5px);
+            border-color: #D4AF37;
+            box-shadow: 0 20px 40px -15px rgba(212, 175, 55, 0.3);
+        }
+        
+        .blog-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+        }
+        
+        .blog-content {
+            padding: 2rem;
+        }
+        
+        .blog-meta {
+            display: flex;
+            gap: 1rem;
+            color: #22D3EE;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .blog-title {
+            color: #D4AF37;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+        }
+        
+        .blog-excerpt {
+            color: #9CA3AF;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        
+        .blog-link {
+            color: #22D3EE;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: gap 0.3s;
+        }
+        
+        .blog-link:hover {
+            gap: 1rem;
+            color: #D4AF37;
+        }
+        
+        .blog-categories {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .category-btn {
+            background: transparent;
+            border: 2px solid rgba(212, 175, 55, 0.3);
+            color: #F9FAFB;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .category-btn:hover,
+        .category-btn.active {
+            background: #D4AF37;
+            border-color: #D4AF37;
+            color: #0B1120;
+        }
+        
+        .main-footer {
+            background: #111827;
+            padding: 4rem 0 2rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-links a {
+            color: #9CA3AF;
+            text-decoration: none;
+        }
+        
+        .footer-links a:hover {
+            color: #D4AF37;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #F9FAFB;
+            transition: all 0.3s;
+        }
+        
+        .footer-social a:hover {
+            background: #D4AF37;
+            color: #0B1120;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            color: #9CA3AF;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        @media (max-width: 768px) {
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            .nav-links {
+                display: none;
+            }
+        }
+    </style>
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
             <div class="nav-logo">
                 <a href="../index.html">
                     <span class="logo-text">JK</span>
-                    <span class="logo-dot"></span>
                 </a>
             </div>
             <div class="nav-menu">
@@ -32,233 +292,178 @@
                     <li><a href="../pages/contact.html">Contact</a></li>
                 </ul>
             </div>
-            <div class="nav-right">
-                <button class="theme-toggle"><i class="fas fa-moon"></i></button>
-                <button class="menu-toggle"><span></span><span></span><span></span></button>
-            </div>
         </div>
     </nav>
 
-    <!-- Page Header -->
     <section class="page-header">
         <div class="container">
             <h1 class="page-title" data-aos="fade-up">The 3:33am Blog</h1>
-            <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">Thoughts on building, healing, and becoming</p>
+            <p class="page-subtitle" data-aos="fade-up">Thoughts on building, healing, and becoming</p>
         </div>
     </section>
 
     <!-- Blog Categories -->
-    <section class="blog-categories section-padding">
+    <div class="container">
+        <div class="blog-categories">
+            <button class="category-btn active" data-category="all">All</button>
+            <button class="category-btn" data-category="medtech">MedTech</button>
+            <button class="category-btn" data-category="discipline">Discipline</button>
+            <button class="category-btn" data-category="philosophy">Philosophy</button>
+            <button class="category-btn" data-category="poetry">Poetry</button>
+        </div>
+    </div>
+
+    <!-- Blog Posts -->
+    <section class="blog-section">
         <div class="container">
-            <div class="categories-filter" data-aos="fade-up">
-                <button class="category-btn active" data-category="all">All Posts</button>
-                <button class="category-btn" data-category="medtech">MedTech</button>
-                <button class="category-btn" data-category="philosophy">Philosophy</button>
-                <button class="category-btn" data-category="discipline">Discipline</button>
-                <button class="category-btn" data-category="research">Research</button>
-                <button class="category-btn" data-category="poetry">Poetry</button>
+            <div class="blog-grid" id="blogGrid">
+                <!-- Post 1 -->
+                <div class="blog-card" data-category="discipline" data-aos="fade-up">
+                    <img src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=600" alt="3:33am" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Mar 15, 2025</span>
+                            <span><i class="far fa-clock"></i> 6 min</span>
+                        </div>
+                        <h3 class="blog-title">The 3:33am Manifesto</h3>
+                        <p class="blog-excerpt">Why I build while the world sleeps. The quiet hours when vision becomes reality.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 2 -->
+                <div class="blog-card" data-category="medtech" data-aos="fade-up" data-aos-delay="100">
+                    <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=600" alt="Dentistry" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Feb 28, 2025</span>
+                            <span><i class="far fa-clock"></i> 4 min</span>
+                        </div>
+                        <h3 class="blog-title">Why Dentistry Needs Data Science</h3>
+                        <p class="blog-excerpt">The future of oral health isn't just in better drills — it's in better data.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 3 -->
+                <div class="blog-card" data-category="philosophy" data-aos="fade-up" data-aos-delay="200">
+                    <img src="https://images.unsplash.com/photo-1455390582262-04458cad664c?w=600" alt="Journal" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Feb 15, 2025</span>
+                            <span><i class="far fa-clock"></i> 5 min</span>
+                        </div>
+                        <h3 class="blog-title">What I Learned From 20 Pages</h3>
+                        <p class="blog-excerpt">The power of handwritten reflection in a digital world.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 4 -->
+                <div class="blog-card" data-category="poetry" data-aos="fade-up" data-aos-delay="300">
+                    <img src="https://images.unsplash.com/photo-1474932430478-367dbb6832c1?w=600" alt="Poetry" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Jan 30, 2025</span>
+                            <span><i class="far fa-clock"></i> 3 min</span>
+                        </div>
+                        <h3 class="blog-title">Why I Write Poetry</h3>
+                        <p class="blog-excerpt">In a world of metrics, poetry keeps me human.</p>
+                        <a href="../pages/poetry-collection.html" class="blog-link">Read Poems <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 5 -->
+                <div class="blog-card" data-category="discipline" data-aos="fade-up" data-aos-delay="400">
+                    <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600" alt="Teaching" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Jan 12, 2025</span>
+                            <span><i class="far fa-clock"></i> 7 min</span>
+                        </div>
+                        <h3 class="blog-title">1.5 Years in a Classroom</h3>
+                        <p class="blog-excerpt">What teaching taught me about leadership and patience.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+
+                <!-- Post 6 -->
+                <div class="blog-card" data-category="medtech" data-aos="fade-up" data-aos-delay="500">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600" alt="Healthcare" class="blog-image">
+                    <div class="blog-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> Dec 20, 2024</span>
+                            <span><i class="far fa-clock"></i> 8 min</span>
+                        </div>
+                        <h3 class="blog-title">African Healthcare Needs African Innovators</h3>
+                        <p class="blog-excerpt">Why local solutions matter for local problems.</p>
+                        <a href="#" class="blog-link">Read More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Featured Post -->
-    <section class="featured-post section-padding bg-darker">
+    <!-- Newsletter -->
+    <section style="padding: 4rem 0; background: rgba(0,0,0,0.2);">
         <div class="container">
-            <div class="featured-card glass-card" data-aos="fade-up">
-                <div class="featured-label">Featured Post</div>
-                <div class="featured-grid">
-                    <div class="featured-media">
-                        <img src="../assets/images/blog/featured-3-33am.jpg" alt="3:33am workspace" class="featured-image">
-                    </div>
-                    <div class="featured-content">
-                        <div class="post-meta">
-                            <span class="post-date">March 15, 2026</span>
-                            <span class="post-category">Discipline</span>
-                            <span class="post-read-time">6 min read</span>
-                        </div>
-                        <h2>The 3:33am Manifesto: Why I Build While the World Sleeps</h2>
-                        <p class="post-excerpt">In the quiet hours, something shifts. The noise fades, the pressure lifts, and what's left is just you and the vision. Here's why I've chosen 3:33am as my sacred building time — and how it's changed everything...</p>
-                        <a href="posts/post-3-33am-manifesto.html" class="btn btn-primary">Read Full Post <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Blog Grid -->
-    <section class="blog-grid section-padding">
-        <div class="container">
-            <div class="posts-grid" id="postsGrid">
-                <!-- Post 1: Dentistry + Tech -->
-                <div class="post-card glass-card" data-category="medtech" data-aos="fade-up">
-                    <div class="post-card-media">
-                        <img src="../assets/images/blog/dentistry-tech.jpg" alt="Dentistry and Technology">
-                        <div class="post-category-tag">MedTech</div>
-                    </div>
-                    <div class="post-card-content">
-                        <div class="post-meta">
-                            <span class="post-date">Feb 28, 2026</span>
-                            <span class="post-read-time">4 min read</span>
-                        </div>
-                        <h3>Why Dentistry Needs Data Science</h3>
-                        <p class="post-excerpt">The future of oral health isn't just in better drills — it's in better data. Here's how I'm bridging these worlds...</p>
-                        <a href="posts/post-dentistry-data-science.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Post 2: Healing Journal -->
-                <div class="post-card glass-card" data-category="philosophy" data-aos="fade-up" data-aos-delay="100">
-                    <div class="post-card-media">
-                        <img src="../assets/images/blog/healing-journal.jpg" alt="Healing Journal">
-                        <div class="post-category-tag">Philosophy</div>
-                    </div>
-                    <div class="post-card-content">
-                        <div class="post-meta">
-                            <span class="post-date">Feb 15, 2026</span>
-                            <span class="post-read-time">5 min read</span>
-                        </div>
-                        <h3>What I Learned From 20 Pages of Handwriting</h3>
-                        <p class="post-excerpt">In a world of screens, I chose paper. Here's what the Healing Journal taught me about myself...</p>
-                        <a href="posts/post-healing-journal.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Post 3: Teaching Lessons -->
-                <div class="post-card glass-card" data-category="discipline" data-aos="fade-up" data-aos-delay="200">
-                    <div class="post-card-media">
-                        <img src="../assets/images/blog/teaching-math.jpg" alt="Teaching Mathematics">
-                        <div class="post-category-tag">Discipline</div>
-                    </div>
-                    <div class="post-card-content">
-                        <div class="post-meta">
-                            <span class="post-date">Jan 30, 2026</span>
-                            <span class="post-read-time">7 min read</span>
-                        </div>
-                        <h3>1.5 Years in a Classroom: What Teaching Taught Me About Leadership</h3>
-                        <p class="post-excerpt">Standing in front of 50 students every day changes you. Here are the leadership lessons I'll carry forever...</p>
-                        <a href="posts/post-teaching-leadership.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Post 4: Bio-Digester Story -->
-                <div class="post-card glass-card" data-category="research" data-aos="fade-up" data-aos-delay="300">
-                    <div class="post-card-media">
-                        <img src="../assets/images/blog/bio-digester-story.jpg" alt="Mini Bio-Digester">
-                        <div class="post-category-tag">Research</div>
-                    </div>
-                    <div class="post-card-content">
-                        <div class="post-meta">
-                            <span class="post-date">Jan 12, 2026</span>
-                            <span class="post-read-time">6 min read</span>
-                        </div>
-                        <h3>How a Plastic Drum Changed My Life</h3>
-                        <p class="post-excerpt">The story of the Mini Bio-Digester — and how a Form 2 project sparked a lifelong obsession with building...</p>
-                        <a href="posts/post-bio-digester-story.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Post 5: African Innovation -->
-                <div class="post-card glass-card" data-category="medtech" data-aos="fade-up" data-aos-delay="400">
-                    <div class="post-card-media">
-                        <img src="../assets/images/blog/african-innovation.jpg" alt="African Innovation">
-                        <div class="post-category-tag">MedTech</div>
-                    </div>
-                    <div class="post-card-content">
-                        <div class="post-meta">
-                            <span class="post-date">Dec 20, 2025</span>
-                            <span class="post-read-time">8 min read</span>
-                        </div>
-                        <h3>Why African Healthcare Needs African Innovators</h3>
-                        <p class="post-excerpt">We can't import solutions for problems we haven't exported. Here's why local innovation matters...</p>
-                        <a href="posts/post-african-innovation.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-
-                <!-- Post 6: Poetry in Medicine -->
-                <div class="post-card glass-card" data-category="poetry" data-aos="fade-up" data-aos-delay="500">
-                    <div class="post-card-media">
-                        <img src="../assets/images/blog/poetry-medicine.jpg" alt="Poetry and Medicine">
-                        <div class="post-category-tag">Poetry</div>
-                    </div>
-                    <div class="post-card-content">
-                        <div class="post-meta">
-                            <span class="post-date">Dec 5, 2025</span>
-                            <span class="post-read-time">4 min read</span>
-                        </div>
-                        <h3>Why I Write Poetry (And Why You Should Too)</h3>
-                        <p class="post-excerpt">In a world of metrics and milestones, poetry keeps me human. Here's why every builder needs a creative outlet...</p>
-                        <a href="posts/post-poetry-medicine.html" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Load More Button -->
-            <div class="load-more" data-aos="fade-up">
-                <button class="btn btn-outline" id="loadMorePosts">Load More Posts <i class="fas fa-spinner"></i></button>
-            </div>
-        </div>
-    </section>
-
-    <!-- Newsletter Signup -->
-    <section class="newsletter-section section-padding bg-darker">
-        <div class="container">
-            <div class="newsletter-card glass-card" data-aos="zoom-in">
-                <h2>Never Miss a Post</h2>
-                <p>Join the 3:33am community — get updates when I write something worth reading.</p>
-                <form class="newsletter-form">
-                    <div class="form-group inline">
-                        <input type="email" placeholder="Your email address" required>
-                        <button type="submit" class="btn btn-primary">Subscribe</button>
-                    </div>
-                    <p class="form-disclaimer">No spam. Unsubscribe anytime.</p>
+            <div style="max-width: 600px; margin: 0 auto; text-align: center; background: rgba(17,24,39,0.8); padding: 3rem; border-radius: 30px; border: 1px solid rgba(212,175,55,0.2);">
+                <h2 style="color: #D4AF37; font-size: 2rem; margin-bottom: 1rem;">Never Miss a Post</h2>
+                <p style="color: #9CA3AF; margin-bottom: 2rem;">Join the 3:33am community — get updates when I write.</p>
+                <form action="https://formspree.io/f/xvzbnzjb" method="POST" style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                    <input type="email" name="email" placeholder="Your email" required style="flex: 1; padding: 1rem; background: rgba(255,255,255,0.05); border: 2px solid rgba(212,175,55,0.2); border-radius: 50px; color: white; min-width: 200px;">
+                    <button type="submit" style="padding: 1rem 2rem; background: linear-gradient(135deg, #D4AF37, #22D3EE); border: none; border-radius: 50px; color: #0B1120; font-weight: 600; cursor: pointer;">Subscribe</button>
                 </form>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
                     <span class="logo-text">JK</span>
-                    <span class="logo-tagline">Innovation. Discipline. Depth.</span>
+                    <div style="color: #9CA3AF; font-size: 0.8rem;">Innovation. Discipline. Depth.</div>
                 </div>
                 <div class="footer-links">
                     <a href="../index.html">Home</a>
                     <a href="../pages/about.html">About</a>
-                    <a href="../pages/projects.html">Projects</a>
-                    <a href="../pages/research.html">Research</a>
-                    <a href="../pages/leadership.html">Leadership</a>
-                    <a href="../pages/philosophy.html">Philosophy</a>
-                    <a href="../pages/poetry.html">Poetry</a>
-                    <a href="index.html">Blog</a>
+                    <a href="../pages/poetry-collection.html">Poetry</a>
                     <a href="../pages/contact.html">Contact</a>
                 </div>
                 <div class="footer-social">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/joel-kaudzu-0bba48392" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://github.com/joelkaudzu9-ship-it" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://youtube.com/@joels_lab" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://x.com/JoelK63756" target="_blank"><i class="fab fa-x-twitter"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Joel George Kaudzu. Built at 3:33am.</p>
-                <p class="footer-quote">"Build what you wish existed."</p>
             </div>
         </div>
     </footer>
 
-    <!-- Back to Top -->
-    <button id="backToTop" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="../js/main.js"></script>
-    <script src="../js/blog-filter.js"></script>
     <script>
-        AOS.init({ duration: 800, once: false, mirror: true });
+        AOS.init({ duration: 800 });
+        
+        // Simple category filter
+        document.querySelectorAll('.category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.category-btn').forEach(b => b.classList.remove('active'));
+                this.classList.add('active');
+                
+                const category = this.dataset.category;
+                document.querySelectorAll('.blog-card').forEach(card => {
+                    if (category === 'all' || card.dataset.category === category) {
+                        card.style.display = 'block';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>
