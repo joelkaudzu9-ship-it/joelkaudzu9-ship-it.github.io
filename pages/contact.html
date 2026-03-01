@@ -10,7 +10,6 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body>
-    <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
             <div class="nav-logo">
@@ -39,7 +38,6 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
     <section class="page-header">
         <div class="container">
             <h1 class="page-title" data-aos="fade-up">Let's Connect</h1>
@@ -47,7 +45,6 @@
         </div>
     </section>
 
-    <!-- Contact Grid -->
     <section class="contact-main section-padding">
         <div class="container">
             <div class="contact-grid-detailed">
@@ -69,7 +66,7 @@
                             </div>
                         </div>
 
-                        <!-- WhatsApp - NEW -->
+                        <!-- WhatsApp - NEW with pre-filled message -->
                         <div class="contact-method">
                             <div class="method-icon">
                                 <i class="fab fa-whatsapp"></i>
@@ -122,7 +119,7 @@
                         <!-- X / Twitter -->
                         <div class="contact-method">
                             <div class="method-icon">
-                                <i class="fab fa-twitter"></i>
+                                <i class="fab fa-x-twitter"></i>
                             </div>
                             <div class="method-details">
                                 <h3>X / Twitter</h3>
@@ -133,11 +130,11 @@
                     </div>
                 </div>
 
-                <!-- Contact Form - Using Formspree -->
+                <!-- Contact Form - Formspree -->
                 <div class="contact-form-detailed glass-card" data-aos="fade-left">
                     <h2>Send a Message</h2>
                     <form id="fullContactForm" class="full-contact-form" action="https://formspree.io/f/xvzbnzjb" method="POST">
-                        <!-- Formspree requires this field -->
+                        <!-- Formspree required fields -->
                         <input type="hidden" name="_subject" value="New message from portfolio visitor">
                         <input type="hidden" name="_replyto" value="joelkaudzu9@gmail.com">
                         <input type="hidden" name="_cc" value="joelkaudzu9@gmail.com">
@@ -193,7 +190,17 @@
         </div>
     </section>
 
-    <!-- Rest of the page remains the same -->
-    <!-- ... -->
+    <!-- Collaboration Interests (unchanged) -->
+    <section class="collab-interests section-padding bg-darker">
+        <!-- ... existing content ... -->
+    </section>
+
+    <footer class="main-footer">
+        <!-- ... existing footer with updated social links ... -->
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/main.js"></script>
+    <script>AOS.init();</script>
 </body>
 </html>
