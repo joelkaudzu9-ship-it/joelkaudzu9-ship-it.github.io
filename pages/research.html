@@ -16,8 +16,12 @@
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
+    <!-- Main CSS - FIXED PATHS -->
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    
     <style>
-        /* Emergency CSS */
+        /* Emergency fallback styles */
         * {
             margin: 0;
             padding: 0;
@@ -25,7 +29,7 @@
         }
         
         body {
-            background: #0B1120;
+            background-color: #0B1120;
             color: #F9FAFB;
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
@@ -94,6 +98,7 @@
             text-align: center;
             background: linear-gradient(135deg, #0B1120, #111827);
             padding-top: 100px;
+            margin-bottom: 2rem;
         }
         
         .page-title {
@@ -111,31 +116,54 @@
             margin: 0 auto;
         }
         
-        /* Research Sections */
-        .research-section {
+        /* Section Styles */
+        .section-padding {
             padding: 4rem 0;
         }
         
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+        .section-title {
+            font-size: 2.5rem;
+            color: #D4AF37;
+            margin-bottom: 2rem;
+            position: relative;
         }
         
-        .research-card {
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(90deg, #D4AF37, #22D3EE);
+        }
+        
+        .bg-darker {
+            background: rgba(0, 0, 0, 0.3);
+        }
+        
+        /* Glass Card */
+        .glass-card {
             background: rgba(17, 24, 39, 0.8);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 30px;
+            border-radius: 24px;
             padding: 2rem;
             transition: all 0.3s ease;
         }
         
-        .research-card:hover {
+        .glass-card:hover {
             transform: translateY(-5px);
             border-color: #D4AF37;
             box-shadow: 0 20px 40px -15px rgba(212, 175, 55, 0.3);
+        }
+        
+        /* Research Grid */
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
         
         .research-icon {
@@ -183,6 +211,9 @@
         
         /* Publications */
         .publications-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
             margin-top: 2rem;
         }
         
@@ -191,7 +222,6 @@
             border: 1px solid rgba(212, 175, 55, 0.2);
             border-radius: 20px;
             padding: 1.5rem;
-            margin-bottom: 1rem;
             display: grid;
             grid-template-columns: 100px 1fr;
             gap: 1.5rem;
@@ -231,7 +261,7 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 1.5rem;
-            margin-top: 3rem;
+            margin-top: 2rem;
         }
         
         .roadmap-item {
@@ -254,6 +284,11 @@
             color: #22D3EE;
             font-weight: 600;
             margin-bottom: 0.5rem;
+        }
+        
+        .roadmap-item p {
+            color: #9CA3AF;
+            font-size: 0.9rem;
         }
         
         /* Footer */
@@ -319,8 +354,12 @@
         }
         
         @media (max-width: 768px) {
+            .research-grid {
+                grid-template-columns: 1fr;
+            }
             .publication-item {
                 grid-template-columns: 1fr;
+                gap: 0.5rem;
             }
             .nav-links {
                 display: none;
@@ -329,6 +368,7 @@
     </style>
 </head>
 <body>
+    <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
             <div class="nav-logo">
@@ -352,20 +392,21 @@
         </div>
     </nav>
 
+    <!-- Page Header -->
     <section class="page-header">
         <div class="container">
             <h1 class="page-title" data-aos="fade-up">Research & Innovation</h1>
-            <p class="page-subtitle" data-aos="fade-up">Bridging dentistry, immunology, and data science</p>
+            <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">Bridging dentistry, immunology, and data science</p>
         </div>
     </section>
 
-    <!-- Research Focus -->
-    <section class="research-section">
+    <!-- Research Focus Section -->
+    <section class="section-padding">
         <div class="container">
-            <h2 style="color: #D4AF37; font-size: 2rem; margin-bottom: 2rem;">Primary Research Interests</h2>
+            <h2 class="section-title" data-aos="fade-up">Primary Research Interests</h2>
             <div class="research-grid">
                 <!-- Dental-Immunology -->
-                <div class="research-card" data-aos="fade-up">
+                <div class="research-card glass-card" data-aos="fade-up">
                     <div class="research-icon">
                         <i class="fas fa-tooth"></i>
                     </div>
@@ -379,7 +420,7 @@
                 </div>
 
                 <!-- Predictive Analytics -->
-                <div class="research-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="research-card glass-card" data-aos="fade-up" data-aos-delay="100">
                     <div class="research-icon">
                         <i class="fas fa-chart-line"></i>
                     </div>
@@ -393,7 +434,7 @@
                 </div>
 
                 <!-- Low-Cost Diagnostics -->
-                <div class="research-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="research-card glass-card" data-aos="fade-up" data-aos-delay="200">
                     <div class="research-icon">
                         <i class="fas fa-microscope"></i>
                     </div>
@@ -409,20 +450,22 @@
         </div>
     </section>
 
-    <!-- Publications -->
-    <section class="research-section" style="background: rgba(0,0,0,0.2);">
+    <!-- Publications Section -->
+    <section class="section-padding bg-darker">
         <div class="container">
-            <h2 style="color: #D4AF37; font-size: 2rem; margin-bottom: 2rem;">Publications & Presentations</h2>
+            <h2 class="section-title" data-aos="fade-up">Publications & Presentations</h2>
             <div class="publications-list">
+                <!-- Publication 1 -->
                 <div class="publication-item" data-aos="fade-up">
                     <div class="pub-year">2024</div>
                     <div>
-                        <h3 class="pub-title">CheckMySmile: A Digital Approach to Student Dental Health</h3>
-                        <div class="pub-venue">KUHES Innovation Showcase · Oral Presentation</div>
+                        <h3 class="pub-title">CheckMySmile: A Digital Approach to Student Dental Health in Malawi</h3>
+                        <div class="pub-venue">KUHES Annual Innovation Showcase · Oral Presentation</div>
                         <div class="pub-authors">Kaudzu, J.G.</div>
                     </div>
                 </div>
                 
+                <!-- Publication 2 -->
                 <div class="publication-item" data-aos="fade-up">
                     <div class="pub-year">2023</div>
                     <div>
@@ -432,6 +475,7 @@
                     </div>
                 </div>
                 
+                <!-- Publication 3 -->
                 <div class="publication-item" data-aos="fade-up">
                     <div class="pub-year">2021</div>
                     <div>
@@ -445,49 +489,54 @@
     </section>
 
     <!-- Research Roadmap -->
-    <section class="research-section">
+    <section class="section-padding">
         <div class="container">
-            <h2 style="color: #D4AF37; font-size: 2rem; margin-bottom: 2rem;">Research Roadmap</h2>
+            <h2 class="section-title" data-aos="fade-up">Research Roadmap</h2>
             <div class="roadmap-grid">
-                <div class="roadmap-item" data-aos="zoom-in">
+                <div class="roadmap-item glass-card" data-aos="zoom-in">
                     <div class="roadmap-year">2025</div>
                     <div class="roadmap-title">Foundation Phase</div>
-                    <p style="color: #9CA3AF; font-size: 0.9rem;">Secure research assistantship, ethics certification</p>
+                    <p>Secure research assistantship, ethics certification, literature review</p>
                 </div>
                 
-                <div class="roadmap-item" data-aos="zoom-in" data-aos-delay="100">
+                <div class="roadmap-item glass-card" data-aos="zoom-in" data-aos-delay="100">
                     <div class="roadmap-year">2026</div>
                     <div class="roadmap-title">Data Collection</div>
-                    <p style="color: #9CA3AF; font-size: 0.9rem;">Cross-sectional study, predictive modeling</p>
+                    <p>Cross-sectional study, predictive modeling, first-author paper</p>
                 </div>
                 
-                <div class="roadmap-item" data-aos="zoom-in" data-aos-delay="200">
+                <div class="roadmap-item glass-card" data-aos="zoom-in" data-aos-delay="200">
                     <div class="roadmap-year">2027</div>
-                    <div class="roadmap-title">Intervention</div>
-                    <p style="color: #9CA3AF; font-size: 0.9rem;">AI diagnostic tool prototype</p>
+                    <div class="roadmap-title">Intervention Development</div>
+                    <p>AI diagnostic tool prototype, tele-dentistry pilot</p>
                 </div>
                 
-                <div class="roadmap-item" data-aos="zoom-in" data-aos-delay="300">
+                <div class="roadmap-item glass-card" data-aos="zoom-in" data-aos-delay="300">
                     <div class="roadmap-year">2028+</div>
                     <div class="roadmap-title">Scale Impact</div>
-                    <p style="color: #9CA3AF; font-size: 0.9rem;">Deploy across 50+ clinics</p>
+                    <p>Deploy across 50+ clinics, mentor next generation</p>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-logo">
                     <span class="logo-text">JK</span>
-                    <div style="color: #9CA3AF; font-size: 0.8rem;">Innovation. Discipline. Depth.</div>
+                    <div style="color: #9CA3AF; font-size: 0.8rem; margin-top: 0.3rem;">Innovation. Discipline. Depth.</div>
                 </div>
                 <div class="footer-links">
                     <a href="../index.html">Home</a>
                     <a href="about.html">About</a>
                     <a href="projects.html">Projects</a>
-                    <a href="poetry-collection.html">Poetry</a>
+                    <a href="research.html">Research</a>
+                    <a href="leadership.html">Leadership</a>
+                    <a href="philosophy.html">Philosophy</a>
+                    <a href="poetry.html">Poetry</a>
+                    <a href="../blog/index.html">Blog</a>
                     <a href="contact.html">Contact</a>
                 </div>
                 <div class="footer-social">
@@ -499,13 +548,19 @@
             </div>
             <div class="footer-bottom">
                 <p>&copy; 2026 Joel George Kaudzu. Built at 3:33am.</p>
+                <p style="color: #D4AF37; margin-top: 0.5rem;">"Build what you wish existed."</p>
             </div>
         </div>
     </footer>
 
+    <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
-        AOS.init({ duration: 800, once: false });
+        AOS.init({
+            duration: 800,
+            once: false,
+            mirror: true
+        });
     </script>
 </body>
 </html>
