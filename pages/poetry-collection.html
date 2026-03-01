@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Threads of Becoming · Joel Kaudzu Poetry Collection</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/pages.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        .poetry-archive {
+            font-family: 'Playfair Display', serif;
+        }
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+            font-size: 1.2rem;
+            font-style: italic;
+            color: var(--gold-accent);
+        }
+        .category-title {
+            font-size: 2.5rem;
+            margin: 4rem 0 2rem;
+            color: var(--gold-accent);
+            position: relative;
+            padding-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        .category-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold-accent), var(--cyan-highlight));
+        }
+        .poems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .poem-full-card {
+            padding: 2rem;
+            transition: all 0.3s ease;
+        }
+        .poem-full-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold-accent);
+        }
+        .poem-full-card h3 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color: var(--cyan-highlight);
+            font-family: 'Playfair Display', serif;
+            font-weight: 600;
+        }
+        .poem-full-card .poem-date {
+            font-size: 0.9rem;
+            color: var(--gold-accent);
+            margin-bottom: 1.5rem;
+            font-style: italic;
+        }
+        .poem-full-card .poem-text {
+            font-size: 1rem;
+            line-height: 1.8;
+            white-space: pre-line;
+            color: var(--white-text);
+        }
+        .poem-full-card .poem-text p {
+            margin-bottom: 1rem;
+        }
+        .back-to-top-poetry {
+            text-align: center;
+            margin: 3rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="../index.html">
+                    <span class="logo-text">JK</span>
+                    <span class="logo-dot"></span>
+                </a>
+            </div>
+            <div class="nav-menu">
+                <ul class="nav-links">
+                    <li><a href="../index.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="research.html">Research</a></li>
+                    <li><a href="leadership.html">Leadership</a></li>
+                    <li><a href="philosophy.html">Philosophy</a></li>
+                    <li><a href="poetry.html" class="active">Poetry</a></li>
+                    <li><a href="../blog/index.html">Blog</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="nav-right">
+                <button class="theme-toggle"><i class="fas fa-moon"></i></button>
+                <button class="menu-toggle"><span></span><span></span><span></span></button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <section class="page-header">
+        <div class="container">
+            <h1 class="page-title" data-aos="fade-up">Threads of Becoming</h1>
+            <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">A poetry collection by Joel George Kaudzu</p>
+        </div>
+    </section>
+
+    <!-- Preface Section -->
+    <section class="poetry-archive section-padding">
+        <div class="container">
+            <div class="preface-card glass-card" data-aos="fade-up">
+                <h2 class="preface-title">Preface</h2>
+                <div class="preface-text">
+                    <p>This poetry collection comes from the heart and mind of Joel Kaudzu, a young poet and student who has experienced life's ups and downs in a very real way. These poems tell stories of struggle, hope, faith, and growth. They explore moments when life feels hard, when friendships fade, or when the world seems unfair—but also the moments of light, courage, and self-discovery.</p>
+                    <p>The poems are grouped into sections that take the reader on a journey: from personal challenges to reflections on society, from questions about life to the infinite possibilities of thought. Each poem is a small window into Joel's experiences and the lessons he has learned along the way.</p>
+                    <p>Through his words, Joel invites readers to feel, reflect, and find meaning in their own lives. This collection is honest, thoughtful, and full of hope—a story of a young person learning, growing, and discovering the beauty in life's challenges.</p>
+                </div>
+            </div>
+
+            <!-- Section 1: BROKEN AND BECOMING -->
+            <h2 class="category-title" data-aos="fade-right">I. BROKEN AND BECOMING</h2>
+            <p class="section-intro" data-aos="fade-up">Before something becomes, it must break. The cracks let in light, the fractures tell the story. This section is not about endings, but about the trembling birth of new strength.</p>
+            
+            <div class="poems-grid">
+                <!-- PARADOXICAL -->
+                <div class="poem-full-card glass-card" data-aos="zoom-in">
+                    <h3>PARADOXICAL</h3>
+                    <div class="poem-date">2024</div>
+                    <div class="poem-text">
+                        <p>Too much of a good thing they say,<br>
+                        Can be harmful in some way,<br>
+                        Of course it seems to pave way<br>
+                        But when does it become too much?<br>
+                        How do we know when to stop and clutch?</p>
+                        
+                        <p>It's easy to be swept up in excess,<br>
+                        To be poisoned by success<br>
+                        To lose sight of what really makes us blessed.<br>
+                        The more we have, the less we see<br>
+                        But why?</p>
+                        
+                        <p>The harder we try the more we cry<br>
+                        We've tried so hard with all our might<br>
+                        But somehow things never turn out right<br>
+                        The harder we push the more we fail<br>
+                        Our efforts seem to be in vain and pale<br>
+                        Like secondary school porridge bitter and stale</p>
+                        
+                        <p>But maybe there's a lesson to be learned<br>
+                        That sometimes when you try too hard, you'll burn<br>
+                        Perhaps it's best to take a step back<br>
+                        Some achievements are way beyond luck<br>
+                        To change the world they say you must<br>
+                        Accept the way it is<br>
+                        And trust that what you resist,<br>
+                        Persists with force<br>
+                        But what you embrace can bring remorse.<br>
+                        To make things different first accept them as they are<br>
+                        Then change will come from near or far<br>
+                        Don't fight against the things you hate<br>
+                        But rather learn from them to appreciate</p>
+                    </div>
+                </div>
+
+                <!-- MY PAST I'M SORRY -->
+                <div class="poem-full-card glass-card" data-aos="zoom-in" data-aos-delay="100">
+                    <h3>MY PAST I'M SORRY</h3>
+                    <div class="poem-date">2024</div>
+                    <div class="poem-text">
+                        <p>First Let me say sorry I failed you<br>
+                        Like a plane those promises just flew<br>
+                        I could not achieve even a few<br>
+                        I said I will make you rememberable<br>
+                        But I cannot dare reminisce about you<br>
+                        All my words dearly were true<br>
+                        But some obstacles in life are just too true</p>
+                        
+                        <p>My past im sorry<br>
+                        Sorry for being a bad Steward<br>
+                        I vowed to tame you well<br>
+                        It's pretty clear on that I fell<br>
+                        The little hope I gave you, all shattered<br>
+                        Those efforts I gathered, all scattered<br>
+                        The path I chose was a mistake<br>
+                        Please forgive me for Gods sake</p>
+                        
+                        <p>I'm blank of what went wrong<br>
+                        I thought I had set everything straight<br>
+                        All being alright seemed fate<br>
+                        It was late when I realised,<br>
+                        My choice was my bad mate<br>
+                        Sorry I failed you</p>
+                        
+                        <p>All that aside<br>
+                        Allow me to make a mends<br>
+                        I know I can't undo the already done<br>
+                        But I can create new memories, ask me how?<br>
+                        I'm looking at your brother, MY FUTURE<br>
+                        I think he might be a second chance<br>
+                        For now I have my balance<br>
+                        Learnt it the hard way<br>
+                        It is the time to do it God's way<br>
+                        I take an oath my past</p>
+                        
+                        <p>I swear I'll make your brother, my future,<br>
+                        the best thing that has ever happened to me<br>
+                        This time my success is inevitable<br>
+                        For I have my all clinging to this oath<br>
+                        Just like soot to a clay pot<br>
+                        I will win this race<br>
+                        Against all odds I shall prevail<br>
+                        Surely I am not going to fail<br>
+                        I have my eyes sharpened<br>
+                        Things happened<br>
+                        But it's time to let go<br>
+                        Again, my past I'm sorry</p>
+                    </div>
+                </div>
+
+                <!-- LOST GOLD -->
+                <div class="poem-full-card glass-card" data-aos="zoom-in" data-aos-delay="200">
+                    <h3>LOST GOLD</h3>
+                    <div class="poem-date">2024</div>
+                    <div class="poem-text">
+                        <p>I know we're not in good terms<br>
+                        Our bond like dying flames<br>
+                        But you're still my good friend<br>
+                        True we drifted apart<br>
+                        Mine for you is still a heavy heart</p>
+                        
+                        <p>We've come way from far<br>
+                        Walked on dusty roads and tar<br>
+                        You were always my companion<br>
+                        And I never lost compassion</p>
+                        
+                        <p>Our friendship did not cease<br>
+                        Selfish, I let it freeze<br>
+                        I know it's hard we go back<br>
+                        It's just your presence that I lack</p>
+                        
+                        <p>Take your time and think about it<br>
+                        I thought of the good old days a bit<br>
+                        Yes I realised<br>
+                        Your face from my life, I failed to erase</p>
+                        
+                        <p>Your memories keep receding<br>
+                        The gaps I fail to keep feeding<br>
+                        I Hope we are not beyond repair<br>
+                        I don't think this emptiness I can bare</p>
+                        
+                        <p>You know several times I pleaded<br>
+                        But it's seemed the elastic limit was already exceeded<br>
+                        Now we are not even common<br>
+                        Maybe just the skin tone<br>
+                        But our architectures changed like spades and jacks<br>
+                        No turning back?</p>
+                        
+                        <p>I'd still give it another go<br>
+                        In fact, all the go's in the world<br>
+                        Wherever you are, feel longed for</p>
+                    </div>
+                </div>
+
+                <!-- SO I'M HERE -->
+                <div class="poem-full-card glass-card" data-aos="zoom-in">
+                    <h3>SO I'M HERE</h3>
+                    <div class="poem-date">2024</div>
+                    <div class="poem-text">
+                        <p>I look up I look down<br>
+                        Faces staring, it's like I should drown<br>
+                        I turn left and turn right<br>
+                        Happy faces, and there's me in fright</p>
+                        
+                        <p>So I'm here<br>
+                        A 20 Hour drive ends here<br>
+                        To a destination frosted in fear<br>
+                        Hopes shattered, reality builds<br>
+                        Sought confidence, self slavery yielded<br>
+                        A place in dreams so envisioned<br>
+                        Sadly, to the dungeon I was commissioned</p>
+                        
+                        <p>Pain, pain, pain<br>
+                        Let it rain rain rain<br>
+                        So I'm here<br>
+                        Is this what it's become<br>
+                        I thought the journey to life began</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Boy Who Almost Gave Up (Prose Poem) -->
+            <div class="poem-full-card glass-card" data-aos="fade-up" style="grid-column: 1/-1; margin-bottom: 2rem;">
+                <h3>The Boy Who Almost Gave Up</h3>
+                <div class="poem-date">2024</div>
+                <div class="poem-text">
+                    <p>There was a boy who used to laugh with his whole chest.<br>
+                    He believed in God. He believed in family.<br>
+                    He believed he was made for something more.</p>
+                    
+                    <p>But life hit him.</p>
+                    
+                    <p>First, it showed up in his skin, a rash, small and annoying.<br>
+                    Then it came in disappointment, results that didn't match his prayers.<br>
+                    Then silence, people stopped checking in.<br>
+                    Then doubt, "Am I really who I thought I was?"</p>
+                    
+                    <p>And slowly, piece by piece, he started disappearing inside.<br>
+                    He was still smiling. Still showing up. Still quoting verses.<br>
+                    But in private?<br>
+                    He felt weak. Forgotten. Unseen.</p>
+                    
+                    <p>He didn't hate God<br>
+                    but he wondered if God had stepped back.<br>
+                    He felt like the golden child who lost his shine.<br>
+                    Even his own reflection started to feel like a stranger.<br>
+                    And no one saw.</p>
+                    
+                    <p>Not his friends who told him to man up.<br>
+                    Not his parents who didn't know how much he was hurting.<br>
+                    Not even the church that once clapped for his potential.</p>
+                    
+                    <p>But God saw.</p>
+                    
+                    <p>One night, in the middle of one of those "God, I'm tired" moments<br>
+                    He whispered something to himself<br>
+                    "I don't even know who I am anymore"<br>
+                    And for the first time in a long time, he didn't feel alone.</p>
+                    
+                    <p>No lightning. No angels singing.<br>
+                    Just stillness, peace and a deep voice in his spirit:<br>
+                    "You are not your skin.<br>
+                    You are not your results.<br>
+                    You are not the shame you carry.<br>
+                    You are my son.<br>
+                    And I have not changed my mind about you"</p>
+                    
+                    <p>He broke. He cried.<br>
+                    Not because he was weak but because he was still alive.<br>
+                    And somehow, that was proof that God hadn't left.</p>
+                    
+                    <p>He didn't bounce back overnight.<br>
+                    But he got up the next morning and he started again.<br>
+                    He wrote down goals.<br>
+                    He deleted things that were stealing his peace.<br>
+                    He stopped shrinking himself to fit in.<br>
+                    He let go of some people.<br>
+                    He kept praying even when it felt dry.<br>
+                    He found God in the silence, not just the fire.</p>
+                    
+                    <p>He wasn't hiding anymore.<br>
+                    Not from God. Not from life. Not from himself.</p>
+                    
+                    <p>Now, he's becoming a man with vision.<br>
+                    He protects his mind.<br>
+                    He watches what he posts.<br>
+                    He treats his life like a brand, valuable, strategic, intentional.<br>
+                    He doesn't chase swag.<br>
+                    He builds legacy.</p>
+                    
+                    <p>He prays before he plans.<br>
+                    He worships even when he's confused.<br>
+                    He asks God for wisdom like it's oxygen.<br>
+                    He builds his life on spirit, not on flesh.</p>
+                    
+                    <p>He still battles urges.<br>
+                    He still gets tempted to give up.<br>
+                    But now he knows, God isn't after perfection<br>
+                    He's after progress.<br>
+                    And progress means showing up, even with shaky hands.</p>
+                    
+                    <p>He used to think pain disqualified him<br>
+                    But now he knows, pain made him ready<br>
+                    He thought he was lost.<br>
+                    But he was only buried.</p>
+                    
+                    <p>And now he's growing.</p>
+                    
+                    <p>So if you ever see him smiling, worshiping, or dreaming again<br>
+                    just know, this is the boy who almost gave up but didn't.<br>
+                    And now, he is becoming the man God always knew he'd be.</p>
+                    
+                    <p>Living life not out of decree<br>
+                    Embracing the beauty of living, wild and free<br>
+                    Alas, alas<br>
+                    He is heading there<br>
+                    With shoes on or feet rooted bare<br>
+                    Young and strong or grayed hair<br>
+                    Freedom is the goal still</p>
+                </div>
+            </div>
+
+            <!-- Section 2: LIGHT THROUGH THE STORM -->
+            <h2 class="category-title" data-aos="fade-right">II. LIGHT THROUGH THE STORM</h2>
+            <p class="section-intro" data-aos="fade-up">Even in shadowed corners, light finds a way to seep through. In moments that feel small, fragile, or fleeting, hope always whispers. These poems trace the gentle glimmers of resilience.</p>
+            
+            <div class="poems-grid">
+                <!-- MY TIME WAS COMING -->
+                <div class="poem-full-card glass-card" data-aos="zoom-in">
+                    <h3>MY TIME WAS COMING</h3>
+                    <div class="poem-date">2024</div>
+                    <div class="poem-text">
+                        <p>For the stars to appear it has to be dark<br>
+                        I cry each time I look back<br>
+                        I recall the times I used to wear a sack<br>
+                        For all the necessities I used to lack<br>
+                        That's a time of unspoken bad luck<br>
+                        So sad in that state for long I was stuck<br>
+                        Even my only relative turned his back<br>
+                        My thumbs so dirty I could not even suck<br>
+                        Little did I know<br>
+                        My time was coming</p>
+                        
+                        <p>Though at that time I lacked smiles<br>
+                        I tried my best to walk uncountable miles<br>
+                        In that journey of life for a long while<br>
+                        For the road was not as smooth as a tile<br>
+                        But rather rough as a file<br>
+                        Indeed I had to fight<br>
+                        My time was coming</p>
+                        
+                        <p>My betterment was what I fought for<br>
+                        I had to use my long horn<br>
+                        Many Surprised today I've won<br>
+                        Free as an electron<br>
+                        For sure my time was coming</p>
+                        
+                        <p>Now look at what my labour has brought<br>
+                        It has indeed brought a lot<br>
+                        A future worth calling a fruit<br>
+                        True it wasn't an easy route<br>
+                        The seeds took way long to sprout<br>
+                        But the harvests were worth it<br>
+                        I just had to believe<br>
+                        My time was coming</p>
+                    </div>
+                </div>
+
+                <!-- THE LIGHT IN THE DARK -->
+                <div class="poem-full-card glass-card" data-aos="zoom-in" data-aos-delay="100">
+                    <h3>THE LIGHT IN THE DARK</h3>
+                    <div class="poem-date">2024</div>
+                    <div class="poem-text">
+                        <p>Through the stormy nights you were his shelter,<br>
+                        A beacon of hope when his foundation was weak<br>
+                        Your words gave him courage when he felt like giving up,<br>
+                        He found strength to rise up and his spirit perked up</p>
+                        
+                        <p>You lifted his head when he was bowed down in despair<br>
+                        Your light shone bright, and gave him hope to repair,<br>
+                        You noticed him when all he felt was disregarded,<br>
+                        Your compassion was medicine, for his emotional infection,<br>
+                        And when the emotions became chaotic your support was catalytic through your reckless love</p>
+                        
+                        <p>His heart was heavy, his spirit Broken<br>
+                        But you were there to raise him up<br>
+                        He felt casted aside and you saw his value<br>
+                        Wonderful merciful saviour, that is you</p>
+                    </div>
+                </div>
+
+                <!-- FRACTURED LIGHT -->
+                <div class="poem-full-card glass-card" data-aos="zoom-in" data-aos-delay="200">
+                    <h3>FRACTURED LIGHT</h3>
+                    <div class="poem-date">2024</div>
+                    <div class="poem-text">
+                        <p>The fear of letdown gives us no reason to try again<br>
+                        The people we trust are the ones who make it rain<br>
+                        The level of constant disappointments burdens us<br>
+                        Leaving us fed up, exhausted, and deeply burnt</p>
+                        
+                        <p>The last resort becomes a loner's trend<br>
+                        From the dark trenches of the deep seas<br>
+                        To the silent sheds of the Amazon trees<br>
+                        A life spent on scavenging peace<br>
+                        And never does the urge to, ever seize</p>
+                        
+                        <p>Solitude seems to guarantee<br>
+                        It gives us freedom, like genie to Aladdin<br>
+                        We think we've found it, and it was meant to be<br>
+                        But for how long does it last?<br>
+                        A present life burdened by the past<br>
+                        Memories imprinted like childhood scars<br>
+                        Satisfaction only enjoyed from the stars</p>
+                        
+                        <p>It's a painful truth that no matter the comfort<br>
+                        We enjoy in our loner's zone<br>
+                        One day or another, we will feel alone</p>
+                        
+                        <p>That is why we need people, real people<br>
+                        It's not bad luck that we encounter bad companions<br>
+                        It's just a reminder that not every shoulder, Is a leaning beacon</p>
+                        
+                        <p>Be patient with your life, and keep your eyes open<br>
+                        If you're keen enough, you'll see one<br>
+                        Pure hearted, loving, supportive, shiny, and golden</p>
+                        
+                        <p>It's that single encounter that changes the story<br>
+                        A new chapter, new pages, new setting and new characters<br>
+                        All in the same book, by the same narrator, YOU</p>
+                        
+                        <p>The only limitation is that the past story<br>
+                        Can never resurface<br>
+                        But the new one has a milestone of pages to cover<br>
+                        Anything can happen, it's just up to the author</p>
+                        
+                        <p>No man is an island<br>
+                        Keep your heart open<br>
+                        Don't be afraid<br>
+                        No matter the countless loops<br>
+                        A rollercoaster makes, it'll still end up where it started then, the ground<br>
+                        You were born happy<br>
+                        You'll end up happy</p>
+                    </div>
+                </div>
+
+                <!-- THERE'S OKAY IN BARELY OKAY -->
+                <div class="poem-full-card glass-card" data-aos="zoom-in" style="grid-column: 1/-1;">
+                    <h3>THERE'S OKAY IN BARELY OKAY</h3>
+                    <div class="poem-date">2024</div>
+                    <div class="poem-text">
+                        <p>I still remember it vividly<br>
+                        It was a bright Sunday afternoon<br>
+                        The Sky was sunny, clearer and blue<br>
+                        Boredom struck me to the core<br>
+                        I was so lonely and craved for more<br>
+                        So I decided to visit an old friend of mine<br>
+                        Since contact had been a really long time<br>
+                        The longing for connection I couldn't overlook<br>
+                        There was no stopping me, that taxi I had to book</p>
+                        
+                        <p>When I arrived the rain was dropping<br>
+                        A stern face with her eye brows dropping<br>
+                        I asked her what's wrong and she said she was in heart break<br>
+                        Her boyfriend had dumped her and her life was a train wreck<br>
+                        I sat quiet and didn't know what to say<br>
+                        I understood her pain but it wasn't worth the tear stray<br>
+                        Momental scars that could heal in a day<br>
+                        I told her to kneel and together we should pray<br>
+                        Before I departed I had to ask</p>
+                        
+                        <p>"This is the last time that I'm gonna ask"<br>
+                        "How are you" she said barely okay<br>
+                        Then I said, At least there's an okay in barely okay</p>
+                        
+                        <p>I missed him, sad we had to meet in that way<br>
+                        My uncle, that had long been gone for years<br>
+                        Always dreamt he'd come and buy me a new bike<br>
+                        Before he bought it, his life was on spikes<br>
+                        The car he boarded to work overturned<br>
+                        Soon as I heard the news my heart burned<br>
+                        I wished I could help him, my hand I could lend<br>
+                        But he had Many bone fractures the doctors had to mend<br>
+                        Time flew fast and his recovery was quick<br>
+                        The moment he woke up he said he felt weak<br>
+                        To his surprise he couldn't feel his leg<br>
+                        A shouting stutter "where's my leg gone i beg"<br>
+                        He sobbed and sobbed and sat on the corner<br>
+                        If only he knew the length of his coma<br>
+                        I felt his loss, but gratitude was solace</p>
+                        
+                        <p>I asked him how are you he said barely okay<br>
+                        Then I said you know what, In that theatre,<br>
+                        someone is not even barely okay</p>
+                        
+                        <p>A frustrated face behind the stage on that Christmas night<br>
+                        A few minutes before he performed that pluck<br>
+                        The strings of the guitar got tangled and stuck<br>
+                        He feared for his reputation<br>
+                        For an awful performance was what he never had<br>
+                        It was the First day I saw the tears of a guitarist<br>
+                        From heartwarming melodies to the face of wist<br>
+                        But I comforted him, my hand on his wrist<br>
+                        A disheartened man behind a melody starving mist<br>
+                        There was no other way<br>
+                        He needed to save it for another day<br>
+                        Broken I knew otherwise he couldn't play<br>
+                        I asked him man how are you he said barely okay<br>
+                        I said you know what? At least there's an okay in barely okay</p>
+                        
+                        <p>I understand we intermittently grieve our loss<br>
+                        But isn't happiness what matters the most?<br>
+                        A bird in hand is worth two in the bush<br>
+                        Why do you weep about an unsang flute<br>
+                        Ones life out there has just been put on mute<br>
+                        Let's learn to find joy in the simplest of things<br>
+                        True, human beings are complex beings<br>
+                        But Never let that ever make you feel weak<br>
+                        There's an okay in barely okay</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: INFINITE THOUGHTS -->
+            <h2 class="category-title" data-aos="fade-right">III. INFINITE THOUGHTS</h2>
+            <p class="section-intro" data-aos="fade-up">There are thoughts that stretch beyond the boundaries of language, drifting like stars across the mind's horizon, whispering of love, loss, and the quiet wars within.</p>
+            
+            <div class="poems-grid">
+                <!-- INFINIVERSE -->
+                <div class="poem-full-card glass-card" data-aos="zoom-in">
+                    <h3>INFINIVERSE</h3>
+                    <div class="poem-date">2024</div>
+                    <div class="poem-text">
+                        <p>In the infiniverse, where stars are born<br>
+                        And galaxies stretch beyond what's sworn<br>
+                        I find myself, a soul adrift<br>
+                        Yearning for the infinite, my heart's rift<br>
+                        Continuous echoes tuned by the joyful vocals<br>
+                        Pitched from the stretching of my Adam's apple<br>
+                        The light I see, not stained by a single bit of shade</p>
+                        
+                        <p>In this resonance, I find my way<br>
+                        Through the infiniverse, night and day<br>
+                        A path unwinding, like a river's flow<br>
+                        Leading me to secrets, yet unknown<br>
+                        Feeling contented with peace, I proudly show<br>
+                        From my head to the tip of my toe<br>
+                        No defined pattern, both columns and rows<br>
+                        The scent of freedom, the fragrance of rose</p>
+                        
+                        <p>In this state of bliss, I find my voice<br>
+                        A melody that echoes, a heartfelt choice<br>
+                        To dance with the universe, wild and free<br>
+                        Embracing the beauty, that's meant to be</p>
+                        
+                        <p>No death, just immortal beings<br>
+                        Blood nor pain, everyone sees<br>
+                        Clear vision, all keenest of sight<br>
+                        Free of sin, but moral delight</p>
+                        
+                        <p>In this realm of wonder, we roam and play<br>
+                        Where love and wisdom guide us, every step of the way<br>
+                        With hearts full of kindness, and minds full of light<br>
+                        We dance through eternity, in pure delight<br>
+                        In wisdom and faith, we surely strive<br>
+                        Accumulators of spiritual will, our souls they drive<br>
+                        Bubbles of weakness and desperation<br>
+                        We remove the recess with amalgamation<br>
+                        Prayers solid and virtual, no apparition<br>
+                        All is real, see the mirror of redemption</p>
+                    </div>
+                </div>
+
+                <!-- WHAT IF -->
+                <div class="poem-full-card glass-card" data-aos="zoom-in" data-aos-delay="100">
+                    <h3>WHAT IF</h3>
+                    <div class="poem-date">2024</div>
+                    <div class="poem-text">
+                        <p>What if I died today<br>
+                        Breath seizure comes my way<br>
+                        Blood my heart no longer relays.</p>
+                        
+                        <p>Will I face God?<br>
+                        Will I look God in the eyes confidently<br>
+                        And say lord I've done your will<br>
+                        Stood stiff as a quill<br>
+                        On your ways I was still<br>
+                        All this time I've been real<br>
+                        That I prayed and skipped at least a meal<br>
+                        All for you my lord<br>
+                        Will I?</p>
+                        
+                        <p>Its a misfortune<br>
+                        Failing to comply with his rules<br>
+                        Masqueraded in fake love and sympathy<br>
+                        Nothing good behind just jeopardy.<br>
+                        Clung to Living a life of fallacy<br>
+                        Prayers loud, sins masked, pride in redundancy</p>
+                        
+                        <p>You have it all, you're rich<br>
+                        You fast, days pass, baptised and you even preach<br>
+                        But what if you're cleanliness denied, poor in spirit<br>
+                        The gate opens to those in merit</p>
+                        
+                        <p>There is no better time<br>
+                        Let's prepare ourselves<br>
+                        There is no better path<br>
+                        Path to everlasting life<br>
+                        The only glamour to Walk in eternal light<br>
+                        Against all the battles lined up for you, God will fight.</p>
+                        
+                        <p>Unfortunately, we lack sight at most<br>
+                        When it's salvation, It comes at a cost<br>
+                        It's not jewellery, mansions, prestiged vehicles nor coins<br>
+                        Pity won't buy it, neither will wealth.<br>
+                        Only the size of a mustard seed of Faith</p>
+                        
+                        <p>Let's emulate him<br>
+                        Be rimmed by his kind<br>
+                        Be fenced by his words.<br>
+                        We know for wild animals he raids<br>
+                        Are we not more precious than birds</p>
+                        
+                        <p>Don't we fear hell?<br>
+                        A place with a story, scary to tell<br>
+                        Just a step forward is all it takes<br>
+                        Freedom and peace is what it makes<br>
+                        A hurdle free life isn't guaranteed<br>
+                        But breakthrough and persevering strength is indeed</p>
+                        
+                        <p>With each passing day the invite is open<br>
+                        It's nothing fancy, honor and it is not modern<br>
+                        But at the end of it all you'll be okay<br>
+                        It is God's way</p>
+                    </div>
+                </div>
+
+                <!-- IF BIRTH HAD ANESTHESIA -->
+                <div class="poem-full-card glass-card" data-aos="zoom-in" data-aos-delay="200">
+                    <h3>IF BIRTH HAD ANESTHESIA</h3>
+                    <div class="poem-date">2024</div>
+                    <div class="poem-text">
+                        <p>Ever wondered?<br>
+                        If birth had anesthesia<br>
+                        Would it have a meaning?<br>
+                        If labour bore no pain<br>
+                        Would it be fulfilling? No</p>
+                        
+                        <p>Some say pain marks the convenience of the being to come<br>
+                        The essence and soulful nature of that specific period of time<br>
+                        Word taking time right?<br>
+                        Negligible stings during birth<br>
+                        How would we even describe it<br>
+                        The divine creator had a reason<br>
+                        Metaphors in his words on this they reason<br>
+                        But what if birth had anesthesia<br>
+                        Would the value of a child even be appreciated<br>
+                        Would the existence alone be anything precious</p>
+                        
+                        <p>We strive for eternal freedom<br>
+                        But would it be worth it<br>
+                        A world with no pain nor suffering<br>
+                        Salvation and liberty forever shimmering</p>
+                        
+                        <p>Imagine how pain shapes a person<br>
+                        The determination and perseverance it instills<br>
+                        The purposeful life it creates<br>
+                        The goals and system It helps one set and build<br>
+                        Isn't it worth it<br>
+                        Wouldn't we miss that</p>
+                        
+                        <p>A world without pain implies a world without boundaries<br>
+                        Where all life lies on the same meniscus<br>
+                        No high nor lower class<br>
+                        No worker no employee<br>
+                        Ever wondered?</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: SOCIETY AND REALITY CHECK -->
+            <h2 class="category-title" data-aos="fade-right">IV. SOCIETY AND REALITY CHECK</h2>
+            <p class="section-intro" data-aos="fade-up">This section stares at the world we live in, its masks, its wounds, its strange traditions. The poems here question what we've accepted as normal, and expose the silent truths society often hides.</p>
+            
+            <div class="poems-grid">
+                <!-- WE'RE ALL CIRCUMCISED -->
+                <div class="poem-full-card glass-card" data-aos="zoom-in" style="grid-column: 1/-1;">
+                    <h3>WE'RE ALL CIRCUMCISED</h3>
+                    <div class="poem-date">2024</div>
+                    <div class="poem-text">
+                        <p>We're all circumcised</p>
+                        
+                        <p>In the midst of these jovial faces broken hearts lie<br>
+                        Among these agile hands and feet rests unbearable bitter pie<br>
+                        Tell me how are we not circumcised?<br>
+                        The pain and disappointments on our heads<br>
+                        The freedom we yearn for, worth priceless beads</p>
+                        
+                        <p>We're all circumcised</p>
+                        
+                        <p>Tell me who doesn't bare the weight of the evil doings of these greedy politicians<br>
+                        Unfulfilled promises piercing through our skins<br>
+                        In their eyes were just little weaklings<br>
+                        Puppets to be used for deeds of their likings<br>
+                        How are we not circumcised<br>
+                        The sensation we endure like surgery without anesthesia<br>
+                        So sad such moments always linger</p>
+                        
+                        <p>We're all circumcised</p>
+                        
+                        <p>We spend over half our lives grappling knowledge in school<br>
+                        All to secure high paying jobs and look cool<br>
+                        But belated success never loosens from our skin<br>
+                        Like juicy sutures and gauze clinging together<br>
+                        Hurt feeling and thoughts seem forever</p>
+                        
+                        <p>We're all circumcised</p>
+                        
+                        <p>One sources capital to start a business<br>
+                        Humble beginnings his hands can witness<br>
+                        But then taxes seem to be the weakness<br>
+                        Setbacks sharp as the theatre scapes<br>
+                        Between profits and taxes we he has to tackle<br>
+                        Hell Caesar</p>
+                        
+                        <p>We're all circumcised</p>
+                        
+                        <p>An innocent young lady can't access a job without offering her body as sacrifice<br>
+                        She's nothing else than mere merchandise<br>
+                        You hear the boss say there's a price to pay<br>
+                        To get the spot on her he must lay<br>
+                        How are we not circumcised</p>
+                        
+                        <p>They tell an intern to have 10 years experience so he can sit on the chair<br>
+                        How can a person's heart be polluted as air<br>
+                        Swollen eyes like day two of circumcision<br>
+                        The torture overflows with no restrictions</p>
+                        
+                        <p>We're all circumcised</p>
+                        
+                        <p>Tell me why do decisions made by the leaders only impact the poor citizens<br>
+                        You decline peaceful agreements In the comfort of your offices<br>
+                        Yet the effects of the atomic bombs and missiles are felt by the innocents<br>
+                        How are we not circumcised</p>
+                        
+                        <p>Lost hope aching and burning in our hearts like iodine<br>
+                        Resentment we can't digest like ptyalin<br>
+                        Grinding hard for the final aesthetic prospective<br>
+                        Or so we think</p>
+                        
+                        <p>We're all circumcised</p>
+                        
+                        <p>What crime do people born with the defective melanin gene commit<br>
+                        They can't even go jog to stay fit<br>
+                        Fearing the hungry predators of their own species<br>
+                        Confined like astronauts in space suits<br>
+                        Caught up in circles of freedom pursuit<br>
+                        The able enter DAPP stores to sweep of the remaining cheap clothes<br>
+                        Leaving the high priced ones for the poor<br>
+                        Tears from our eyes never seize to pour</p>
+                        
+                        <p>We're all circumcised<br>
+                        Who hasn't felt the excruciating pain of this world<br>
+                        We can't even pronounce the word<br>
+                        That describes what we're going through<br>
+                        Or whatever we're about to<br>
+                        It's clear we might need another set of eyes<br>
+                        These two are burdened by a stream of tears they failed to handle<br>
+                        The peace we once enjoyed now we just mumble<br>
+                        Upon paradisiacal life we stumble<br>
+                        By now everyone has realised<br>
+                        Truly, we're all circumcised</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Closing Thoughts -->
+            <div class="closing-thoughts glass-card" data-aos="fade-up" style="margin-top: 4rem; padding: 3rem; text-align: center;">
+                <h2 style="color: var(--gold-accent); margin-bottom: 2rem;">Closing Thoughts</h2>
+                <p style="font-size: 1.2rem; margin-bottom: 2rem;">To those who shaped my journey - my friends, family, mentors, and God - this collection is a tribute to your support and presence.</p>
+                <div style="font-size: 1.5rem; color: var(--cyan-highlight); font-style: italic; margin: 2rem 0;">
+                    "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future."
+                </div>
+                <p style="margin-top: 2rem;">— Jeremiah 29:11</p>
+            </div>
+
+            <div class="back-to-top-poetry">
+                <a href="#" class="btn btn-primary" onclick="window.scrollTo({top:0, behavior:'smooth'}); return false;">
+                    <i class="fas fa-arrow-up"></i> Back to Top
+                </a>
+                <a href="poetry.html" class="btn btn-outline" style="margin-left: 1rem;">
+                    <i class="fas fa-feather-alt"></i> Back to Poetry Overview
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-text">JK</span>
+                    <span class="logo-tagline">Innovation. Discipline. Depth.</span>
+                </div>
+                <div class="footer-links">
+                    <a href="../index.html">Home</a>
+                    <a href="about.html">About</a>
+                    <a href="projects.html">Projects</a>
+                    <a href="research.html">Research</a>
+                    <a href="leadership.html">Leadership</a>
+                    <a href="philosophy.html">Philosophy</a>
+                    <a href="poetry.html">Poetry</a>
+                    <a href="../blog/index.html">Blog</a>
+                    <a href="contact.html">Contact</a>
+                </div>
+                <div class="footer-social">
+                    <a href="https://www.linkedin.com/in/joel-kaudzu-0bba48392" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/joelkaudzu9-ship-it" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://youtube.com/@joels_lab" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://x.com/JoelK63756" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Joel George Kaudzu. Built at 3:33am.</p>
+                <p class="footer-quote">"Build what you wish existed."</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="../js/main.js"></script>
+    <script>
+        AOS.init({ duration: 800, once: false, mirror: true });
+    </script>
+</body>
+</html>
