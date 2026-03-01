@@ -1,0 +1,32 @@
+{
+  "name": "joelkaudzu-portfolio",
+  "version": "1.0.0",
+  "description": "Medical-tech founder portfolio for Joel Kaudzu",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"No tests specified\" && exit 0",
+    "build": "echo \"No build required\" && exit 0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/joelkaudzu9-ship-it/joelkaudzu9-ship-it.github.io.git"
+  },
+  "keywords": [
+    "portfolio",
+    "medical-tech",
+    "dental",
+    "innovation",
+    "africa"
+  ],
+  "author": "Joel George Kaudzu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/joelkaudzu9-ship-it/joelkaudzu9-ship-it.github.io/issues"
+  },
+  "homepage": "https://github.com/joelkaudzu9-ship-it/joelkaudzu9-ship-it.github.io#readme",
+  "devDependencies": {
+    "html5validator": "^1.0.0",
+    "linkinator": "^6.0.0",
+    "eslint": "^8.57.0"
+  }
+}
