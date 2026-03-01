@@ -1,0 +1,27 @@
+{
+  "personal": {
+    "firstName": "Joel George",
+    "lastName": "Kaudzu",
+    "fullName": "Joel George Kaudzu",
+    "email": "joelkaudzu9@gmail.com",
+    "whatsapp": "+265983142415",
+    "location": "Malawi"
+  },
+  "social": {
+    "linkedin": "https://www.linkedin.com/in/joel-kaudzu-0bba48392",
+    "github": "https://github.com/joelkaudzu9-ship-it",
+    "youtube": "https://youtube.com/@joels_lab",
+    "twitter": "https://x.com/JoelK63756",
+    "email": "joelkaudzu9@gmail.com"
+  },
+  "projects": {
+    "checkmysmile": {
+      "demo": "https://youtu.be/XfdkxzoQw9Q",
+      "description": "Developed and tested by fellow medical students. Thousands of avoidable pain and systemic complications could be curbed with early detection and awareness."
+    }
+  },
+  "metrics": {
+    "peerMentorship": 10,
+    "innovationsCoordinated": 10
+  }
+}
