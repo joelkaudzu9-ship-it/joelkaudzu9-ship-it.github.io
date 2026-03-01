@@ -16,358 +16,498 @@
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     
-    <!-- Main CSS - FIXED PATHS -->
+    <!-- Main CSS -->
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/pages.css">
     
     <style>
-        /* Emergency fallback styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+        /* ===== REFACTORED RESEARCH PAGE STYLES ===== */
+        :root {
+            --primary-gold: #D4AF37;
+            --primary-cyan: #22D3EE;
+            --dark-bg: #0B1120;
+            --darker-bg: #111827;
+            --text-primary: #F9FAFB;
+            --text-secondary: #9CA3AF;
+            --border-glow: rgba(212, 175, 55, 0.2);
+            --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        
-        body {
-            background-color: #0B1120;
-            color: #F9FAFB;
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
+
+        /* ===== LAYOUT ENHANCEMENTS ===== */
+        .research-page {
+            background: var(--dark-bg);
+            position: relative;
+            overflow-x: hidden;
         }
-        
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-        
-        /* Navigation */
-        .main-nav {
+
+        .research-page::before {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            padding: 1.5rem 0;
-            background: rgba(11, 17, 32, 0.95);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(34, 211, 238, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
         }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 2rem;
+
+        .container {
+            position: relative;
+            z-index: 2;
         }
-        
-        .nav-logo .logo-text {
-            font-size: 2rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, #D4AF37, #22D3EE);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-        
-        .nav-links a {
-            color: #F9FAFB;
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-        
-        .nav-links a:hover,
-        .nav-links a.active {
-            color: #D4AF37;
-        }
-        
-        /* Page Header */
-        .page-header {
-            min-height: 40vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+
+        /* ===== SECTION HEADERS - IMPROVED ===== */
+        .section-header-modern {
             text-align: center;
-            background: linear-gradient(135deg, #0B1120, #111827);
-            padding-top: 100px;
-            margin-bottom: 2rem;
-        }
-        
-        .page-title {
-            font-size: clamp(2.5rem, 5vw, 4rem);
-            background: linear-gradient(135deg, #F9FAFB, #D4AF37);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            margin-bottom: 1rem;
-        }
-        
-        .page-subtitle {
-            color: #9CA3AF;
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: 0 auto;
-        }
-        
-        /* Section Styles */
-        .section-padding {
-            padding: 4rem 0;
-        }
-        
-        .section-title {
-            font-size: 2.5rem;
-            color: #D4AF37;
-            margin-bottom: 2rem;
+            margin-bottom: 4rem;
             position: relative;
         }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 80px;
-            height: 3px;
-            background: linear-gradient(90deg, #D4AF37, #22D3EE);
+
+        .section-header-modern h2 {
+            font-size: clamp(2rem, 4vw, 2.8rem);
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
         }
-        
-        .bg-darker {
-            background: rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Glass Card */
-        .glass-card {
-            background: rgba(17, 24, 39, 0.8);
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 24px;
-            padding: 2rem;
-            transition: all 0.3s ease;
-        }
-        
-        .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: #D4AF37;
-            box-shadow: 0 20px 40px -15px rgba(212, 175, 55, 0.3);
-        }
-        
-        /* Research Grid */
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-        
-        .research-icon {
-            width: 60px;
-            height: 60px;
-            background: linear-gradient(135deg, #D4AF37, #22D3EE);
-            border-radius: 50%;
+
+        .section-header-modern .header-ornament {
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-bottom: 1.5rem;
+            gap: 1rem;
+            margin: 1rem 0;
         }
-        
-        .research-icon i {
-            font-size: 1.8rem;
-            color: #0B1120;
+
+        .section-header-modern .header-ornament span {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--primary-gold), var(--primary-cyan), transparent);
         }
-        
-        .research-card h3 {
-            color: #D4AF37;
-            font-size: 1.5rem;
+
+        .section-header-modern .header-ornament i {
+            color: var(--primary-gold);
+            font-size: 1.2rem;
+            opacity: 0.7;
+        }
+
+        .section-header-modern .section-subhead {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* ===== RESEARCH CARDS - ENHANCED ===== */
+        .research-grid-modern {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin: 3rem 0;
+        }
+
+        .research-card-modern {
+            background: rgba(17, 24, 39, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glow);
+            border-radius: 30px;
+            padding: 2.5rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-card-modern::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.03), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .research-card-modern:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: var(--primary-gold);
+            box-shadow: 0 30px 50px -20px rgba(212, 175, 55, 0.3);
+        }
+
+        .research-card-modern:hover::before {
+            left: 100%;
+        }
+
+        .card-icon-wrapper {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-cyan));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-icon-wrapper i {
+            font-size: 2.2rem;
+            color: var(--dark-bg);
+            position: relative;
+            z-index: 2;
+        }
+
+        .card-icon-wrapper::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.2), transparent);
+            transform: rotate(45deg);
+            animation: shimmer 3s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(100%) rotate(45deg); }
+        }
+
+        .research-card-modern h3 {
+            color: var(--primary-gold);
+            font-size: 1.6rem;
             margin-bottom: 1rem;
+            line-height: 1.3;
         }
-        
-        .research-card p {
-            color: #9CA3AF;
-            margin-bottom: 1.5rem;
+
+        .research-card-modern p {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
             line-height: 1.8;
         }
-        
-        .research-tags {
+
+        .research-meta {
             display: flex;
             flex-wrap: wrap;
+            gap: 0.8rem;
+            margin-top: auto;
+        }
+
+        .research-badge {
+            background: rgba(34, 211, 238, 0.1);
+            color: var(--primary-cyan);
+            padding: 0.4rem 1.2rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid rgba(34, 211, 238, 0.2);
+            transition: var(--transition-smooth);
+        }
+
+        .research-badge:hover {
+            background: rgba(34, 211, 238, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* ===== PUBLICATIONS SECTION - REDESIGNED ===== */
+        .publications-timeline {
+            position: relative;
+            max-width: 900px;
+            margin: 3rem auto;
+        }
+
+        .publication-item-modern {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            display: grid;
+            grid-template-columns: 120px 1fr auto;
+            gap: 2rem;
+            align-items: center;
+            transition: var(--transition-smooth);
+            position: relative;
+            cursor: pointer;
+        }
+
+        .publication-item-modern:hover {
+            border-color: var(--primary-cyan);
+            transform: translateX(10px);
+            background: rgba(17, 24, 39, 0.8);
+        }
+
+        .pub-year-modern {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: transparent;
+            -webkit-text-stroke: 2px var(--primary-gold);
+            text-stroke: 2px var(--primary-gold);
+            opacity: 0.8;
+        }
+
+        .pub-content h3 {
+            color: var(--text-primary);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .pub-venue-modern {
+            color: var(--primary-cyan);
+            font-size: 0.95rem;
+            margin-bottom: 0.3rem;
+            display: flex;
+            align-items: center;
             gap: 0.5rem;
         }
-        
-        .tag {
-            background: rgba(34, 211, 238, 0.1);
-            color: #22D3EE;
+
+        .pub-venue-modern i {
+            font-size: 0.8rem;
+        }
+
+        .pub-authors-modern {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .pub-type {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--primary-gold);
             padding: 0.3rem 1rem;
             border-radius: 50px;
             font-size: 0.8rem;
-            border: 1px solid rgba(34, 211, 238, 0.3);
-        }
-        
-        /* Publications */
-        .publications-list {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-        
-        .publication-item {
-            background: rgba(17, 24, 39, 0.8);
             border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 20px;
-            padding: 1.5rem;
+            white-space: nowrap;
+        }
+
+        /* ===== ROADMAP - ENHANCED ===== */
+        .roadmap-modern {
             display: grid;
-            grid-template-columns: 100px 1fr;
+            grid-template-columns: repeat(4, 1fr);
             gap: 1.5rem;
-            align-items: start;
-            transition: all 0.3s ease;
-        }
-        
-        .publication-item:hover {
-            border-color: #22D3EE;
-        }
-        
-        .pub-year {
-            color: #D4AF37;
-            font-size: 1.3rem;
-            font-weight: 700;
-        }
-        
-        .pub-title {
-            color: #F9FAFB;
-            font-size: 1.2rem;
-            margin-bottom: 0.3rem;
-        }
-        
-        .pub-venue {
-            color: #22D3EE;
-            font-size: 0.9rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .pub-authors {
-            color: #9CA3AF;
-            font-size: 0.9rem;
-        }
-        
-        /* Roadmap */
-        .roadmap-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-        
-        .roadmap-item {
-            background: rgba(17, 24, 39, 0.8);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
+            margin: 3rem 0;
             position: relative;
         }
-        
-        .roadmap-year {
-            color: #D4AF37;
-            font-size: 1.5rem;
+
+        .roadmap-modern::before {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 10%;
+            width: 80%;
+            height: 2px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                var(--primary-gold), 
+                var(--primary-cyan), 
+                var(--primary-gold), 
+                transparent);
+            z-index: 1;
+        }
+
+        .roadmap-node {
+            background: rgba(17, 24, 39, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 2rem 1.5rem;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+            transition: var(--transition-smooth);
+        }
+
+        .roadmap-node:hover {
+            transform: translateY(-10px);
+            border-color: var(--primary-gold);
+        }
+
+        .node-year {
+            display: inline-block;
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-cyan));
+            color: var(--dark-bg);
+            padding: 0.3rem 1.5rem;
+            border-radius: 50px;
             font-weight: 700;
             margin-bottom: 1rem;
         }
-        
-        .roadmap-title {
-            color: #22D3EE;
+
+        .node-title {
+            color: var(--primary-cyan);
             font-weight: 600;
+            margin-bottom: 0.8rem;
+            font-size: 1.1rem;
+        }
+
+        .node-description {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ===== STATS SECTION - NEW ===== */
+        .research-stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .stat-item-modern {
+            background: rgba(17, 24, 39, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid var(--border-glow);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: var(--transition-smooth);
+        }
+
+        .stat-item-modern:hover {
+            border-color: var(--primary-cyan);
+        }
+
+        .stat-number-modern {
+            font-size: 3rem;
+            font-weight: 800;
+            background: linear-gradient(135deg, var(--primary-gold), var(--primary-cyan));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1;
             margin-bottom: 0.5rem;
         }
-        
-        .roadmap-item p {
-            color: #9CA3AF;
-            font-size: 0.9rem;
+
+        .stat-label-modern {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
-        
-        /* Footer */
-        .main-footer {
-            background: #111827;
-            padding: 4rem 0 2rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-            margin-top: 4rem;
-        }
-        
-        .footer-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-links {
-            display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .footer-links a {
-            color: #9CA3AF;
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-links a:hover {
-            color: #D4AF37;
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255,255,255,0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #F9FAFB;
-            transition: all 0.3s;
-        }
-        
-        .footer-social a:hover {
-            background: #D4AF37;
-            color: #0B1120;
-        }
-        
-        .footer-bottom {
+
+        /* ===== QUOTE SECTION - NEW ===== */
+        .research-quote {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.05), rgba(34, 211, 238, 0.05));
+            border-left: 4px solid var(--primary-gold);
+            border-right: 4px solid var(--primary-cyan);
+            border-radius: 30px;
+            padding: 3rem;
+            margin: 4rem 0;
             text-align: center;
-            color: #9CA3AF;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.05);
+            position: relative;
         }
-        
-        @media (max-width: 768px) {
-            .research-grid {
-                grid-template-columns: 1fr;
+
+        .research-quote i {
+            font-size: 3rem;
+            color: var(--primary-gold);
+            opacity: 0.2;
+            position: absolute;
+            top: 1rem;
+            left: 2rem;
+        }
+
+        .quote-text {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: var(--text-primary);
+            max-width: 800px;
+            margin: 0 auto;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .quote-author {
+            color: var(--primary-cyan);
+            margin-top: 1.5rem;
+            font-weight: 500;
+        }
+
+        /* ===== RESPONSIVE DESIGN ===== */
+        @media (max-width: 1024px) {
+            .roadmap-modern {
+                grid-template-columns: repeat(2, 1fr);
             }
-            .publication-item {
-                grid-template-columns: 1fr;
-                gap: 0.5rem;
-            }
-            .nav-links {
+            .roadmap-modern::before {
                 display: none;
             }
         }
+
+        @media (max-width: 768px) {
+            .research-grid-modern {
+                grid-template-columns: 1fr;
+            }
+            
+            .publication-item-modern {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+            }
+            
+            .research-stats {
+                grid-template-columns: 1fr;
+            }
+            
+            .roadmap-modern {
+                grid-template-columns: 1fr;
+            }
+            
+            .pub-year-modern {
+                font-size: 1.4rem;
+                -webkit-text-stroke: 1px var(--primary-gold);
+            }
+            
+            .research-quote {
+                padding: 2rem;
+            }
+            
+            .quote-text {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .research-card-modern {
+                padding: 1.5rem;
+            }
+            
+            .card-icon-wrapper {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .card-icon-wrapper i {
+                font-size: 1.8rem;
+            }
+        }
+
+        /* ===== ANIMATIONS ===== */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .animate-up {
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        .delay-1 { animation-delay: 0.2s; }
+        .delay-2 { animation-delay: 0.4s; }
+        .delay-3 { animation-delay: 0.6s; }
     </style>
 </head>
-<body>
+<body class="research-page">
     <!-- Navigation -->
     <nav class="main-nav">
         <div class="nav-container">
@@ -396,56 +536,96 @@
     <section class="page-header">
         <div class="container">
             <h1 class="page-title" data-aos="fade-up">Research & Innovation</h1>
-            <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">Bridging dentistry, immunology, and data science</p>
+            <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">Bridging dentistry, immunology, and data science for African healthcare</p>
+        </div>
+    </section>
+
+    <!-- Research Stats Section -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="research-stats">
+                <div class="stat-item-modern" data-aos="zoom-in">
+                    <div class="stat-number-modern">3</div>
+                    <div class="stat-label-modern">Active Research Areas</div>
+                </div>
+                <div class="stat-item-modern" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="stat-number-modern">4</div>
+                    <div class="stat-label-modern">Publications</div>
+                </div>
+                <div class="stat-item-modern" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="stat-number-modern">2028</div>
+                    <div class="stat-label-modern">Target Scale</div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Research Focus Section -->
-    <section class="section-padding">
+    <section class="section-padding bg-darker">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Primary Research Interests</h2>
-            <div class="research-grid">
+            <div class="section-header-modern" data-aos="fade-up">
+                <h2>Primary Research Interests</h2>
+                <div class="header-ornament">
+                    <span></span>
+                    <i class="fas fa-microscope"></i>
+                    <span></span>
+                </div>
+                <p class="section-subhead">Exploring the intersections where innovation meets impact</p>
+            </div>
+
+            <div class="research-grid-modern">
                 <!-- Dental-Immunology -->
-                <div class="research-card glass-card" data-aos="fade-up">
-                    <div class="research-icon">
+                <div class="research-card-modern" data-aos="fade-up">
+                    <div class="card-icon-wrapper">
                         <i class="fas fa-tooth"></i>
                     </div>
                     <h3>Dental-Immunology Interactions</h3>
-                    <p>Exploring how oral microbiome affects systemic immunity, and potential diagnostic markers in saliva for immune disorders.</p>
-                    <div class="research-tags">
-                        <span class="tag">Immunology</span>
-                        <span class="tag">Microbiome</span>
-                        <span class="tag">Dentistry</span>
+                    <p>Exploring how oral microbiome affects systemic immunity, and potential diagnostic markers in saliva for immune disorders. Investigating correlations between periodontal health and autoimmune conditions.</p>
+                    <div class="research-meta">
+                        <span class="research-badge">Immunology</span>
+                        <span class="research-badge">Microbiome</span>
+                        <span class="research-badge">Dentistry</span>
                     </div>
                 </div>
 
                 <!-- Predictive Analytics -->
-                <div class="research-card glass-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="research-icon">
+                <div class="research-card-modern" data-aos="fade-up" data-aos-delay="100">
+                    <div class="card-icon-wrapper">
                         <i class="fas fa-chart-line"></i>
                     </div>
                     <h3>Predictive Analytics in Oral Health</h3>
-                    <p>Using machine learning to predict dental disease progression based on lifestyle, genetic, and environmental factors.</p>
-                    <div class="research-tags">
-                        <span class="tag">Machine Learning</span>
-                        <span class="tag">Data Science</span>
-                        <span class="tag">Predictive Models</span>
+                    <p>Using machine learning to predict dental disease progression based on lifestyle, genetic, and environmental factors. Developing risk assessment tools for early intervention.</p>
+                    <div class="research-meta">
+                        <span class="research-badge">Machine Learning</span>
+                        <span class="research-badge">Data Science</span>
+                        <span class="research-badge">Predictive Models</span>
                     </div>
                 </div>
 
                 <!-- Low-Cost Diagnostics -->
-                <div class="research-card glass-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="research-icon">
+                <div class="research-card-modern" data-aos="fade-up" data-aos-delay="200">
+                    <div class="card-icon-wrapper">
                         <i class="fas fa-microscope"></i>
                     </div>
                     <h3>Low-Cost Diagnostic Tools</h3>
-                    <p>Developing affordable, AI-assisted diagnostic devices for rural clinics with limited access to dentists.</p>
-                    <div class="research-tags">
-                        <span class="tag">AI</span>
-                        <span class="tag">MedTech</span>
-                        <span class="tag">Rural Health</span>
+                    <p>Developing affordable, AI-assisted diagnostic devices for rural clinics with limited access to dentists. Focus on smartphone-based imaging and remote consultation platforms.</p>
+                    <div class="research-meta">
+                        <span class="research-badge">AI</span>
+                        <span class="research-badge">MedTech</span>
+                        <span class="research-badge">Rural Health</span>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Quote -->
+    <section class="section-padding">
+        <div class="container">
+            <div class="research-quote" data-aos="zoom-in">
+                <i class="fas fa-quote-left"></i>
+                <p class="quote-text">"The future of healthcare in Africa will not be imported—it will be built by those who understand both the science and the context."</p>
+                <p class="quote-author">— Joel Kaudzu</p>
             </div>
         </div>
     </section>
@@ -453,36 +633,71 @@
     <!-- Publications Section -->
     <section class="section-padding bg-darker">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Publications & Presentations</h2>
-            <div class="publications-list">
-                <!-- Publication 1 -->
-                <div class="publication-item" data-aos="fade-up">
-                    <div class="pub-year">2024</div>
-                    <div>
-                        <h3 class="pub-title">CheckMySmile: A Digital Approach to Student Dental Health in Malawi</h3>
-                        <div class="pub-venue">KUHES Annual Innovation Showcase · Oral Presentation</div>
-                        <div class="pub-authors">Kaudzu, J.G.</div>
+            <div class="section-header-modern" data-aos="fade-up">
+                <h2>Publications & Presentations</h2>
+                <div class="header-ornament">
+                    <span></span>
+                    <i class="fas fa-file-alt"></i>
+                    <span></span>
+                </div>
+                <p class="section-subhead">Sharing findings with the academic community</p>
+            </div>
+
+            <div class="publications-timeline">
+                <!-- Publication 2024 -->
+                <div class="publication-item-modern" data-aos="fade-right">
+                    <div class="pub-year-modern">2024</div>
+                    <div class="pub-content">
+                        <h3>CheckMySmile: A Digital Approach to Student Dental Health in Malawi</h3>
+                        <div class="pub-venue-modern">
+                            <i class="fas fa-map-marker-alt"></i>
+                            KUHES Annual Innovation Showcase · Oral Presentation
+                        </div>
+                        <div class="pub-authors-modern">Kaudzu, J.G.</div>
                     </div>
+                    <span class="pub-type">Presentation</span>
                 </div>
                 
-                <!-- Publication 2 -->
-                <div class="publication-item" data-aos="fade-up">
-                    <div class="pub-year">2023</div>
-                    <div>
-                        <h3 class="pub-title">Peer-Teaching Methodology in Secondary School Mathematics</h3>
-                        <div class="pub-venue">Bright Future Educational Conference · Workshop</div>
-                        <div class="pub-authors">Kaudzu, J.G.</div>
+                <!-- Publication 2023 -->
+                <div class="publication-item-modern" data-aos="fade-right" data-aos-delay="100">
+                    <div class="pub-year-modern">2023</div>
+                    <div class="pub-content">
+                        <h3>Peer-Teaching Methodology in Secondary School Mathematics</h3>
+                        <div class="pub-venue-modern">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Bright Future Educational Conference · Workshop
+                        </div>
+                        <div class="pub-authors-modern">Kaudzu, J.G.</div>
                     </div>
+                    <span class="pub-type">Workshop</span>
                 </div>
                 
-                <!-- Publication 3 -->
-                <div class="publication-item" data-aos="fade-up">
-                    <div class="pub-year">2021</div>
-                    <div>
-                        <h3 class="pub-title">Mini Bio-Digester: Low-Cost Sustainable Energy for Rural Schools</h3>
-                        <div class="pub-venue">Dedza District Science Fair · First Place</div>
-                        <div class="pub-authors">Kaudzu, J.G.</div>
+                <!-- Publication 2021 -->
+                <div class="publication-item-modern" data-aos="fade-right" data-aos-delay="200">
+                    <div class="pub-year-modern">2021</div>
+                    <div class="pub-content">
+                        <h3>Mini Bio-Digester: Low-Cost Sustainable Energy for Rural Schools</h3>
+                        <div class="pub-venue-modern">
+                            <i class="fas fa-map-marker-alt"></i>
+                            Dedza District Science Fair · First Place
+                        </div>
+                        <div class="pub-authors-modern">Kaudzu, J.G.</div>
                     </div>
+                    <span class="pub-type">Award</span>
+                </div>
+
+                <!-- Publication 2025 (Upcoming) -->
+                <div class="publication-item-modern" data-aos="fade-right" data-aos-delay="300">
+                    <div class="pub-year-modern">2025</div>
+                    <div class="pub-content">
+                        <h3>Bridging the Gap: Digital Health Solutions for African Healthcare Systems</h3>
+                        <div class="pub-venue-modern">
+                            <i class="fas fa-map-marker-alt"></i>
+                            African Journal of Health Innovation · In Review
+                        </div>
+                        <div class="pub-authors-modern">Kaudzu, J.G., Banda, M.T., Phiri, C.</div>
+                    </div>
+                    <span class="pub-type">Journal Article</span>
                 </div>
             </div>
         </div>
@@ -491,31 +706,55 @@
     <!-- Research Roadmap -->
     <section class="section-padding">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Research Roadmap</h2>
-            <div class="roadmap-grid">
-                <div class="roadmap-item glass-card" data-aos="zoom-in">
-                    <div class="roadmap-year">2025</div>
-                    <div class="roadmap-title">Foundation Phase</div>
-                    <p>Secure research assistantship, ethics certification, literature review</p>
+            <div class="section-header-modern" data-aos="fade-up">
+                <h2>Research Roadmap</h2>
+                <div class="header-ornament">
+                    <span></span>
+                    <i class="fas fa-road"></i>
+                    <span></span>
+                </div>
+                <p class="section-subhead">Strategic vision for the next 5 years</p>
+            </div>
+
+            <div class="roadmap-modern">
+                <div class="roadmap-node" data-aos="flip-left">
+                    <div class="node-year">2025</div>
+                    <div class="node-title">Foundation Phase</div>
+                    <div class="node-description">Secure research assistantship, ethics certification, comprehensive literature review</div>
                 </div>
                 
-                <div class="roadmap-item glass-card" data-aos="zoom-in" data-aos-delay="100">
-                    <div class="roadmap-year">2026</div>
-                    <div class="roadmap-title">Data Collection</div>
-                    <p>Cross-sectional study, predictive modeling, first-author paper</p>
+                <div class="roadmap-node" data-aos="flip-left" data-aos-delay="100">
+                    <div class="node-year">2026</div>
+                    <div class="node-title">Data Collection</div>
+                    <div class="node-description">Cross-sectional study in 5 rural communities, predictive modeling, first-author paper</div>
                 </div>
                 
-                <div class="roadmap-item glass-card" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="roadmap-year">2027</div>
-                    <div class="roadmap-title">Intervention Development</div>
-                    <p>AI diagnostic tool prototype, tele-dentistry pilot</p>
+                <div class="roadmap-node" data-aos="flip-left" data-aos-delay="200">
+                    <div class="node-year">2027</div>
+                    <div class="node-title">Intervention Development</div>
+                    <div class="node-description">AI diagnostic tool prototype, tele-dentistry pilot in 3 schools</div>
                 </div>
                 
-                <div class="roadmap-item glass-card" data-aos="zoom-in" data-aos-delay="300">
-                    <div class="roadmap-year">2028+</div>
-                    <div class="roadmap-title">Scale Impact</div>
-                    <p>Deploy across 50+ clinics, mentor next generation</p>
+                <div class="roadmap-node" data-aos="flip-left" data-aos-delay="300">
+                    <div class="node-year">2028+</div>
+                    <div class="node-title">Scale Impact</div>
+                    <div class="node-description">Deploy across 50+ clinics, mentor next generation of African health innovators</div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="section-padding bg-darker">
+        <div class="container">
+            <div class="research-quote" data-aos="zoom-in" style="background: linear-gradient(135deg, rgba(34, 211, 238, 0.05), rgba(212, 175, 55, 0.05));">
+                <h2 style="color: var(--primary-gold); margin-bottom: 2rem; font-size: 2rem;">Interested in Collaboration?</h2>
+                <p style="color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+                    I'm actively seeking research partnerships, mentorship opportunities, and collaborative projects in medtech and health data science.
+                </p>
+                <a href="contact.html" class="btn" style="background: linear-gradient(135deg, var(--primary-gold), var(--primary-cyan)); color: var(--dark-bg); padding: 1rem 3rem; border-radius: 50px; font-weight: 600; text-decoration: none; display: inline-block; transition: all 0.3s;">
+                    <i class="fas fa-handshake"></i> Let's Connect
+                </a>
             </div>
         </div>
     </section>
@@ -559,7 +798,8 @@
         AOS.init({
             duration: 800,
             once: false,
-            mirror: true
+            mirror: true,
+            offset: 100
         });
     </script>
 </body>
