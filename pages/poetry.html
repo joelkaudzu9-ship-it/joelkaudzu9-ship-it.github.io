@@ -3,15 +3,450 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Poetry · Joel Kaudzu</title>
+    <title>Threads of Becoming · Joel Kaudzu Poetry</title>
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/pages.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Poetry Page Specific Styles - Enhanced */
+        .poetry-page {
+            background: linear-gradient(135deg, #0a0f1a 0%, #1a1f2e 50%, #0a0f1a 100%);
+            position: relative;
+            overflow-x: hidden;
+        }
+        
+        .poetry-page::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.08) 0%, transparent 40%),
+                        radial-gradient(circle at 80% 70%, rgba(34, 211, 238, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .poetry-header {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, rgba(11,17,32,0.95) 0%, rgba(17,24,39,0.98) 100%);
+            border-bottom: 3px solid;
+            border-image: linear-gradient(90deg, transparent, #D4AF37, #22D3EE, #D4AF37, transparent) 1;
+        }
+
+        .poetry-header-content {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .poetry-header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: clamp(3rem, 8vw, 5.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #D4AF37 0%, #22D3EE 50%, #D4AF37 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            letter-spacing: 2px;
+            text-shadow: 0 0 30px rgba(212,175,55,0.3);
+            animation: titleGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes titleGlow {
+            0%, 100% { text-shadow: 0 0 30px rgba(212,175,55,0.3); }
+            50% { text-shadow: 0 0 50px rgba(34,211,238,0.5); }
+        }
+
+        .poetry-subhead {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.8rem;
+            font-style: italic;
+            color: #e2e8f0;
+            margin-bottom: 2rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .poetry-subhead::before,
+        .poetry-subhead::after {
+            content: '✦';
+            color: #D4AF37;
+            margin: 0 1rem;
+            font-size: 1.5rem;
+            opacity: 0.7;
+        }
+
+        .poetry-quote {
+            font-size: 1.4rem;
+            color: #9CA3AF;
+            line-height: 1.8;
+            max-width: 700px;
+            margin: 2rem auto 0;
+            padding: 2rem;
+            position: relative;
+            border-left: 3px solid #22D3EE;
+            border-right: 3px solid #D4AF37;
+            border-radius: 30px;
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        /* Author Bio Card - Enhanced */
+        .poet-bio-card {
+            background: linear-gradient(145deg, rgba(17,24,39,0.9), rgba(11,17,32,0.95));
+            border: 1px solid rgba(212,175,55,0.3);
+            border-radius: 40px;
+            padding: 3rem;
+            margin: 4rem auto;
+            max-width: 1000px;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.5), 0 0 0 2px rgba(212,175,55,0.1) inset;
+        }
+
+        .poet-bio-card::before {
+            content: '✧';
+            font-size: 20rem;
+            position: absolute;
+            bottom: -5rem;
+            right: -5rem;
+            color: rgba(212,175,55,0.03);
+            font-family: serif;
+            transform: rotate(15deg);
+        }
+
+        .poet-name {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: #D4AF37;
+            margin-bottom: 0.5rem;
+            letter-spacing: 2px;
+        }
+
+        .poet-title {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: #22D3EE;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px dashed rgba(212,175,55,0.3);
+        }
+
+        .poet-bio-text {
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #e2e8f0;
+            columns: 2 300px;
+            column-gap: 3rem;
+            column-rule: 1px solid rgba(212,175,55,0.2);
+        }
+
+        .poet-bio-text p {
+            margin-bottom: 1rem;
+            break-inside: avoid;
+        }
+
+        /* Section Headers - Artistic */
+        .section-art-header {
+            text-align: center;
+            margin: 5rem 0 3rem;
+            position: relative;
+        }
+
+        .section-art-header h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: transparent;
+            -webkit-text-stroke: 2px #D4AF37;
+            text-stroke: 2px #D4AF37;
+            letter-spacing: 4px;
+            margin-bottom: 1rem;
+        }
+
+        .section-art-header .section-sub {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            color: #22D3EE;
+            font-style: italic;
+            display: block;
+            margin-top: -0.5rem;
+        }
+
+        .section-art-header .ornament {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+
+        .section-art-header .ornament span {
+            width: 50px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #D4AF37, #22D3EE, #D4AF37, transparent);
+        }
+
+        .section-art-header .ornament i {
+            color: #D4AF37;
+            font-size: 1.2rem;
+        }
+
+        /* Poetry Grid - Masonry Style */
+        .poetry-masonry {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .poem-art-card {
+            background: linear-gradient(145deg, rgba(17,24,39,0.8), rgba(11,17,32,0.9));
+            border: 1px solid rgba(212,175,55,0.2);
+            border-radius: 30px;
+            padding: 2.5rem;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px -15px rgba(0,0,0,0.5);
+        }
+
+        .poem-art-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            border-color: #D4AF37;
+            box-shadow: 0 30px 50px -20px rgba(212,175,55,0.4), 0 0 0 1px #D4AF37 inset;
+        }
+
+        .poem-art-card::before {
+            content: '“';
+            font-family: 'Playfair Display', serif;
+            font-size: 8rem;
+            position: absolute;
+            top: -1rem;
+            left: 1rem;
+            color: rgba(212,175,55,0.1);
+            opacity: 0.3;
+            transition: all 0.3s ease;
+        }
+
+        .poem-art-card:hover::before {
+            opacity: 0.6;
+            transform: translateY(-5px);
+        }
+
+        .poem-art-card .poem-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.2rem;
+            color: #22D3EE;
+            letter-spacing: 3px;
+            margin-bottom: 1rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .poem-art-card .poem-number::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: linear-gradient(90deg, #D4AF37, #22D3EE);
+        }
+
+        .poem-art-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #D4AF37;
+            margin: 1rem 0 1.5rem;
+            line-height: 1.3;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .poem-art-card .poem-excerpt {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.1rem;
+            line-height: 1.9;
+            color: #e2e8f0;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        .poem-art-card .poem-excerpt p {
+            margin-bottom: 0.8rem;
+        }
+
+        .poem-art-card .poem-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2rem;
+            padding-top: 1rem;
+            border-top: 1px dashed rgba(212,175,55,0.3);
+        }
+
+        .poem-art-card .poem-date {
+            color: #22D3EE;
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        .poem-art-card .read-full {
+            color: #D4AF37;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .poem-art-card .read-full:hover {
+            color: #22D3EE;
+            transform: translateX(5px);
+        }
+
+        /* Featured Long Poem */
+        .featured-poem-card {
+            grid-column: 1 / -1;
+            background: linear-gradient(145deg, rgba(212,175,55,0.05), rgba(34,211,238,0.05));
+            border: 2px solid;
+            border-image: linear-gradient(45deg, #D4AF37, #22D3EE, #D4AF37) 1;
+            border-radius: 40px;
+            padding: 3rem;
+            margin: 2rem 0;
+        }
+
+        .featured-poem-card h3 {
+            font-size: 2.8rem;
+        }
+
+        /* Call to Action Button - Stunning */
+        .poetry-cta {
+            text-align: center;
+            margin: 5rem 0;
+            position: relative;
+        }
+
+        .btn-poetry {
+            display: inline-flex;
+            align-items: center;
+            gap: 1.5rem;
+            padding: 1.5rem 4rem;
+            background: linear-gradient(135deg, #D4AF37, #22D3EE);
+            border: none;
+            border-radius: 60px;
+            color: #0B1120;
+            font-size: 1.5rem;
+            font-weight: 700;
+            text-decoration: none;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(212,175,55,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-poetry::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-poetry:hover::before {
+            left: 100%;
+        }
+
+        .btn-poetry:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(212,175,55,0.5);
+            color: #0B1120;
+        }
+
+        .btn-poetry i {
+            font-size: 1.8rem;
+            animation: featherWave 2s ease-in-out infinite;
+        }
+
+        @keyframes featherWave {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(10deg); }
+            75% { transform: rotate(-10deg); }
+        }
+
+        /* Floating Elements */
+        .floating-ornament {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .ornament-1 {
+            top: 20%;
+            left: 5%;
+            font-size: 3rem;
+            color: #D4AF37;
+            opacity: 0.1;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .ornament-2 {
+            bottom: 10%;
+            right: 5%;
+            font-size: 4rem;
+            color: #22D3EE;
+            opacity: 0.1;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .poetry-masonry {
+                grid-template-columns: 1fr;
+            }
+            
+            .poet-bio-text {
+                columns: 1;
+            }
+            
+            .section-art-header h2 {
+                font-size: 2rem;
+                -webkit-text-stroke: 1px #D4AF37;
+            }
+            
+            .btn-poetry {
+                padding: 1rem 2rem;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
 </head>
-<body>
-    <!-- Navigation -->
+<body class="poetry-page">
+    <!-- Navigation (same as before) -->
     <nav class="main-nav">
         <div class="nav-container">
             <div class="nav-logo">
@@ -40,215 +475,339 @@
         </div>
     </nav>
 
-    <!-- Page Header -->
-    <section class="page-header">
-        <div class="container">
-            <h1 class="page-title" data-aos="fade-up">The Poet Behind the Scientist</h1>
-            <p class="page-subtitle" data-aos="fade-up" data-aos-delay="100">Where precision meets feeling · The emotional intelligence behind the innovation</p>
-        </div>
-    </section>
+    <!-- Floating Ornaments -->
+    <div class="floating-ornament ornament-1">✧</div>
+    <div class="floating-ornament ornament-2">✦</div>
 
-    <!-- Introduction -->
-    <section class="poetry-intro section-padding">
-        <div class="container">
-            <div class="intro-card glass-card" data-aos="fade-up">
-                <p>Before I learned anatomy, I learned to feel. Before I understood the nervous system, I understood longing. Poetry isn't separate from my science — it's the soul of it. These verses are windows into the inner world that drives the outer work.</p>
-                <p class="intro-signature">— Joel</p>
+    <!-- Poetry Header -->
+    <section class="poetry-header">
+        <div class="poetry-header-content" data-aos="fade-up" data-aos-duration="1000">
+            <h1>THREADS OF BECOMING</h1>
+            <div class="poetry-subhead">a collection of verse & vulnerability</div>
+            <div class="poetry-quote">
+                "These poems are not just words — they are the echoes of a soul learning to breathe again."
             </div>
         </div>
     </section>
 
-    <!-- Poetry Collection -->
-    <section class="poetry-collection section-padding bg-darker">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">Selected Works</h2>
+    <!-- Author Bio Card (from your PDF) -->
+    <div class="container">
+        <div class="poet-bio-card" data-aos="fade-up" data-aos-duration="1000">
+            <h2 class="poet-name">Joel George Kaudzu</h2>
+            <div class="poet-title">Premed Dental Surgery Student · Poet · Innovator</div>
+            <div class="poet-bio-text">
+                <p>Joel Kaudzu is a premed dental surgery student at Kamuzu University of Health Sciences, a poet, an innovator, and a lifelong learner. From an early age, Joel has been curious, disciplined, and reflective, constantly exploring the world around him and seeking to understand life on a deeper level.</p>
+                
+                <p>His journey has not been without struggle. During secondary school, Joel experienced a period of intense self-consciousness and social anxiety. Friends misunderstood his situation, and this deeply affected him. Once a confident extrovert, Joel began withdrawing from social situations, avoiding crowds, and even hesitating to attend religious meetings. Yet, in this period of isolation, he discovered resilience, introspection, and a powerful desire for personal growth.</p>
+                
+                <p>Despite these challenges, Joel never allowed adversity to define him. He invested in himself outside of formal schooling, devouring books about business, exploring the stock market, and learning new skills. He began building connections, seeking mentorship, and understanding people, family, and the place of God in life. His creativity and innovative mindset led him to experiment with technology, eventually developing his first app, CheckMySmile.</p>
+                
+                <p>Through poetry, Joel channels his deepest emotions, reflections, and observations about life, society, and the human condition. His work explores pain, perseverance, hope, innovation, and the infinite thoughts that shape our experiences. Each poem reflects his personal journey, offering readers insight into both the challenges he has faced and the resilience he has cultivated.</p>
+                
+                <p>Beyond academia and writing, Joel is passionate about connecting with others, learning from diverse experiences, and making a positive impact through innovation and creativity. Mentors and peers, such as Joshua, have played significant roles in shaping his spiritual and personal growth, guiding him toward deeper understanding and meaningful action.</p>
+                
+                <p>Joel's story is one of perseverance, creativity, and self-discovery. From battling insecurities and social pressures to embracing technology, innovation, and poetry, he continues to learn, adapt, and create. His journey is a testament to the power of resilience, reflection, and faith, inspiring others to embrace their vulnerabilities, pursue their passions, and navigate life with courage, integrity, and vision.</p>
+            </div>
+        </div>
+    </div>
 
-            <div class="poetry-grid-detailed">
-                <!-- Poem 1 -->
-                <div class="poem-card glass-card" data-aos="flip-up">
-                    <div class="poem-number">I</div>
-                    <h3 class="poem-title">Scalpel & Verse</h3>
-                    <div class="poem-content">
-                        <p>The scalpel knows what the heart forgets —<br>
-                        every incision is a question,<br>
-                        every suture, a prayer for wholeness.</p>
+    <!-- Section 1: BROKEN AND BECOMING -->
+    <div class="container">
+        <div class="section-art-header" data-aos="fade-up">
+            <div class="ornament">
+                <span></span>
+                <i class="fas fa-star"></i>
+                <span></span>
+            </div>
+            <h2>BROKEN AND BECOMING</h2>
+            <span class="section-sub">Before something becomes, it must break</span>
+        </div>
+    </div>
 
-                        <p>I cut to heal,<br>
-                        I write to feel,<br>
-                        and in the space between<br>
-                        bone and metaphor,<br>
-                        I find myself.</p>
-
-                        <p>The body is a poem<br>
-                        we spend our lives learning to read.</p>
-                    </div>
-                    <div class="poem-date">2024</div>
+    <div class="container">
+        <div class="poetry-masonry">
+            <!-- PARADOXICAL -->
+            <div class="poem-art-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="poem-number">I</div>
+                <h3>PARADOXICAL</h3>
+                <div class="poem-excerpt">
+                    <p>Too much of a good thing they say,<br>
+                    Can be harmful in some way...<br>
+                    The harder we try the more we cry<br>
+                    We've tried so hard with all our might<br>
+                    But somehow things never turn out right...</p>
                 </div>
-
-                <!-- Poem 2 -->
-                <div class="poem-card glass-card" data-aos="flip-up" data-aos-delay="100">
-                    <div class="poem-number">II</div>
-                    <h3 class="poem-title">3:33am</h3>
-                    <div class="poem-content">
-                        <p>The world sleeps,<br>
-                        but I am awake<br>
-                        with my thoughts and my code.</p>
-
-                        <p>Darkness outside,<br>
-                        light inside —<br>
-                        the monitor glows<br>
-                        like a confession.</p>
-
-                        <p>This is the hour of builders,<br>
-                        of dreamers who don't dream<br>
-                        but build their dreams<br>
-                        keystroke by keystroke.</p>
-
-                        <p>When the sun rises,<br>
-                        they'll ask how.<br>
-                        I'll point to the dark.</p>
-                    </div>
-                    <div class="poem-date">2025</div>
+                <div class="poem-meta">
+                    <span class="poem-date">2024</span>
+                    <a href="poetry-collection.html#paradoxical" class="read-full">Read Full <i class="fas fa-arrow-right"></i></a>
                 </div>
+            </div>
 
-                <!-- Poem 3 -->
-                <div class="poem-card glass-card" data-aos="flip-up" data-aos-delay="200">
-                    <div class="poem-number">III</div>
-                    <h3 class="poem-title">Healing</h3>
-                    <div class="poem-content">
-                        <p>Healing is not fixing —<br>
-                        it's reminding the body<br>
-                        of the wholeness it forgot.</p>
-
-                        <p>The physician is not a mechanic<br>
-                        but a gardener,<br>
-                        creating conditions<br>
-                        for the innate to emerge.</p>
-
-                        <p>I learned this not in textbooks<br>
-                        but in silence,<br>
-                        watching wounds close<br>
-                        and hearts mend.</p>
-
-                        <p>The body knows the way.<br>
-                        We just help it remember.</p>
-                    </div>
-                    <div class="poem-date">2023</div>
+            <!-- MY PAST I'M SORRY -->
+            <div class="poem-art-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="poem-number">II</div>
+                <h3>MY PAST I'M SORRY</h3>
+                <div class="poem-excerpt">
+                    <p>First Let me say sorry I failed you<br>
+                    Like a plane those promises just flew...<br>
+                    I swear I'll make your brother, my future,<br>
+                    the best thing that has ever happened to me...</p>
                 </div>
-
-                <!-- Poem 4 -->
-                <div class="poem-card glass-card" data-aos="flip-up" data-aos-delay="300">
-                    <div class="poem-number">IV</div>
-                    <h3 class="poem-title">Anatomy Lesson</h3>
-                    <div class="poem-content">
-                        <p>I learned anatomy in the dark,<br>
-                        tracing bones like constellations —<br>
-                        the body, a universe<br>
-                        waiting to be understood.</p>
-
-                        <p>The femur, a river;<br>
-                        the skull, a dome;<br>
-                        the heart, a fist<br>
-                        that opens and closes<br>
-                        with the rhythm of wanting.</p>
-
-                        <p>Every cadaver was once someone,<br>
-                        every scar a story,<br>
-                        every organ a poem<br>
-                        I'm still learning to read.</p>
-                    </div>
-                    <div class="poem-date">2024</div>
+                <div class="poem-meta">
+                    <span class="poem-date">2024</span>
+                    <a href="poetry-collection.html#my-past-im-sorry" class="read-full">Read Full <i class="fas fa-arrow-right"></i></a>
                 </div>
+            </div>
 
-                <!-- Poem 5 -->
-                <div class="poem-card glass-card" data-aos="flip-up" data-aos-delay="400">
-                    <div class="poem-number">V</div>
-                    <h3 class="poem-title">The Waiting</h3>
-                    <div class="poem-content">
-                        <p>In the waiting, I learned<br>
-                        the anatomy of hope —<br>
-                        how it expands and contracts<br>
-                        with each breath.</p>
-
-                        <p>Patients wait for news,<br>
-                        students wait for results,<br>
-                        builders wait for deployment —<br>
-                        and in the waiting,<br>
-                        we become who we are.</p>
-
-                        <p>Patience is not passive.<br>
-                        It is the most active form of trust.</p>
-                    </div>
-                    <div class="poem-date">2024</div>
+            <!-- LOST GOLD -->
+            <div class="poem-art-card" data-aos="fade-up" data-aos-delay="300">
+                <div class="poem-number">III</div>
+                <h3>LOST GOLD</h3>
+                <div class="poem-excerpt">
+                    <p>I know we're not in good terms<br>
+                    Our bond like dying flames<br>
+                    But you're still my good friend...</p>
                 </div>
+                <div class="poem-meta">
+                    <span class="poem-date">2024</span>
+                    <a href="poetry-collection.html#lost-gold" class="read-full">Read Full <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
 
-                <!-- Poem 6 -->
-                <div class="poem-card glass-card" data-aos="flip-up" data-aos-delay="500">
-                    <div class="poem-number">VI</div>
-                    <h3 class="poem-title">Legacy</h3>
-                    <div class="poem-content">
-                        <p>I want my legacy to be<br>
-                        not monuments, but minds —<br>
-                        students who think,<br>
-                        builders who build,<br>
-                        healers who heal.</p>
-
-                        <p>A tree is known by its fruit.<br>
-                        A life, by the lives it touches.<br>
-                        I want to touch without grasping,<br>
-                        teach without possessing,<br>
-                        build without owning.</p>
-
-                        <p>When I'm gone,<br>
-                        let them say not what I made,<br>
-                        but who I helped become.</p>
-                    </div>
-                    <div class="poem-date">2025</div>
+            <!-- SO I'M HERE -->
+            <div class="poem-art-card" data-aos="fade-up" data-aos-delay="400">
+                <div class="poem-number">IV</div>
+                <h3>SO I'M HERE</h3>
+                <div class="poem-excerpt">
+                    <p>I look up I look down<br>
+                    Faces staring, it's like I should drown...<br>
+                    So I'm here<br>
+                    Is this what it's become...</p>
+                </div>
+                <div class="poem-meta">
+                    <span class="poem-date">2024</span>
+                    <a href="poetry-collection.html#so-im-here" class="read-full">Read Full <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
-    </section>
 
-    <!-- Why Poetry Section -->
-    <section class="why-poetry section-padding">
-        <div class="container">
-            <div class="why-grid">
-                <div class="why-text glass-card" data-aos="fade-right">
-                    <h2>Why Poetry Matters in Medicine</h2>
-                    <p>Medicine without poetry is technique without soul. The best physicians I've studied — Osler, Gawande, Verghese — all understood that healing requires more than algorithms. It requires empathy, imagination, and the ability to see the person behind the patient.</p>
-                    <p>Poetry trains these muscles. It teaches me to sit with ambiguity, to feel without fixing, to witness without judging. Every poem is a patient encounter: a story waiting to be heard, a truth waiting to emerge.</p>
-                    <p>When I write, I practice the same skills I'll need at the bedside: attention, presence, and the courage to sit with suffering without running away.</p>
+        <!-- Featured: The Boy Who Almost Gave Up -->
+        <div class="featured-poem-card" data-aos="fade-up">
+            <div class="poem-number">V</div>
+            <h3>THE BOY WHO ALMOST GAVE UP</h3>
+            <div class="poem-excerpt" style="font-size: 1.2rem;">
+                <p>There was a boy who used to laugh with his whole chest.<br>
+                He believed in God. He believed in family.<br>
+                He believed he was made for something more...</p>
+            </div>
+            <div class="poem-meta" style="margin-top: 2rem;">
+                <span class="poem-date">2024</span>
+                <a href="poetry-collection.html#the-boy-who-almost-gave-up" class="read-full">Read Full Story <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 2: LIGHT THROUGH THE STORM -->
+    <div class="container">
+        <div class="section-art-header" data-aos="fade-up">
+            <div class="ornament">
+                <span></span>
+                <i class="fas fa-sun"></i>
+                <span></span>
+            </div>
+            <h2>LIGHT THROUGH THE STORM</h2>
+            <span class="section-sub">even in shadowed corners, hope whispers</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="poetry-masonry">
+            <!-- MY TIME WAS COMING -->
+            <div class="poem-art-card" data-aos="fade-up">
+                <div class="poem-number">VI</div>
+                <h3>MY TIME WAS COMING</h3>
+                <div class="poem-excerpt">
+                    <p>For the stars to appear it has to be dark<br>
+                    I cry each time I look back...<br>
+                    Little did I know<br>
+                    My time was coming</p>
                 </div>
-                <div class="why-image glass-card" data-aos="fade-left">
-                    <img src="../assets/images/poetry/writing-desk.jpg" alt="Writing desk with journal" class="writing-image">
-                    <p class="image-caption">The journal where it happens</p>
-                    <div class="journal-stats">
-                        <span class="stat">20+ pages</span>
-                        <span class="stat">Handwritten</span>
-                        <span class="stat">2 years</span>
-                    </div>
+                <div class="poem-meta">
+                    <span class="poem-date">2024</span>
+                    <a href="poetry-collection.html#my-time-was-coming" class="read-full">Read Full <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- THE LIGHT IN THE DARK -->
+            <div class="poem-art-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="poem-number">VII</div>
+                <h3>THE LIGHT IN THE DARK</h3>
+                <div class="poem-excerpt">
+                    <p>Through the stormy nights you were his shelter,<br>
+                    A beacon of hope when his foundation was weak...</p>
+                </div>
+                <div class="poem-meta">
+                    <span class="poem-date">2024</span>
+                    <a href="poetry-collection.html#light-in-the-dark" class="read-full">Read Full <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- FRACTURED LIGHT -->
+            <div class="poem-art-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="poem-number">VIII</div>
+                <h3>FRACTURED LIGHT</h3>
+                <div class="poem-excerpt">
+                    <p>The fear of letdown gives us no reason to try again<br>
+                    The people we trust are the ones who make it rain...</p>
+                </div>
+                <div class="poem-meta">
+                    <span class="poem-date">2024</span>
+                    <a href="poetry-collection.html#fractured-light" class="read-full">Read Full <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- THERE'S OKAY IN BARELY OKAY - Featured -->
+            <div class="featured-poem-card" data-aos="fade-up" style="grid-column: 1/-1;">
+                <div class="poem-number">IX</div>
+                <h3>THERE'S OKAY IN BARELY OKAY</h3>
+                <div class="poem-excerpt">
+                    <p>"How are you" she said barely okay<br>
+                    Then I said, At least there's an okay in barely okay...<br>
+                    I asked him man how are you he said barely okay<br>
+                    I said you know what? At least there's an okay in barely okay</p>
+                </div>
+                <div class="poem-meta">
+                    <span class="poem-date">2024</span>
+                    <a href="poetry-collection.html#theres-okay-in-barely-okay" class="read-full">Read Full Poem <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </div>
-    </section>
+    </div>
 
-    <!-- Healing Journal Preview -->
-    <section class="journal-preview section-padding bg-darker">
-        <div class="container">
-            <h2 class="section-title" data-aos="fade-up">The Healing Journal</h2>
-            <p class="section-description" data-aos="fade-up">A 20-page handwritten document of transformation — part journal, part poetry, part prayer.</p>
+    <!-- Section 3: INFINITE THOUGHTS -->
+    <div class="container">
+        <div class="section-art-header" data-aos="fade-up">
+            <div class="ornament">
+                <span></span>
+                <i class="fas fa-infinity"></i>
+                <span></span>
+            </div>
+            <h2>INFINITE THOUGHTS</h2>
+            <span class="section-sub">the universe speaking through a human heart</span>
+        </div>
+    </div>
 
-            <div class="journal-gallery" data-aos="zoom-in">
-                <div class="journal-grid">
-                    <img src="../assets/images/poetry/journal-page-1.jpg" alt="Journal page 1" class="journal-img">
-                    <img src="../assets/images/poetry/journal-page-2.jpg" alt="Journal page 2" class="journal-img">
-                    <img src="../assets/images/poetry/journal-page-3.jpg" alt="Journal page 3" class="journal-img">
-                    <img src="../assets/images/poetry/journal-page-4.jpg" alt="Journal page 4" class="journal-img">
+    <div class="container">
+        <div class="poetry-masonry">
+            <!-- INFINIVERSE -->
+            <div class="poem-art-card" data-aos="fade-up">
+                <div class="poem-number">X</div>
+                <h3>INFINIVERSE</h3>
+                <div class="poem-excerpt">
+                    <p>In the infiniverse, where stars are born<br>
+                    And galaxies stretch beyond what's sworn...<br>
+                    To dance with the universe, wild and free<br>
+                    Embracing the beauty, that's meant to be</p>
                 </div>
-                <p class="journal-note">Excerpts from a private practice · 2024-2026</p>
+                <div class="poem-meta">
+                    <span class="poem-date">2024</span>
+                    <a href="poetry-collection.html#infiniverse" class="read-full">Read Full <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- WHAT IF -->
+            <div class="poem-art-card" data-aos="fade-up" data-aos-delay="100">
+                <div class="poem-number">XI</div>
+                <h3>WHAT IF</h3>
+                <div class="poem-excerpt">
+                    <p>What if I died today<br>
+                    Breath seizure comes my way...<br>
+                    Will I face God?<br>
+                    Will I look God in the eyes confidently?</p>
+                </div>
+                <div class="poem-meta">
+                    <span class="poem-date">2024</span>
+                    <a href="poetry-collection.html#what-if" class="read-full">Read Full <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+
+            <!-- IF BIRTH HAD ANESTHESIA -->
+            <div class="poem-art-card" data-aos="fade-up" data-aos-delay="200">
+                <div class="poem-number">XII</div>
+                <h3>IF BIRTH HAD ANESTHESIA</h3>
+                <div class="poem-excerpt">
+                    <p>Ever wondered?<br>
+                    If birth had anesthesia<br>
+                    Would it have a meaning?...<br>
+                    Imagine how pain shapes a person</p>
+                </div>
+                <div class="poem-meta">
+                    <span class="poem-date">2024</span>
+                    <a href="poetry-collection.html#if-birth-had-anesthesia" class="read-full">Read Full <i class="fas fa-arrow-right"></i></a>
+                </div>
             </div>
         </div>
-    </section>
+    </div>
+
+    <!-- Section 4: SOCIETY AND REALITY CHECK -->
+    <div class="container">
+        <div class="section-art-header" data-aos="fade-up">
+            <div class="ornament">
+                <span></span>
+                <i class="fas fa-eye"></i>
+                <span></span>
+            </div>
+            <h2>SOCIETY AND REALITY CHECK</h2>
+            <span class="section-sub">staring at the world we live in</span>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="poetry-masonry">
+            <!-- WE'RE ALL CIRCUMCISED - Featured -->
+            <div class="featured-poem-card" data-aos="fade-up">
+                <div class="poem-number">XIII</div>
+                <h3>WE'RE ALL CIRCUMCISED</h3>
+                <div class="poem-excerpt">
+                    <p>We're all circumcised<br>
+                    In the midst of these jovial faces broken hearts lie...<br>
+                    Tell me who doesn't bare the weight of the evil doings...<br>
+                    By now everyone has realised<br>
+                    Truly, we're all circumcised</p>
+                </div>
+                <div class="poem-meta">
+                    <span class="poem-date">2024</span>
+                    <a href="poetry-collection.html#were-all-circumcised" class="read-full">Read Full Poem <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Closing Thoughts -->
+    <div class="container">
+        <div class="poet-bio-card" data-aos="fade-up" style="text-align: center; background: linear-gradient(145deg, rgba(34,211,238,0.05), rgba(212,175,55,0.05));">
+            <h2 style="font-family: 'Playfair Display'; font-size: 2.5rem; color: #D4AF37; margin-bottom: 2rem;">Closing Thoughts</h2>
+            <p style="font-size: 1.3rem; font-style: italic; margin-bottom: 2rem; color: #e2e8f0;">
+                "To those who shaped my journey - my friends, family, mentors, and God - this collection is a tribute to your support and presence."
+            </p>
+            <div style="font-size: 1.5rem; color: #22D3EE; margin: 2rem 0;">
+                Jeremiah 29:11
+            </div>
+            <p style="font-family: 'Playfair Display'; font-size: 1.2rem;">
+                "For I know the plans I have for you, declares the Lord, plans to prosper you and not to harm you, plans to give you hope and a future."
+            </p>
+        </div>
+    </div>
+
+    <!-- Call to Action - Read All Poems -->
+    <div class="poetry-cta">
+        <a href="poetry-collection.html" class="btn-poetry">
+            <i class="fas fa-feather-alt"></i>
+            READ THE COMPLETE COLLECTION
+            <i class="fas fa-feather-alt"></i>
+        </a>
+        <p style="margin-top: 2rem; color: #9CA3AF; font-size: 1.1rem;">20+ poems • 4 themes • 1 journey</p>
+    </div>
 
     <!-- Footer -->
     <footer class="main-footer">
@@ -270,10 +829,10 @@
                     <a href="contact.html">Contact</a>
                 </div>
                 <div class="footer-social">
-                    <a href="#"><i class="fab fa-linkedin"></i></a>
-                    <a href="#"><i class="fab fa-github"></i></a>
-                    <a href="#"><i class="fab fa-youtube"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="https://www.linkedin.com/in/joel-kaudzu-0bba48392" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/joelkaudzu9-ship-it" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://youtube.com/@joels_lab" target="_blank"><i class="fab fa-youtube"></i></a>
+                    <a href="https://x.com/JoelK63756" target="_blank"><i class="fab fa-twitter"></i></a>
                 </div>
             </div>
             <div class="footer-bottom">
@@ -283,18 +842,14 @@
         </div>
     </footer>
 
-    <!-- Back to Top -->
-    <button id="backToTop" class="back-to-top">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="../js/main.js"></script>
     <script>
         AOS.init({
             duration: 800,
             once: false,
-            mirror: true
+            mirror: true,
+            offset: 100
         });
     </script>
 </body>
