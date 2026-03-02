@@ -34,7 +34,7 @@ jobs:
           LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
 
       - name: Upload Lighthouse Results
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: lighthouse-results
           path: .lighthouseci/
@@ -89,7 +89,7 @@ jobs:
           find assets/images -type f -size +500k -exec ls -lh {} \; >> performance-report.md
 
       - name: Upload Performance Report
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: performance-report
           path: performance-report.md
